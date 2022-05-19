@@ -1,1 +1,1 @@
-# EIST-B-r-Reservation-System
+# EIST-Bär-Reservation-System
