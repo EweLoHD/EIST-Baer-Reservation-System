@@ -38,6 +38,7 @@ sourceSets {
             'src/test/resources'
         }
     }
+
 }
 
 processResources {
