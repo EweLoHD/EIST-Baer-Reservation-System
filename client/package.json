@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "flowbite": "^1.4.7",
+    "flowbite-datepicker": "^1.2.1",
     "vue": "^3.2.33"
   },
   "devDependencies": {
