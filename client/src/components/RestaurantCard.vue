@@ -11,7 +11,7 @@ const props = defineProps<{
 }>()
 </script>
 <template>
-<div class="flex flex-row items-center justify-between w-192 h-40 bg-white rounded-lg border hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+<div class="flex flex-row items-center justify-between h-40 bg-white rounded-lg border hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
     <div class="w-56 h-full bg-[url('https://www.schwabinger-wassermann.de/images/com_osgallery/gal-1/original/gastraum-mit-barE1E9DB63-3DCB-69E3-04AC-9E8B5B1D3EE3.jpg')] bg-cover bg-origin-border bg-clip-content rounded-l-lg"></div>
     <div class="flex flex-col justify-between px-4 pt-2 pb-4 h-full w-full">
         <div>
