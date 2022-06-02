@@ -50,46 +50,65 @@ export default {
             </div>
         </div>
         <div class="flex flex-row justify-start w-256 h-full gap-4 pt-[88px]">
-            <div class="h-fit w-96 block px-4 py-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                <!--Distance Filter-->
-                <label for="distance" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Distance</label>
-                <select id="distance" class="block p-2 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="" selected>Select Range</option>
-                    <option value="20">20 km</option>
-                </select>
-                <!--Rating Filter-->
-                <label for="rating" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Min. Rating</label>
-                <select id="rating" class="block p-2 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="1" selected>1 Stars</option>
-                    <option value="2">2 Stars</option>
-                    <option value="3">3 Stars</option>
-                    <option value="4">4 Stars</option>
-                    <option value="5">5 Stars</option>
-                </select>
-                <!--Price Filter-->
-                <label for="price" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Max. Price</label>
-                <select id="price" class="block p-2 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="1">€</option>
-                    <option value="2">€€</option>
-                    <option value="3" selected>€€€</option>
-                </select>
-                <!--Category Filter-->
-                <label for="category" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Category</label>
-                <select id="category" class="block p-2 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="" selected>Filter Category</option>
-                    <option value="bavarian">Bavarian</option>
-                    <option value="italian">Italian</option>
-                    <option value="burger">Burger</option>
-                </select>
-                <!--Apply Filter Button-->
-                <div class="flex flex-row-reverse mt-12">
-                   <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 inline-flex items-center font-medium rounded-lg text-sm px-5 py-2.5 mb-1.5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-                        Apply Filter
-                        <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path></svg>
-                    </button> 
+            <div class="flex flex-col w-96">
+                <!--<button type="button" class="h-16 mb-4 shadow-md text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-base px-5 py-2.5 text-center flex flex-row justify-items-center justify-center items-center dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                    Show Map
+                    <svg class="w-6 h-6 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                </button>-->
+                <button type="button" class="h-16 mb-4 shadow-md text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-base px-5 py-2.5 text-center flex flex-row justify-items-center justify-center items-center dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none">
+                    Show Map
+                    <svg class="w-6 h-6 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                </button>
+                <div class="h-fit px-4 py-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                    <!--Distance Filter-->
+                    <label for="distance" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Distance</label>
+                    <div class="flex flex-row">
+                        <div class="w-full h-fit">
+                            <select id="distance" class="block p-2 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option value="" selected>Select Range</option>
+                                <option value="20">20 km</option>
+                            </select> 
+                        </div>
+                        <!--📍 Button-->
+                        <button type="button" class="w-fit h-auto ml-2 mb-3 text-gray-900 bg-gray-50 rounded-lg border focus:ring-1 border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-small text-sm px-2.5 py-1.5">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                        </button> 
+                    </div>
+                    
+                    <!--Rating Filter-->
+                    <label for="rating" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Min. Rating</label>
+                    <select id="rating" class="block p-2 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="1" selected>1 Stars</option>
+                        <option value="2">2 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="5">5 Stars</option>
+                    </select>
+                    <!--Price Filter-->
+                    <label for="price" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Max. Price</label>
+                    <select id="price" class="block p-2 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="1">€</option>
+                        <option value="2">€€</option>
+                        <option value="3" selected>€€€</option>
+                    </select>
+                    <!--Category Filter-->
+                    <label for="category" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Category</label>
+                    <select id="category" class="block p-2 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="" selected>Filter Category</option>
+                        <option value="bavarian">Bavarian</option>
+                        <option value="italian">Italian</option>
+                        <option value="burger">Burger</option>
+                    </select>
+                    <!--Apply Filter Button-->
+                    <div class="flex flex-row-reverse mt-12">
+                    <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 inline-flex items-center font-medium rounded-lg text-sm px-5 py-2.5 mb-1.5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                            Apply Filter
+                            <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path></svg>
+                        </button> 
+                    </div>
                 </div>
-                
             </div>
+            
             <div class="flex items-center h-full w-full flex-grow ">
                 <div id="loading" v-if="loading" class="w-full flex flex-col items-center">
                     <svg role="status" class="w-12 h-12 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
