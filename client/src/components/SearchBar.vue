@@ -152,7 +152,7 @@ function zeroPad(num : number, places : number) {
         </div>
 
         <!--Search Bar & Search Button-->
-        <div class="justify-self-start flex rounded-md shadow-sm w-full" role="group">
+        <div class="justify-self-start flex rounded-md w-full" role="group">
             <!--Seach Bar-->
             <form class="flex items-center w-full">   
                 <div class="flex-1">
