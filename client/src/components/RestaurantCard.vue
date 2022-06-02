@@ -6,27 +6,27 @@ const props = defineProps<{
     name: string,
     rating: number,
     price: number,
-    type: string,
+    category: string,
     location: string
 }>()
 </script>
 <template>
 <div class="flex flex-row items-center justify-between w-192 h-40 bg-white rounded-lg border hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-    <div class="w-56 h-full bg-[url('https://flowbite.com/docs/images/blog/image-1.jpg')] bg-cover bg-origin-border bg-clip-content rounded-l-lg"></div>
+    <div class="w-56 h-full bg-[url('https://www.schwabinger-wassermann.de/images/com_osgallery/gal-1/original/gastraum-mit-barE1E9DB63-3DCB-69E3-04AC-9E8B5B1D3EE3.jpg')] bg-cover bg-origin-border bg-clip-content rounded-l-lg"></div>
     <div class="flex flex-col justify-between px-4 pt-2 pb-4 h-full w-full">
         <div>
-            <p class="text-2xl flex-none font-bold dark:text-white">Schwabinger Wassermann</p>
-            <Rating :rating="4" class="mt-1"/>
+            <p class="text-2xl flex-none font-bold dark:text-white">{{ name }}</p>
+            <Rating :rating="rating" class="mt-1"/>
             <div class="inline-flex mt-2">
-                <PriceCategory :category="1" class=""></PriceCategory>
+                <PriceCategory :category="price" class=""></PriceCategory>
                 <a class="mx-1 text-dark-800"> •&nbsp; </a>
-                <a class="text-base font-medium text-gray-500">Italian</a>
+                <a class="text-base font-medium text-gray-500">{{ category }}</a>
             </div>
         </div>
         <div class="flex flex-row w-full justify-between items-end">
             <p class="inline-flex items-center text-gray-800">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                <a class="text-base font-medium ml-1">München</a>
+                <a class="text-base font-medium ml-1">{{ location }}</a>
             </p>
             <button type="button" class="w-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Book Table
