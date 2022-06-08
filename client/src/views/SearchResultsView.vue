@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { onBeforeMount, onMounted, ref } from '@vue/runtime-core';
 import { useRoute, useRouter } from 'vue-router';
+import axios from 'axios';
+
+import 'leaflet/dist/leaflet.css';
+import * as L from 'leaflet';
 
 import Error from '@/components/Error.vue';
 import RestaurantCard from '@/components/RestaurantCard.vue'
 import SearchBar from '@/components/SearchBar.vue';
 import Rating from '@/components/Rating.vue';
+import Restaurant from '@/types/Restaurant';
+import Address from '@/types/Address';
 
 const route = useRoute();
 const router = useRouter();
@@ -20,18 +26,61 @@ defineExpose({
 export default {
     data() {
         return {
+            restaurants: [],
             error: false,
-            loading: true
+            loading: true,
+            mapData: {
+                selectedRestaurant: {} as Restaurant
+            }
         }
     },
     methods: {
         getData() {
-            // TODO Send search request to backend and wait for response
-
-            // Dummy Data
-            setTimeout(() => { // Emulate loading time
+            // TODO Send search request to backend
+            axios.get('test.json').then(response => {
+                console.log(response.data);
+                this.restaurants = response.data.restaurants;
                 this.loading = false;
-            }, 2000);
+            }).catch(e => {
+                console.error(e);
+
+                // TODO Handle Errors
+                this.loading = false;
+                this.error = true;
+            })
+        },
+        showMap() {
+            var map = L.map('map').setView([48.15, 11.58], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap'
+            }).addTo(map);
+            setTimeout(function(){ map.invalidateSize()}, 200);
+
+            // If the user clicks in the map, the current Restaurant Card should close
+            map.on('click', (e: any) => {
+                // Remove red color from marker that was selected
+                document.getElementsByClassName("huechange")[0]?.classList.remove("huechange");
+
+                this.mapData.selectedRestaurant = {} as Restaurant;
+            });
+
+            // Add Marker for each restaurant 
+            this.restaurants.forEach((r: Restaurant) => {
+                var marker = L.marker([r.address.lat, r.address.long]).addTo(map);
+                
+                // If the user clicks on a marker, the corresponding Restaurant Card should be displayed.
+                marker.on('click', (e: any) => {
+                    // Remove red color from marker that was selected before
+                    document.getElementsByClassName("huechange")[0]?.classList.remove("huechange");
+                    // Set marker color to red (yes it's a stupid hack)
+                    marker.getElement()?.classList.add("huechange");
+                    
+
+                    this.mapData.selectedRestaurant = r;
+                });
+            });
         }
     },
     created() {
@@ -51,14 +100,12 @@ export default {
         </div>
         <div class="flex flex-row justify-start w-256 h-full gap-4 pt-[88px]">
             <div class="flex flex-col w-96">
-                <!--<button type="button" class="h-16 mb-4 shadow-md text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-base px-5 py-2.5 text-center flex flex-row justify-items-center justify-center items-center dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-                    Show Map
-                    <svg class="w-6 h-6 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
-                </button>-->
-                <button type="button" class="h-16 mb-4 shadow-md text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-base px-5 py-2.5 text-center flex flex-row justify-items-center justify-center items-center dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none">
+                <!--Show Map Button-->
+                <button  data-modal-toggle="map-modal" v-on:click="showMap()" type="button" class="h-16 mb-4 shadow-md text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-base px-5 py-2.5 text-center flex flex-row justify-items-center justify-center items-center dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none">
                     Show Map
                     <svg class="w-6 h-6 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
                 </button>
+                <!--Filter Sidebar-->
                 <div class="h-fit px-4 py-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <!--Distance Filter-->
                     <label for="distance" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Distance</label>
@@ -118,10 +165,39 @@ export default {
                 </div>
                 <div v-else class="overflow-y-auto gap-4 self-stretch pr-4 scroll-ml-10 scroll-pb-10 w-full">
                     <div class="grid grid-col gap-4 pb-4">
-                        <RestaurantCard v-for="index in 10" :key="index" name="Schwabinger Wassermann" :rating="4" :price="2" category="Bavarian" location="Munich"/>
+                        <RestaurantCard v-for="(item, index) in restaurants" :restaurant="item" :key="index"></RestaurantCard>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="map-modal" data-modal-show="false" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-4 right-0 left-0 z-50 w-full md:inset-0 md:h-modal h-modal">
+            <div class="relative p-4 w-full max-w-7xl h-auto">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow-2xl dark:bg-gray-700">
+                    <div class="absolute top-3 right-3 w-fit z-[314159] shadow-md">
+                        <button type="button" class="text-gray-900 bg-gray-100 ring-2 ring-neutral-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-2 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="map-modal">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                        </button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="space-y-6 h-192 w-full">
+                        <div id="map" class="h-full relative rounded-lg">
+
+                        </div>
+                        <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 w-192 z-[314159] shadow-lg">
+                            <div class="relative">
+                                <RestaurantCard v-if="mapData.selectedRestaurant.name" :restaurant="mapData.selectedRestaurant"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+<style>
+img.huechange { filter: hue-rotate(150deg); }
+</style>

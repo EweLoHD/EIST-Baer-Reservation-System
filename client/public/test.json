@@ -1,0 +1,77 @@
+{
+    "restaurants": [
+        {
+            "id": 0,
+            "name": "Schwabinger Wassermann",
+            "restaurantType": "Bavarian",
+            "priceCategory": 2,
+            "averageRating": 4.2,
+            "restaurantPictures": [
+                "https://www.schwabinger-wassermann.de/images/com_osgallery/gal-1/original/gastraum-mit-barE1E9DB63-3DCB-69E3-04AC-9E8B5B1D3EE3.jpg",
+                "https://www.schwabinger-wassermann.de/images/com_osgallery/gal-1/original/baranblick-von-t-61-ausE0ED97FB-AB5D-CF61-72C1-7976E9579D0C.jpg"
+            ],
+            "address": {
+                "lat": 48.16285741892469,
+                "long": 11.573097546570498,
+                "addressLine": "Herzogstraße 82",
+                "city": "Munich",
+                "postalCode": "80796",
+                "country": "Germany"
+            }
+        },
+        {
+            "id": 1,
+            "name": "Klenze 17",
+            "restaurantType": "Bar",
+            "priceCategory": 2,
+            "averageRating": 4.5,
+            "restaurantPictures": [
+                "https://cdn.11880.com/klenze-17_24388082_mw640h480_muenchen.jpg"
+            ],
+            "address": {
+                "lat": 48.133048087633625,
+                "long": 11.5783216067446,
+                "addressLine": "Klenzestraße 17",
+                "city": "Munich",
+                "postalCode": "80469",
+                "country": "Germany"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Hofbräuhaus München",
+            "restaurantType": "Bavarian",
+            "priceCategory": 2,
+            "averageRating": 4.3,
+            "restaurantPictures": [
+                "https://www.ktchnrebel.com/wp-content/uploads/2019/11/Hofbr%C3%A4uhau-M%C3%BCnchen_Tag.jpg"
+            ],
+            "address": {
+                "lat": 48.137695676157215,
+                "long": 11.579936032171066,
+                "addressLine": "Platzl 9",
+                "city": "Munich",
+                "postalCode": "80331",
+                "country": "Germany"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Bamberger Haus",
+            "restaurantType": "Bavarian",
+            "priceCategory": 3,
+            "averageRating": 4.3,
+            "restaurantPictures": [
+                "https://www.socialevent.de/wp-content/uploads/2015/05/1039907_10151556252223068_1873447413_o.jpg"
+            ],
+            "address": {
+                "lat": 48.170795786235544,
+                "long": 11.568134661979377,
+                "addressLine": "Brunnerstraße 2",
+                "city": "Munich",
+                "postalCode": "80804",
+                "country": "Germany"
+            }
+        }
+    ]
+}

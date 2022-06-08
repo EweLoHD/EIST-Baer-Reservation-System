@@ -44,7 +44,7 @@ onMounted(() => {
   const peopleDropTriggerEl = document.getElementById('dropdownButtonPeople');
   peopleDropdown = new Dropdown(peopleDropTargetEl, peopleDropTriggerEl);
 
-  onPeopleSelect(selectedPeopleCount); // Set to default count
+  //onPeopleSelect(selectedPeopleCount); // Set to default count
 })
 
 // Gets executed when the user selects a time in the dropdown. Saves the selected time, updates the content of the dropdown button and closes the dropdown
@@ -133,7 +133,7 @@ function zeroPad(num : number, places : number) {
                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
                 </svg>
-                <a>0 People</a>
+                <a>Select People</a>
                 <svg class="w-4 h-4 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
@@ -141,6 +141,9 @@ function zeroPad(num : number, places : number) {
             <!--People Dropdown-->
             <div id="dropdownPeople" class="overflow-y-scroll max-h-96 z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-40 dark:bg-gray-700">
                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200">
+                    <!--<li key="20">
+                        <a href="#" class="block px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Select People</a>
+                    </li>-->
                     <li v-for="index in 19" :key="index">
                         <a href="#" class="block px-4 py-1 text-base hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="onPeopleSelect(index)">{{ index }}</a>
                     </li>

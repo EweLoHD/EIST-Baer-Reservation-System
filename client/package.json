@@ -8,8 +8,11 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
+    "@types/leaflet": "^1.7.10",
+    "axios": "^0.27.2",
     "flowbite": "^1.4.7",
     "flowbite-datepicker": "^1.2.1",
+    "leaflet": "^1.8.0",
     "vue": "^3.2.33",
     "vue-router": "^4.0.15"
   },
