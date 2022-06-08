@@ -3,13 +3,16 @@ import { onBeforeMount, onMounted, ref } from '@vue/runtime-core';
 import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
 
+import Modal from 'flowbite/src/components/modal'
+
 import 'leaflet/dist/leaflet.css';
 import * as L from 'leaflet';
 
 import Error from '@/components/Error.vue';
 import RestaurantCard from '@/components/RestaurantCard.vue'
 import SearchBar from '@/components/SearchBar.vue';
-import Rating from '@/components/Rating.vue';
+import LocationSearch from '@/components/LocationSearch.vue'
+
 import Restaurant from '@/types/Restaurant';
 import Address from '@/types/Address';
 
@@ -29,6 +32,10 @@ export default {
             restaurants: [],
             error: false,
             loading: true,
+            locationSearchModal: null as Modal,
+            filterData: {
+                locationCenter: {}
+            },
             mapData: {
                 selectedRestaurant: {} as Restaurant
             }
@@ -81,12 +88,24 @@ export default {
                     this.mapData.selectedRestaurant = r;
                 });
             });
+        },
+        showLoctionSearch() {
+            this.locationSearchModal.show();
+        },
+        onLocationSelected(location: {lat: number, lon: number}) {
+            console.log(location);
+            this.filterData.locationCenter = location;
+            this.locationSearchModal.hide();
         }
     },
     created() {
         // TODO get query params with this.route.query
+        
 
         this.getData();
+    },
+    mounted() {
+        this.locationSearchModal = new Modal(document.getElementById('location-modal'), {});
     }
 }
 </script>
@@ -117,7 +136,7 @@ export default {
                             </select> 
                         </div>
                         <!--📍 Button-->
-                        <button type="button" class="w-fit h-auto ml-2 mb-3 text-gray-900 bg-gray-50 rounded-lg border focus:ring-1 border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-small text-sm px-2.5 py-1.5">
+                        <button type="button" @click="showLoctionSearch" class="w-fit h-auto ml-2 mb-3 text-gray-900 bg-gray-50 rounded-lg border focus:ring-1 border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-small text-sm px-2.5 py-1.5">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
                         </button> 
                     </div>
@@ -171,21 +190,21 @@ export default {
             </div>
         </div>
 
+        <!--Map Modal-->
         <div id="map-modal" data-modal-show="false" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-4 right-0 left-0 z-50 w-full md:inset-0 md:h-modal h-modal">
             <div class="relative p-4 w-full max-w-7xl h-auto">
-                <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow-2xl dark:bg-gray-700">
+                    <!--Close Button-->
                     <div class="absolute top-3 right-3 w-fit z-[314159] shadow-md">
                         <button type="button" class="text-gray-900 bg-gray-100 ring-2 ring-neutral-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-2 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="map-modal">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
                         </button>
                     </div>
-
-                    <!-- Modal body -->
                     <div class="space-y-6 h-192 w-full">
                         <div id="map" class="h-full relative rounded-lg">
 
                         </div>
+                        <!--Restaurant Card-->
                         <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 w-192 z-[314159] shadow-lg">
                             <div class="relative">
                                 <RestaurantCard v-if="mapData.selectedRestaurant.name" :restaurant="mapData.selectedRestaurant"/>
@@ -194,6 +213,11 @@ export default {
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!--Location Search Modal-->
+        <div id="location-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
+            <LocationSearch @onSelected="onLocationSelected"/>
         </div>
     </div>
 </template>
