@@ -11,18 +11,11 @@ import * as L from 'leaflet';
 import Error from '@/components/Error.vue';
 import RestaurantCard from '@/components/RestaurantCard.vue'
 import SearchBar from '@/components/SearchBar.vue';
-import LocationSearch from '@/components/LocationSearch.vue'
+import Filter from '@/components/Filter.vue'
+import type { FilterData } from '@/components/Filter.vue';
 
 import Restaurant from '@/types/Restaurant';
 import Address from '@/types/Address';
-
-/*const route = useRoute();
-const router = useRouter();
-
-defineExpose({
-    //route, 
-    router
-})*/
 </script>
 
 <script lang="ts">
@@ -30,13 +23,11 @@ export default {
     data() {
         return {
             urlQuery: this.$route.query as {date: string, time: string, people: string, query: string},
-            restaurants: [],
+            restaurants: [] as Array<Restaurant>,
             error: false,
             loading: true,
             locationSearchModal: null as Modal,
-            filterData: {
-                locationCenter: {}
-            },
+            filterData: {} as FilterData,
             map: {} as L.Map,
             mapModal: null as Modal,
             mapData: {
@@ -46,10 +37,10 @@ export default {
     },
     methods: {
         getData() {
+            this.loading = true;
             // TODO Send search request to backend
             axios.get('test.json').then(response => {
-                console.log(response.data);
-                this.restaurants = response.data.restaurants;
+                this.restaurants = response.data.restaurants as Array<Restaurant>;
                 this.loading = false;
             }).catch(e => {
                 console.error(e);
@@ -84,32 +75,31 @@ export default {
                     // Set marker color to red (yes it's a stupid hack)
                     marker.getElement()?.classList.add("huechange");
                     
-
                     this.mapData.selectedRestaurant = r;
                 });
             });
         },
-        showLoctionSearch() {
-            this.locationSearchModal.show();
-        },
-        onLocationSelected(location: {lat: number, lon: number}) {
-            console.log(location);
-            this.filterData.locationCenter = location;
-            this.locationSearchModal.hide();
-        },
-        reload() {
-            this.$router.go(0);
+        onFilterApplied(filterData: FilterData) {
+            this.filterData = filterData;
+            this.getData();
+        }
+    },
+    watch: {
+        // If query updates, reload data
+        $route (to, from){
+            if(JSON.stringify(to.query) != JSON.stringify(from.query)) {
+                this.getData();
+            }
         }
     },
     created() {
-        this.$watch(
-            () => this.$route,
+        /*this.$watch(
+            () => this.$route.params,
             () => {
-                this.$router.go(0);
+                this.loading = true;
+                this.getData();
             }
-        )
-
-        console.log(this.urlQuery);
+        )*/
 
         this.getData();
     },
@@ -143,52 +133,7 @@ export default {
                 </button>
                 <!--Filter Sidebar-->
                 <div class="h-fit px-4 py-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <!--Distance Filter-->
-                    <label for="distance" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Distance</label>
-                    <div class="flex flex-row">
-                        <div class="w-full h-fit">
-                            <select id="distance" class="block p-2 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option value="" selected>Select Range</option>
-                                <option value="20">20 km</option>
-                            </select> 
-                        </div>
-                        <!--📍 Button-->
-                        <button type="button" @click="showLoctionSearch" class="w-fit h-auto ml-2 mb-3 text-gray-900 bg-gray-50 rounded-lg border focus:ring-1 border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 font-small text-sm px-2.5 py-1.5">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
-                        </button> 
-                    </div>
-                    
-                    <!--Rating Filter-->
-                    <label for="rating" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Min. Rating</label>
-                    <select id="rating" class="block p-2 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="1" selected>1 Stars</option>
-                        <option value="2">2 Stars</option>
-                        <option value="3">3 Stars</option>
-                        <option value="4">4 Stars</option>
-                        <option value="5">5 Stars</option>
-                    </select>
-                    <!--Price Filter-->
-                    <label for="price" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Max. Price</label>
-                    <select id="price" class="block p-2 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="1">€</option>
-                        <option value="2">€€</option>
-                        <option value="3" selected>€€€</option>
-                    </select>
-                    <!--Category Filter-->
-                    <label for="category" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Category</label>
-                    <select id="category" class="block p-2 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="" selected>Filter Category</option>
-                        <option value="bavarian">Bavarian</option>
-                        <option value="italian">Italian</option>
-                        <option value="burger">Burger</option>
-                    </select>
-                    <!--Apply Filter Button-->
-                    <div class="flex flex-row-reverse mt-12">
-                    <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 inline-flex items-center font-medium rounded-lg text-sm px-5 py-2.5 mb-1.5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
-                            Apply Filter
-                            <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z"></path></svg>
-                        </button> 
-                    </div>
+                    <Filter @onFilterApplied="onFilterApplied"></Filter>
                 </div>
             </div>
             
@@ -232,10 +177,7 @@ export default {
             </div>
         </div>
 
-        <!--Location Search Modal-->
-        <div id="location-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
-            <LocationSearch @onSelected="onLocationSelected"/>
-        </div>
+        
     </div>
 </template>
 
