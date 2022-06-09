@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onBeforeMount, onMounted, ref } from '@vue/runtime-core';
-import { useRoute, useRouter } from 'vue-router';
+//import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
 
 import Modal from 'flowbite/src/components/modal'
@@ -16,19 +16,20 @@ import LocationSearch from '@/components/LocationSearch.vue'
 import Restaurant from '@/types/Restaurant';
 import Address from '@/types/Address';
 
-const route = useRoute();
+/*const route = useRoute();
 const router = useRouter();
 
 defineExpose({
-    route, 
+    //route, 
     router
-})
+})*/
 </script>
 
 <script lang="ts">
 export default {
     data() {
         return {
+            urlQuery: this.$route.query as {date: string, time: string, people: string, query: string},
             restaurants: [],
             error: false,
             loading: true,
@@ -36,6 +37,8 @@ export default {
             filterData: {
                 locationCenter: {}
             },
+            map: {} as L.Map,
+            mapModal: null as Modal,
             mapData: {
                 selectedRestaurant: {} as Restaurant
             }
@@ -57,16 +60,13 @@ export default {
             })
         },
         showMap() {
-            var map = L.map('map').setView([48.15, 11.58], 13);
+            this.mapModal.show();
 
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '© OpenStreetMap'
-            }).addTo(map);
-            setTimeout(function(){ map.invalidateSize()}, 200);
+            var vm = this;
+            setTimeout(function(){ vm.map.invalidateSize()}, 200);
 
             // If the user clicks in the map, the current Restaurant Card should close
-            map.on('click', (e: any) => {
+            this.map.on('click', (e: any) => {
                 // Remove red color from marker that was selected
                 document.getElementsByClassName("huechange")[0]?.classList.remove("huechange");
 
@@ -75,7 +75,7 @@ export default {
 
             // Add Marker for each restaurant 
             this.restaurants.forEach((r: Restaurant) => {
-                var marker = L.marker([r.address.lat, r.address.long]).addTo(map);
+                var marker = L.marker([r.address.lat, r.address.long]).addTo(this.map as L.Map);
                 
                 // If the user clicks on a marker, the corresponding Restaurant Card should be displayed.
                 marker.on('click', (e: any) => {
@@ -96,15 +96,32 @@ export default {
             console.log(location);
             this.filterData.locationCenter = location;
             this.locationSearchModal.hide();
+        },
+        reload() {
+            this.$router.go(0);
         }
     },
     created() {
-        // TODO get query params with this.route.query
-        
+        this.$watch(
+            () => this.$route,
+            () => {
+                this.$router.go(0);
+            }
+        )
+
+        console.log(this.urlQuery);
 
         this.getData();
     },
     mounted() {
+        this.mapModal = new Modal(document.getElementById('map-modal'), {});
+        this.map = L.map('map').setView([48.15, 11.58], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(this.map as L.Map);
+
         this.locationSearchModal = new Modal(document.getElementById('location-modal'), {});
     }
 }
@@ -114,13 +131,13 @@ export default {
     <div class="flex flex-col items-center justify-screen h-screen dark:bg-gray-900 relative">
         <div class="fixed inline-flex justify-center mb-4 p-4 w-full bg-white border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
             <div class="w-fit">
-                <SearchBar></SearchBar>
+                <SearchBar :date="parseInt(urlQuery.date)" :time="parseInt(urlQuery.time)" :people="parseInt(urlQuery.people)" :query="urlQuery.query"></SearchBar>
             </div>
         </div>
         <div class="flex flex-row justify-start w-256 h-full gap-4 pt-[88px]">
             <div class="flex flex-col w-96">
                 <!--Show Map Button-->
-                <button  data-modal-toggle="map-modal" v-on:click="showMap()" type="button" class="h-16 mb-4 shadow-md text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-base px-5 py-2.5 text-center flex flex-row justify-items-center justify-center items-center dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none">
+                <button v-on:click="showMap()" type="button" class="h-16 mb-4 shadow-md text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-base px-5 py-2.5 text-center flex flex-row justify-items-center justify-center items-center dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none">
                     Show Map
                     <svg class="w-6 h-6 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
                 </button>
@@ -191,12 +208,12 @@ export default {
         </div>
 
         <!--Map Modal-->
-        <div id="map-modal" data-modal-show="false" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-4 right-0 left-0 z-50 w-full md:inset-0 md:h-modal h-modal">
+        <div id="map-modal" tabindex="-1" class="hidden overflow-y-auto overflow-x-hidden fixed top-4 right-0 left-0 z-50 w-full md:inset-0 md:h-modal h-modal">
             <div class="relative p-4 w-full max-w-7xl h-auto">
                 <div class="relative bg-white rounded-lg shadow-2xl dark:bg-gray-700">
                     <!--Close Button-->
                     <div class="absolute top-3 right-3 w-fit z-[314159] shadow-md">
-                        <button type="button" class="text-gray-900 bg-gray-100 ring-2 ring-neutral-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-2 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="map-modal">
+                        <button type="button" @click="mapModal.hide()" class="text-gray-900 bg-gray-100 ring-2 ring-neutral-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-2 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
                         </button>
                     </div>

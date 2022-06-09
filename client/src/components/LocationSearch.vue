@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import axios from 'axios';
 import { defineComponent } from 'vue'
+import { useRouter } from 'vue-router';
 </script>
 
 <script lang="ts">
