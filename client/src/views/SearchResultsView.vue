@@ -14,8 +14,8 @@ import SearchBar from '@/components/SearchBar.vue';
 import Filter from '@/components/Filter.vue'
 import type { FilterData } from '@/components/Filter.vue';
 
-import Restaurant from '@/types/Restaurant';
-import Address from '@/types/Address';
+import type Restaurant from '@/types/Restaurant';
+import type Address from '@/types/Address';
 </script>
 
 <script lang="ts">
@@ -145,8 +145,11 @@ export default {
                     </svg>
                 </div>
                 <div v-else class="overflow-y-auto gap-4 self-stretch pr-4 scroll-ml-10 scroll-pb-10 w-full">
-                    <div class="grid grid-col gap-4 pb-4">
+                    <div v-if="restaurants.length > 0" class="grid grid-col gap-4 pb-4">
                         <RestaurantCard v-for="(item, index) in restaurants" :restaurant="item" :key="index"></RestaurantCard>
+                    </div>
+                    <div v-else class="flex flex-col items-center justify-center pt-24">
+                        <a class="text-xl font-medium">No Results 🙁</a>
                     </div>
                 </div>
             </div>

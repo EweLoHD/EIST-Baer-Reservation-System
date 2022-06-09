@@ -72,6 +72,43 @@
                 "postalCode": "80804",
                 "country": "Germany"
             }
+        },
+        {
+            "id": 4,
+            "name": "Mensa Campus Garching",
+            "restaurantType": "Canteen",
+            "priceCategory": 1,
+            "averageRating": 3.4,
+            "restaurantPictures": [
+                "https://gvpraxis.food-service.de/gallery/media/983/21289-detailp.jpeg",
+                "https://www.sueddeutsche.de/image/sz.1.4597460/640x360?v=1568217642"
+            ],
+            "address": {
+                "lat": 48.268006688333294,
+                "long": 11.672308435017989,
+                "addressLine": "Boltzmannstraße 19",
+                "city": "Garching bei München",
+                "postalCode": "85748",
+                "country": "Germany"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Ratskeller München",
+            "restaurantType": "Bavarian",
+            "priceCategory": 2,
+            "averageRating": 4.4,
+            "restaurantPictures": [
+                "https://citytourcard-muenchen.com/wp-content/uploads/2020/02/ratskeller_innenaufnahmen_07-Kopie.jpg"
+            ],
+            "address": {
+                "lat": 48.13753491034112,
+                "long": 11.576024742742053,
+                "addressLine": "Marienplatz 8",
+                "city": "Munich",
+                "postalCode": "80331",
+                "country": "Germany"
+            }
         }
     ]
 }
