@@ -119,10 +119,15 @@ export default {
 
 <template>
     <div class="flex flex-col items-center justify-screen h-screen dark:bg-gray-900 relative">
-        <div class="fixed inline-flex justify-center mb-4 p-4 w-full bg-white border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <div class="w-fit">
+        <div class="fixed inline-flex justify-between items-center mb-4 p-4 w-full bg-white border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <a class="basis-1/4 text-2xl font-bold pl-2 mb-1 inline-flex" href="/">
+                <svg class="w-9 h-9 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                Reservation System
+            </a>
+            <div class="basis-1/2 pr-2">
                 <SearchBar :date="parseInt(urlQuery.date)" :time="parseInt(urlQuery.time)" :people="parseInt(urlQuery.people)" :query="urlQuery.query"></SearchBar>
             </div>
+            <div class="basis-1/4"></div>
         </div>
         <div class="flex flex-row justify-start w-256 h-full gap-4 pt-[88px]">
             <div class="flex flex-col w-96">
