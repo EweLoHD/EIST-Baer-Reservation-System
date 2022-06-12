@@ -54,6 +54,7 @@ test {
 
 node {
     nodeProjectDir = file("${project.projectDir}/client")
+    download = true
 }
 
 // Install all dependencies for the client server
