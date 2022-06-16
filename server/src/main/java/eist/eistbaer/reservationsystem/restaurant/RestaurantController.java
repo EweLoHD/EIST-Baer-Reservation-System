@@ -38,5 +38,4 @@ public class RestaurantController {
         return restaurantRepository.save(restaurant);
     }
 
-
 }

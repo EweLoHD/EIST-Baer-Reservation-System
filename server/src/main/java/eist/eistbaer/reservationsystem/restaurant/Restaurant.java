@@ -2,6 +2,7 @@ package eist.eistbaer.reservationsystem.restaurant;
 
 import eist.eistbaer.reservationsystem.restaurant.pictures.RestaurantPicture;
 import eist.eistbaer.reservationsystem.restaurant.priceCategory.PriceCategory;
+import eist.eistbaer.reservationsystem.restaurant.priceCategory.PriceCategoryConverter;
 import eist.eistbaer.reservationsystem.restaurant.type.RestaurantType;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class Restaurant {
     private List<RestaurantPicture> restaurantPictures;
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private RestaurantType restaurantType;
+    @Convert(converter = PriceCategoryConverter.class)
     private PriceCategory priceCategory;
 
     public Restaurant() {
