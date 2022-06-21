@@ -4,13 +4,17 @@ import eist.eistbaer.reservationsystem.restaurant.type.RestaurantType;
 import eist.eistbaer.reservationsystem.restaurant.type.RestaurantTypeRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 public class RestaurantController {
 
     private final RestaurantRepository restaurantRepository;
     private final RestaurantTypeRepository restaurantTypeRepository;
+
 
     public RestaurantController(RestaurantRepository restaurantRepository, RestaurantTypeRepository restaurantTypeRepository) {
         this.restaurantRepository = restaurantRepository;
@@ -38,4 +42,8 @@ public class RestaurantController {
         return restaurantRepository.save(restaurant);
     }
 
+    @GetMapping("/search")
+    List<Restaurant> searchRestaurant(@RequestParam String searchQuery) {
+        return RestaurantSearchUtility.search(searchQuery, restaurantRepository, restaurantTypeRepository);
+    }
 }
