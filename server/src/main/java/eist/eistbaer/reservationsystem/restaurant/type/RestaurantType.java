@@ -1,7 +1,6 @@
 package eist.eistbaer.reservationsystem.restaurant.type;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 public class RestaurantType {
@@ -10,7 +9,6 @@ public class RestaurantType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@Column(unique = true)
     private String name;
 
     public RestaurantType() {
@@ -43,12 +41,4 @@ public class RestaurantType {
                 ", name='" + name + '\'' +
                 '}';
     }
-
-    /*@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        RestaurantType that = (RestaurantType) o;
-        return Objects.equals(name, that.name);
-    }*/
 }

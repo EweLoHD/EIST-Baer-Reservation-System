@@ -26,4 +26,7 @@ hs_err_pid*
 .gradle
 .idea
 
+build
+
 client/package-lock.json
+data/demo.trace.db
