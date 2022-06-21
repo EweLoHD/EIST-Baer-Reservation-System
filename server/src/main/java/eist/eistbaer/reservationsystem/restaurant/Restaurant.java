@@ -1,9 +1,13 @@
 package eist.eistbaer.reservationsystem.restaurant;
 
+import eist.eistbaer.reservationsystem.restaurant.openingtime.OpeningTime;
 import eist.eistbaer.reservationsystem.restaurant.pictures.RestaurantPicture;
 import eist.eistbaer.reservationsystem.restaurant.priceCategory.PriceCategory;
 import eist.eistbaer.reservationsystem.restaurant.priceCategory.PriceCategoryConverter;
+import eist.eistbaer.reservationsystem.restaurant.review.Review;
 import eist.eistbaer.reservationsystem.restaurant.type.RestaurantType;
+import eist.eistbaer.reservationsystem.restaurant.address.Address;
+import eist.eistbaer.reservationsystem.restaurant.table.RestaurantTable;
 
 import javax.persistence.*;
 import java.util.List;
@@ -26,17 +30,36 @@ public class Restaurant {
     @Convert(converter = PriceCategoryConverter.class)
     private PriceCategory priceCategory;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="restaurant_id")
+    private List<OpeningTime> openingTimes;
+
+    @OneToOne
+    private Address address;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="restaurant_id")
+    private List<RestaurantTable> restaurantTables;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="restaurant_id")
+    private List<Review> reviews;
+
+
+
+
     public Restaurant() {
     }
 
-    public Restaurant(String name, String description, String websiteLink, List<RestaurantPicture> restaurantPictures, RestaurantType restaurantType, PriceCategory priceCategory) {
-        this.name = name;
-        this.description = description;
-        this.websiteLink = websiteLink;
-        this.restaurantPictures = restaurantPictures;
-        this.restaurantType = restaurantType;
-        this.priceCategory = priceCategory;
-    }
+//    public Restaurant(String name, String description, String websiteLink, List<RestaurantPicture> restaurantPictures, RestaurantType restaurantType, PriceCategory priceCategory, List<OpeningTime> openingTimes, Address address) {
+//        this.name = name;
+//        this.description = description;
+//        this.websiteLink = websiteLink;
+//        this.restaurantPictures = restaurantPictures;
+//        this.restaurantType = restaurantType;
+//        this.priceCategory = priceCategory;
+//        this.openingTimes = openingTimes;
+//    }
 
     public long getId() {
         return id;
@@ -94,6 +117,38 @@ public class Restaurant {
         this.priceCategory = priceCategory;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public List<OpeningTime> getOpeningTimes() {
+        return openingTimes;
+    }
+
+    public void setOpeningTimes(List<OpeningTime> openingTimes) {
+        this.openingTimes = openingTimes;
+    }
+
+    public List<RestaurantTable> getTables() {
+        return restaurantTables;
+    }
+
+    public void setTables(List<RestaurantTable> restaurantTables) {
+        this.restaurantTables = restaurantTables;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
     @Override
     public String toString() {
         return "Restaurant{" +
@@ -104,6 +159,12 @@ public class Restaurant {
                 ", restaurantPictures=" + restaurantPictures +
                 ", restaurantType=" + restaurantType +
                 ", priceCategory=" + priceCategory +
+                ", openingTimes=" + openingTimes +
+                ", address=" + address +
+                ", tables=" + restaurantTables +
+                ", reviews=" + reviews +
                 '}';
     }
+
+
 }
