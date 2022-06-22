@@ -1,5 +1,6 @@
 package eist.eistbaer.reservationsystem.restaurant;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import eist.eistbaer.reservationsystem.restaurant.openingtime.OpeningTime;
 import eist.eistbaer.reservationsystem.restaurant.pictures.RestaurantPicture;
 import eist.eistbaer.reservationsystem.restaurant.priceCategory.PriceCategory;
@@ -32,9 +33,11 @@ public class Restaurant {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="restaurant_id")
+    @JsonIgnoreProperties("id")
     private List<OpeningTime> openingTimes;
 
     @OneToOne
+    @JsonIgnoreProperties("id")
     private Address address;
 
     @OneToMany(cascade = CascadeType.ALL)

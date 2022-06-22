@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import type { defineComponent } from "@vue/runtime-core";
+import axios from 'axios';
+
 import Restaurant from '@/types/Restaurant';
 import Address from '@/types/Address';
+
 import Rating from '@/components/Rating.vue';
 import PriceCategory from '@/components/PriceCategory.vue';
 import ReservationField from '@/components/ReservationField.vue'
@@ -12,13 +15,14 @@ import ReservationField from '@/components/ReservationField.vue'
 export default {
     data() {
         return {
+            loading: true,
             restaurant: {} as Restaurant
         }
     },
     methods: {
         getData() {
             // TODO: Fetch Data
-            this.restaurant = new Restaurant(
+            /*this.restaurant = new Restaurant(
                 1,
                 "Hofbräuhaus München",
                 "Bavarian",
@@ -39,7 +43,21 @@ export default {
                 ),
                 "Brauhaus aus dem 16. Jahrhundert über 3 Ebenen, mit bayerischem Restaurant, Shows & guter Stimmung.",
                 "https://hofbraeuhaus.de/"
-            )
+            )*/
+            this.loading = true;
+            // TODO Send search request to backend
+            axios.get('http://localhost:8080/restaurants/2').then(response => {
+                this.restaurant = response.data as Restaurant;
+                this.restaurant.averageRating = 4.3; // TODO
+                console.log(this.restaurant);
+                this.loading = false;
+            }).catch(e => {
+                console.error(e);
+
+                // TODO Handle Errors
+                this.loading = false;
+                //this.error = true;
+            })
         },
         prettifyWebsiteLink() {
             if(this.restaurant.websiteLink) {
@@ -63,7 +81,7 @@ export default {
 </script>
 
 <template>
-    <div class="flex flex-col items-center justify-center dark:bg-gray-900">
+    <div v-if="!loading" class="flex flex-col items-center justify-center dark:bg-gray-900">
         <div id="default-carousel" class="w-full absolute top-0" data-carousel="static">
             <!-- Carousel wrapper -->
             <div class="overflow-hidden relative h-[42rem]">
@@ -133,7 +151,7 @@ export default {
                     <h4 class="text-xl font-bold text-gray-800">Information</h4>
                     <div>
                         <h5 class="text-lg font-semibold mt-6 mb-2">Address</h5>
-                        <p class="text-base">{{ restaurant.address.addressLine }}</p>
+                        <p class="text-base">{{ restaurant.address.street }}</p>
                         <p class="text-base text-gray-600">{{ restaurant.address.postalCode }} {{ restaurant.address.city }}</p>
                         <p class="mt-3">
                             <a class="text-base font-medium text-blue-700 hover:text-blue-800 inline-flex items-center" :href="'https://maps.google.com/?q=' + restaurant.address.lat + ',' + restaurant.address.lon" target="_blank">

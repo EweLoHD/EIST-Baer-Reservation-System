@@ -30,3 +30,4 @@ build
 
 client/package-lock.json
 #data/demo.trace.db
+data/reservationsystem.trace.db

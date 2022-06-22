@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin(origins="*")
 public class RestaurantController {
 
     private final RestaurantRepository restaurantRepository;

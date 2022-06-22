@@ -1,5 +1,7 @@
 package eist.eistbaer.reservationsystem.restaurant.type;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,6 +11,7 @@ public class RestaurantType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonValue
     private String name;
 
     public RestaurantType() {
