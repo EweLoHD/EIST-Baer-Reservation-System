@@ -21,7 +21,9 @@ class Restaurant {
         priceCategory: number, 
         averageRating: number, 
         restaurantPictures: Array<string>,
-        address: Address
+        address: Address,
+        description?: string,
+        websiteLink?: string
     ) {
         this.id = id
         this.name = name
@@ -30,7 +32,11 @@ class Restaurant {
         this.averageRating = averageRating
         this.restaurantPictures = restaurantPictures
         this.address = address
+        this.description = description
+        this.websiteLink = websiteLink
     }
+
+
 }
 
 export default Restaurant;

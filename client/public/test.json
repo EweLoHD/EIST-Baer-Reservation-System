@@ -12,7 +12,7 @@
             ],
             "address": {
                 "lat": 48.16285741892469,
-                "long": 11.573097546570498,
+                "lon": 11.573097546570498,
                 "addressLine": "Herzogstraße 82",
                 "city": "Munich",
                 "postalCode": "80796",
@@ -30,7 +30,7 @@
             ],
             "address": {
                 "lat": 48.133048087633625,
-                "long": 11.5783216067446,
+                "lon": 11.5783216067446,
                 "addressLine": "Klenzestraße 17",
                 "city": "Munich",
                 "postalCode": "80469",
@@ -48,7 +48,7 @@
             ],
             "address": {
                 "lat": 48.137695676157215,
-                "long": 11.579936032171066,
+                "lon": 11.579936032171066,
                 "addressLine": "Platzl 9",
                 "city": "Munich",
                 "postalCode": "80331",
@@ -66,7 +66,7 @@
             ],
             "address": {
                 "lat": 48.170795786235544,
-                "long": 11.568134661979377,
+                "lon": 11.568134661979377,
                 "addressLine": "Brunnerstraße 2",
                 "city": "Munich",
                 "postalCode": "80804",
@@ -85,7 +85,7 @@
             ],
             "address": {
                 "lat": 48.268006688333294,
-                "long": 11.672308435017989,
+                "lon": 11.672308435017989,
                 "addressLine": "Boltzmannstraße 19",
                 "city": "Garching bei München",
                 "postalCode": "85748",
@@ -103,7 +103,7 @@
             ],
             "address": {
                 "lat": 48.13753491034112,
-                "long": 11.576024742742053,
+                "lon": 11.576024742742053,
                 "addressLine": "Marienplatz 8",
                 "city": "Munich",
                 "postalCode": "80331",
