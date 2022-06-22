@@ -25,7 +25,7 @@ public class Restaurant {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="restaurant_id")
     private List<RestaurantPicture> restaurantPictures;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private RestaurantType restaurantType;
     @Convert(converter = PriceCategoryConverter.class)
     private PriceCategory priceCategory;
@@ -45,8 +45,13 @@ public class Restaurant {
     @JoinColumn(name="restaurant_id")
     private List<Review> reviews;
 
+    public List<RestaurantTable> getRestaurantTables() {
+        return restaurantTables;
+    }
 
-
+    public void setRestaurantTables(List<RestaurantTable> restaurantTables) {
+        this.restaurantTables = restaurantTables;
+    }
 
     public Restaurant() {
     }
