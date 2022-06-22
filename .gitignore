@@ -29,4 +29,4 @@ hs_err_pid*
 build
 
 client/package-lock.json
-data/demo.trace.db
+#data/demo.trace.db

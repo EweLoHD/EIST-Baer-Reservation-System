@@ -10,9 +10,9 @@ public class Address {
     @GeneratedValue
     private Long id;
 
-    private int latCoord;
+    private float latCoord;
 
-    private int longCoord;
+    private float longCoord;
 
     private String street;
 
@@ -34,19 +34,19 @@ public class Address {
         this.id = id;
     }
 
-    public int getLatCoord() {
+    public float getLatCoord() {
         return latCoord;
     }
 
-    public void setLatCoord(int latCoord) {
+    public void setLatCoord(float latCoord) {
         this.latCoord = latCoord;
     }
 
-    public int getLongCoord() {
+    public float getLongCoord() {
         return longCoord;
     }
 
-    public void setLongCoord(int longCoord) {
+    public void setLongCoord(float longCoord) {
         this.longCoord = longCoord;
     }
 
