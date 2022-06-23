@@ -1,62 +1,72 @@
 package eist.eistbaer.reservationsystem.restaurant.openingtime;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.DayOfWeek;
+import java.time.LocalTime;
 
 @Entity
+@JsonPropertyOrder({ "dayOfWeek", "fromTime", "toTime" })
 public class OpeningTime {
     @Id
     @GeneratedValue
     private Long id;
 
-    private int dayOfWeek;
+    @JsonIgnore
+    private DayOfWeek dayOfWeek;
+    private LocalTime fromTime;
+    private LocalTime toTime;
 
-    private int fromTime;
+    public OpeningTime() {
+    }
 
-    private int toTime;
-
-
-    public OpeningTime(int dayOfWeek, int fromTime, int toTime){
+    public OpeningTime(DayOfWeek dayOfWeek, LocalTime fromTime, LocalTime toTime) {
         this.dayOfWeek = dayOfWeek;
         this.fromTime = fromTime;
         this.toTime = toTime;
     }
 
-    public OpeningTime() {
+    @JsonGetter("dayOfWeek")
+    public int getDayOfWeekNum() {
+        return dayOfWeek.getValue();
     }
 
-
-    public int getDayOfWeek() {
-        return dayOfWeek;
-    }
-
-    public void setDayOfWeek(int dayOfWeek) {
-        this.dayOfWeek = dayOfWeek;
-    }
-
-    public int getFromTime() {
-        return fromTime;
-    }
-
-    public void setFromTime(int from) {
-        this.fromTime = from;
-    }
-
-    public int getToTime() {
-        return toTime;
-    }
-
-    public void setToTime(int to) {
-        this.toTime = to;
+    public Long getId() {
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getId() {
-        return id;
+    public DayOfWeek getDayOfWeek() {
+        return dayOfWeek;
+    }
+
+    public void setDayOfWeek(DayOfWeek dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
+    }
+
+    public LocalTime getFromTime() {
+        return fromTime;
+    }
+
+    public void setFromTime(LocalTime fromTime) {
+        this.fromTime = fromTime;
+    }
+
+    public LocalTime getToTime() {
+        return toTime;
+    }
+
+    public void setToTime(LocalTime toTime) {
+        this.toTime = toTime;
     }
 
     @Override
@@ -64,8 +74,8 @@ public class OpeningTime {
         return "OpeningTime{" +
                 "id=" + id +
                 ", dayOfWeek=" + dayOfWeek +
-                ", from=" + fromTime +
-                ", to=" + toTime +
+                ", fromTime=" + fromTime +
+                ", toTime=" + toTime +
                 '}';
     }
 }
