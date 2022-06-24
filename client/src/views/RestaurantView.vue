@@ -2,12 +2,17 @@
 import type { defineComponent } from "@vue/runtime-core";
 import axios from 'axios';
 
+import Carousel from 'flowbite/src/components/carousel'
+
 import Restaurant from '@/types/Restaurant';
 import Address from '@/types/Address';
 
 import Rating from '@/components/Rating.vue';
 import PriceCategory from '@/components/PriceCategory.vue';
 import ReservationField from '@/components/ReservationField.vue'
+import OpeningHours from "@/components/OpeningHours.vue";
+import OpeningTime from "@/types/OpeningTime";
+import Reviews from "@/components/Reviews.vue";
 
 
 </script>
@@ -16,41 +21,26 @@ export default {
     data() {
         return {
             loading: true,
-            restaurant: {} as Restaurant
+            restaurant: {} as Restaurant,
+            carousel: {} as Carousel
         }
     },
     methods: {
         getData() {
-            // TODO: Fetch Data
-            /*this.restaurant = new Restaurant(
-                1,
-                "Hofbräuhaus München",
-                "Bavarian",
-                2,
-                4.3,
-                [
-                    "https://www.hofbraeuhaus.de/files/contentdata/img/pages/willkommen2.jpg",
-                    "https://www.hofbraeuhaus.de/files/contentdata/img/pages/willkommen1_nacht.jpg",
-                    "https://www.hofbraeuhaus.de/files/contentdata/img/pages/willkommen4.jpg"
-                ],
-                new Address(
-                    48.137695676157215,
-                    11.579936032171066,
-                    "Platzl 9",
-                    "Munich",
-                    "80331",
-                    "Germany"
-                ),
-                "Brauhaus aus dem 16. Jahrhundert über 3 Ebenen, mit bayerischem Restaurant, Shows & guter Stimmung.",
-                "https://hofbraeuhaus.de/"
-            )*/
             this.loading = true;
             // TODO Send search request to backend
-            axios.get('http://localhost:8080/restaurants/2').then(response => {
+            axios.get('http://localhost:8080/restaurants/' + this.$route.params.id).then(response => {
                 this.restaurant = response.data as Restaurant;
+
+                this.restaurant.openingTimes = response.data.openingTimes?.map((t: { dayOfWeek: Number; fromTime: String; toTime: String; }) => new OpeningTime(t.dayOfWeek, t.fromTime, t.toTime))
+
                 this.restaurant.averageRating = 4.3; // TODO
                 console.log(this.restaurant);
                 this.loading = false;
+
+                setTimeout(() => {
+                    this.showCarousel();
+                }, 100)
             }).catch(e => {
                 console.error(e);
 
@@ -58,6 +48,29 @@ export default {
                 this.loading = false;
                 //this.error = true;
             })
+        },
+        showCarousel() {
+            const items = new Array<{position: number, el: HTMLElement}>(this.restaurant.restaurantPictures.length);
+
+            for (let i = 0; i < this.restaurant.restaurantPictures.length; i++) {
+                items[i] = {
+                    position: i,
+                    el: document.getElementById('carousel-item-' + i)!
+                }
+            }
+
+            const options = {
+                interval: 3000,
+                indicators: {
+                    activeClasses: 'bg-white dark:bg-gray-800',
+                    inactiveClasses: 'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800',
+                    items: items
+                }
+            }
+
+            this.carousel = new Carousel(items, options);
+            //this.carousel.cycle();
+
         },
         prettifyWebsiteLink() {
             if(this.restaurant.websiteLink) {
@@ -76,47 +89,52 @@ export default {
     },
     created() {
         this.getData();
+    },
+    mounted() {
+        // If a hash (e.g. #reservation), scroll to corresponding Anchor 
+        setTimeout(() => {
+            if(this.$route.hash) {
+                document.getElementById(this.$route.hash.replace("#", ""))?.scrollIntoView({behavior: 'smooth'});
+            }
+        }, 400)
     }
+
 }
 </script>
 
 <template>
     <div v-if="!loading" class="flex flex-col items-center justify-center dark:bg-gray-900">
-        <div id="default-carousel" class="w-full absolute top-0" data-carousel="static">
+        <div v-if="restaurant.restaurantPictures.length > 1" id="pictures-carousel" class="w-full absolute top-0">
             <!-- Carousel wrapper -->
             <div class="overflow-hidden relative h-[42rem]">
-                <!-- Item 1 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img :src="restaurant.restaurantPictures[0]" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 brightness-75" alt="...">
-                </div>
-                <!-- Item 2 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img :src="restaurant.restaurantPictures[1]" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 brightness-75" alt="...">
-                </div>
-                <!-- Item 3 -->
-                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img :src="restaurant.restaurantPictures[2]" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 brightness-75" alt="...">
+                <div v-for="(pic, index) in restaurant.restaurantPictures" :id="'carousel-item-' + index" class="hidden duration-700 ease-in-out">
+                    <img :src="pic" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 brightness-75" alt="...">
                 </div>
             </div>
             <!-- Slider indicators -->
-            <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+            <!--<div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
                 <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
                 <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
                 <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-            </div>
+            </div>-->
             <!-- Slider controls -->
-            <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
+            <button type="button" @click="carousel.prev()" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none">
                 <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                     <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                     <span class="hidden">Previous</span>
                 </span>
             </button>
-            <button type="button" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-next>
+            <button type="button" @click="carousel.next()" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none">
                 <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                     <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     <span class="hidden">Next</span>
                 </span>
             </button>
+        </div>
+        <div v-else-if="restaurant.restaurantPictures.length = 1" class="w-full absolute top-0">
+            <div class="overflow-hidden relative h-[42rem]">
+                <img :src="restaurant.restaurantPictures[0]" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 brightness-75" alt="...">
+            </div>
         </div>
         <div class="relative bg-transparent h-[100rem] w-[72rem] z-30">
             <div class="flex h-[42rem] justify-start items-center">
@@ -140,11 +158,15 @@ export default {
 
             <div class="flex flex-row h-full">
                 <!-- Left Col -->
-                <div class="w-full h-full mr-4 p-4 pl-1 mt-4">
-                    <h3 class="text-3xl font-bold text-gray-800 mb-4">Reservation</h3>
+                <div class="w-full h-full mr-4 p-4 pt-0 pl-1 mt-4">
+                    <!-- Reservation -->
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6 pt-4" id="reservation">Reservation</h3>
                     <div class="border rounded-lg p-4">
                         <ReservationField></ReservationField>
                     </div>
+                    <!-- Reviews -->
+                    <h3 class="text-3xl font-bold text-gray-800 mb-6 mt-36" id="reservation">Reviews</h3>
+                    <Reviews :reviews="restaurant.reviews!" />
                 </div>
                 <!-- Right Col-->
                 <div class="w-full h-full basis-1/2 p-4 mt-5">
@@ -161,22 +183,7 @@ export default {
                     </div>
                     <div>
                         <h5 class="text-lg font-semibold mt-8 mb-3">Opening Hours</h5>
-                        <div class="grid grid-cols-2 w-56 gap-1 gap-x-4">
-                            <a class="text-base">Monday</a>
-                            <a class="text-base text-left text-gray-600">11:00 - 00:00</a>
-                            <a class="text-base">Tuesday</a>
-                            <a class="text-base text-left text-gray-600">Closed</a>
-                            <a class="text-base">Wednesday</a>
-                            <a class="text-base text-left text-gray-600">11:00 - 00:00</a>
-                            <a class="text-base">Thursday</a>
-                            <a class="text-base text-left text-gray-600">11:00 - 00:00</a>
-                            <a class="text-base">Friday</a>
-                            <a class="text-base text-left text-gray-600">11:00 - 02:00</a>
-                            <a class="text-base">Saturday</a>
-                            <a class="text-base text-left text-gray-600">11:00 - 01:00</a>
-                            <a class="text-base">Sunday</a>
-                            <a class="text-base text-left text-gray-600">11:00 - 00:00</a>
-                        </div>
+                        <OpeningHours :opening-times="restaurant.openingTimes"/>
                     </div>
 
                 </div>

@@ -1,4 +1,6 @@
 import type Address from "./Address";
+import type OpeningTime from "./OpeningTime";
+import type Review from "./Review";
 
 class Restaurant {
     id: number;
@@ -8,10 +10,10 @@ class Restaurant {
     restaurantType: string;
     priceCategory: number;
     averageRating: number;
-    restaurantPictures: Array<string>
-    address: Address
-    //TODO Reviews
-    //TODO openingTimes
+    restaurantPictures: Array<string>;
+    address: Address;
+    openingTimes?: Array<OpeningTime>;
+    reviews?: Array<Review>;
     //TODO Tables
     
     constructor(
@@ -23,7 +25,9 @@ class Restaurant {
         restaurantPictures: Array<string>,
         address: Address,
         description?: string,
-        websiteLink?: string
+        websiteLink?: string,
+        openingTimes?: Array<OpeningTime>,
+        reviews?: Array<Review>
     ) {
         this.id = id
         this.name = name
@@ -34,8 +38,9 @@ class Restaurant {
         this.address = address
         this.description = description
         this.websiteLink = websiteLink
+        this.openingTimes = openingTimes
+        this.reviews = reviews
     }
-
 
 }
 

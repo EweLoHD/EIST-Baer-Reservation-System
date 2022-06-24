@@ -48,14 +48,6 @@ public class Restaurant {
     @JoinColumn(name="restaurant_id")
     private List<Review> reviews;
 
-    public List<RestaurantTable> getRestaurantTables() {
-        return restaurantTables;
-    }
-
-    public void setRestaurantTables(List<RestaurantTable> restaurantTables) {
-        this.restaurantTables = restaurantTables;
-    }
-
     public Restaurant() {
     }
 
@@ -141,20 +133,20 @@ public class Restaurant {
         this.openingTimes = openingTimes;
     }
 
-    public List<RestaurantTable> getTables() {
-        return restaurantTables;
-    }
-
-    public void setTables(List<RestaurantTable> restaurantTables) {
-        this.restaurantTables = restaurantTables;
-    }
-
     public List<Review> getReviews() {
         return reviews;
     }
 
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public List<RestaurantTable> getRestaurantTables() {
+        return restaurantTables;
+    }
+
+    public void setRestaurantTables(List<RestaurantTable> restaurantTables) {
+        this.restaurantTables = restaurantTables;
     }
 
     @Override
@@ -169,10 +161,8 @@ public class Restaurant {
                 ", priceCategory=" + priceCategory +
                 ", openingTimes=" + openingTimes +
                 ", address=" + address +
-                ", tables=" + restaurantTables +
+                ", restaurantTables=" + restaurantTables +
                 ", reviews=" + reviews +
                 '}';
     }
-
-
 }

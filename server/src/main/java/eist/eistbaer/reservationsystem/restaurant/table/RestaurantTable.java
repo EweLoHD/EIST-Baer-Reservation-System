@@ -53,7 +53,7 @@ public class RestaurantTable {
 
     @Override
     public String toString() {
-        return "Table{" +
+        return "RestaurantTable{" +
                 "id=" + id +
                 ", x=" + x +
                 ", y=" + y +
