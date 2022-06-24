@@ -5,6 +5,7 @@ import eist.eistbaer.reservationsystem.restaurant.table.RestaurantTable;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Entity
 public class Reservation {
@@ -15,8 +16,8 @@ public class Reservation {
     private String clientName;
     private String clientEmail;
 
-    // TODO: Zeit evtl. als extra Klasse?
-    private String reservationTime;
+    private LocalTime fromTime;
+    private LocalTime toTime;
 
     private LocalDate date;
 
@@ -53,12 +54,20 @@ public class Reservation {
         this.clientEmail = clientEmail;
     }
 
-    public String getReservationTime() {
-        return reservationTime;
+    public LocalTime getFromTime() {
+        return fromTime;
     }
 
-    public void setReservationTime(String reservationTime) {
-        this.reservationTime = reservationTime;
+    public void setFromTime(LocalTime fromTime) {
+        this.fromTime = fromTime;
+    }
+
+    public LocalTime getToTime() {
+        return toTime;
+    }
+
+    public void setToTime(LocalTime toTime) {
+        this.toTime = toTime;
     }
 
     public RestaurantTable getTable() {
@@ -91,7 +100,9 @@ public class Reservation {
                 "id=" + id +
                 ", clientName='" + clientName + '\'' +
                 ", clientEmail='" + clientEmail + '\'' +
-                ", reservationTime='" + reservationTime + '\'' +
+                ", fromTime=" + fromTime +
+                ", toTime=" + toTime +
+                ", date=" + date +
                 ", table=" + table +
                 ", restaurant=" + restaurant +
                 '}';

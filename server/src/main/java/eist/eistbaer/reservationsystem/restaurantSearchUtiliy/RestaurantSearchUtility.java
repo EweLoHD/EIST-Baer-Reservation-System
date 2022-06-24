@@ -14,6 +14,7 @@ import eist.eistbaer.reservationsystem.restaurant.type.RestaurantTypeRepository;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -131,7 +132,7 @@ public class RestaurantSearchUtility {
         List<Restaurant> result = new ArrayList<>();
         List<Reservation> reservationToBeConsidered = new ArrayList<>();
         for (Reservation reservation : reservations) {
-            if (restaurants.contains(reservation.getRestaurant()) && reservation.getDate().equals(date) && reservation.getReservationTime().equals(time)) {
+            if (restaurants.contains(reservation.getRestaurant()) && reservation.getDate().equals(date)) {
                 reservationToBeConsidered.add(reservation);
             }
         }
@@ -149,7 +150,7 @@ public class RestaurantSearchUtility {
         return result;
     }
 
-    private static List<Restaurant> filterAfterDateTimePeople(int minPeople, List<Restaurant> restaurants) {
+    private static List<Restaurant> filterAfterDateTimePeople(LocalDate date, LocalTime time, int minPeople, List<Restaurant> restaurants) {
         return restaurants;
     }
     private static double similarity(String s1, String s2) {
