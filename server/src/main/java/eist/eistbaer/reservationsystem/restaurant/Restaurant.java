@@ -6,6 +6,7 @@ import eist.eistbaer.reservationsystem.restaurant.pictures.RestaurantPicture;
 import eist.eistbaer.reservationsystem.restaurant.priceCategory.PriceCategory;
 import eist.eistbaer.reservationsystem.restaurant.priceCategory.PriceCategoryConverter;
 import eist.eistbaer.reservationsystem.restaurant.review.Review;
+import eist.eistbaer.reservationsystem.restaurant.reviewrating.ReviewRating;
 import eist.eistbaer.reservationsystem.restaurant.type.RestaurantType;
 import eist.eistbaer.reservationsystem.restaurant.address.Address;
 import eist.eistbaer.reservationsystem.restaurant.table.RestaurantTable;
@@ -155,6 +156,17 @@ public class Restaurant {
 
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public ReviewRating getAverageRating() {
+        double sumRating = 0.0;
+        double numberOfReviews = 0.0;
+        for(Review r : reviews) {
+            sumRating += r.getRating().num();
+            numberOfReviews++;
+        }
+        int averageRating = (int) Math.round(sumRating / numberOfReviews);
+        return ReviewRating.of(averageRating);
     }
 
     @Override
