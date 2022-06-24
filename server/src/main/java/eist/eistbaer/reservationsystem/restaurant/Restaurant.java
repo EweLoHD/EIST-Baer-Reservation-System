@@ -106,6 +106,10 @@ public class Restaurant {
         return restaurantType;
     }
 
+    public List<RestaurantTable> getRestaurantTables() {
+        return restaurantTables;
+    }
+
     public void setRestaurantType(RestaurantType restaurantType) {
         this.restaurantType = restaurantType;
     }

@@ -137,7 +137,7 @@ public class RestaurantSearchUtility {
             }
         }
         for (Restaurant restaurant : restaurants) {
-            List<RestaurantTable> tables = restaurant.getTables();
+            List<RestaurantTable> tables = restaurant.getRestaurantTables();
             for (Reservation reservation : reservationToBeConsidered) {
                 if (reservation.getRestaurant().equals(restaurant)) {
                     tables.remove(reservation.getTable());
