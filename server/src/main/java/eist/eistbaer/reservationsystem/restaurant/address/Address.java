@@ -82,6 +82,10 @@ public class Address {
         this.country = country;
     }
 
+    public int calculateDistance(Address other) {
+        return (int) Math.round(Math.sqrt(Math.pow(lat - other.getLat(), 2) + Math.pow(lon - other.getLon(), 2)));
+    }
+
     @Override
     public String toString() {
         return "Address{" +

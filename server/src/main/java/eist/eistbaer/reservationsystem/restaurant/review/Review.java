@@ -1,6 +1,5 @@
 package eist.eistbaer.reservationsystem.restaurant.review;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import eist.eistbaer.reservationsystem.restaurant.reviewrating.ReviewRating;
 
 import javax.persistence.Entity;
@@ -11,7 +10,6 @@ import javax.persistence.Id;
 public class Review {
     @Id
     @GeneratedValue
-    @JsonIgnore
     private Long id;
 
     private String comment;

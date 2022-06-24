@@ -4,6 +4,7 @@ import eist.eistbaer.reservationsystem.restaurant.Restaurant;
 import eist.eistbaer.reservationsystem.restaurant.table.RestaurantTable;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 public class Reservation {
@@ -16,6 +17,8 @@ public class Reservation {
 
     // TODO: Zeit evtl. als extra Klasse?
     private String reservationTime;
+
+    private LocalDate date;
 
     @ManyToOne
     private RestaurantTable table;
@@ -72,6 +75,14 @@ public class Reservation {
 
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     @Override
