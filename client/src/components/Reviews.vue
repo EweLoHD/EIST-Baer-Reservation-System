@@ -9,7 +9,7 @@ export default {
     },
     methods: {
         getPercentageOfReviewsByStars(stars: Number): string {
-            return (this.reviews.filter(r => r.rating == stars).length / this.reviews.length) * 100 + "%";
+            return (((this.reviews.filter(r => r.rating == stars).length / this.reviews.length) * 100) | 0) + "%";
         },
         getAverageRating() {
             return this.reviews.map(r => r.rating as number).reduce((a, b) => a + b, 0) / this.reviews.length;
@@ -64,16 +64,13 @@ export default {
         <span class="text-sm font-medium text-blue-600 dark:text-blue-500">{{ getPercentageOfReviewsByStars(1) }}</span>
     </div>
 
-    <div class="mt-10">
-        <article class="border rounded-lg p-3">
-            <div class="flex items-center mb-2 space-x-4">
-                <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="">
-                <div class="space-y-1 font-medium dark:text-white">
-                    <p>Max Mustermann <time datetime="2014-08-16 19:00" class="block text-sm text-gray-500 dark:text-gray-400">Reservation in June 2022</time></p>
-                </div>
-            </div>
-            <Rating :rating="4" :size="5"></Rating>
-            <p class="font-light text-gray-500 dark:text-gray-400">This is my third Invicta Pro Diver. They are just fantastic value for money. This one arrived yesterday and the first thing I did was set the time, popped on an identical strap from another Invicta and went in the shower with it to test the waterproofing.... No problems.</p>
+    <div class="mt-10 flex flex-col gap-4">
+        <article v-for="review in reviews" class="border rounded-lg p-3">
+            <p class="inline-flex">
+                <Rating :rating="(review.rating as number)" :size="5"></Rating>
+                <a class="ml-2 block text-sm font-semibold text-gray-500">{{ review.creationDate.getFormated() }}</a>
+            </p>       
+            <p class="font-base text-gray-600">{{ review.comment }}</p>
         </article>
     </div>
 
