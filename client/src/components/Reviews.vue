@@ -66,7 +66,7 @@ export default {
 
     <div class="mt-10">
         <article class="border rounded-lg p-3">
-            <div class="flex items-center mb-3 space-x-4">
+            <div class="flex items-center mb-2 space-x-4">
                 <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="">
                 <div class="space-y-1 font-medium dark:text-white">
                     <p>Max Mustermann <time datetime="2014-08-16 19:00" class="block text-sm text-gray-500 dark:text-gray-400">Reservation in June 2022</time></p>
