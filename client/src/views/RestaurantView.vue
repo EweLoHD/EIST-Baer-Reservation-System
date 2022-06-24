@@ -6,6 +6,8 @@ import Carousel from 'flowbite/src/components/carousel'
 
 import Restaurant from '@/types/Restaurant';
 import Address from '@/types/Address';
+import Review from '@/types/Review';
+import LocalDate from "@/types/LocalDate";
 
 import Rating from '@/components/Rating.vue';
 import PriceCategory from '@/components/PriceCategory.vue';
@@ -33,6 +35,7 @@ export default {
                 this.restaurant = response.data as Restaurant;
 
                 this.restaurant.openingTimes = response.data.openingTimes?.map((t: { dayOfWeek: Number; fromTime: String; toTime: String; }) => new OpeningTime(t.dayOfWeek, t.fromTime, t.toTime))
+                this.restaurant.reviews = response.data.reviews?.map((t: { rating: Number; comment: String; creationDate: string; }) => new Review(t.rating, t.comment, LocalDate.parse(t.creationDate)));
 
                 this.restaurant.averageRating = 4.3; // TODO
                 console.log(this.restaurant);
@@ -133,7 +136,7 @@ export default {
         </div>
         <div v-else-if="restaurant.restaurantPictures.length = 1" class="w-full absolute top-0">
             <div class="overflow-hidden relative h-[42rem]">
-                <img :src="restaurant.restaurantPictures[0]" class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 brightness-75" alt="...">
+                <img :src="restaurant.restaurantPictures[0]" class="object-cover w-full h-full brightness-75" alt="...">
             </div>
         </div>
         <div class="relative bg-transparent h-[100rem] w-[72rem] z-30">
