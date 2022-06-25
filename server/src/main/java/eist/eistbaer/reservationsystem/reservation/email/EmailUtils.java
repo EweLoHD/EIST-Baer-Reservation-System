@@ -124,7 +124,7 @@ public class EmailUtils {
                     "Dear " + reservation.getClientName() + ",<br><br>" +
                     "Your Reservation at <b>" + reservation.getRestaurant().getName() + "</b> for <b>" +
                     reservation.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(Locale.US)) +
-                    "</b> at <b>" + reservation.getToTime().format(DateTimeFormatter.ofPattern("HH:mm")) +
+                    "</b> at <b>" + reservation.getFromTime().format(DateTimeFormatter.ofPattern("HH:mm")) +
                     "</b> was successful. <br><br>" +
                     "You will receive a final confirmation Request via email 24 hours before your reservation.<br>" +
                     "Until then you can cancel your reservation <a href=\"" + cancellationURL + "\">here</a>.<br><br>" +
