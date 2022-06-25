@@ -3,13 +3,13 @@ package eist.eistbaer.reservationsystem.reservation.email;
 import eist.eistbaer.reservationsystem.reservation.Reservation;
 
 import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.*;
 import java.io.File;
 import java.net.URI;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Properties;
 
 public class EmailUtils {
@@ -47,7 +47,6 @@ public class EmailUtils {
     }
 
 
-
     //methods
 
     public String getCancellationLink() {
@@ -66,12 +65,30 @@ public class EmailUtils {
         this.confirmationLink = confirmationLink;
     }
 
+    /**
+     * E-Mail, that gets sent right after a new Reservation is created
+     * @param reservation The given Reservation
+     * @throws MessagingException In case of Error regarding the E-Mail Service
+     */
+    public void sendCompletedMail(Reservation reservation) throws MessagingException {
+        this.sendMail(true, reservation);
+    }
+
+    /**
+     * E-Mail, that gets sent 24h before the Reservation
+     * @param reservation The given Reservation
+     * @throws MessagingException In case of Error regarding the E-Mail Service
+     */
+    public void sendConfirmationMail(Reservation reservation) throws MessagingException {
+        this.sendMail(false, reservation);
+    }
+
     /*
         sendet eine Mail mittels des hinterlegten Postfaches
         -> falls cancellationRequest = true, dann wird die erste Mailvorlage mit Link zum Wiederruf versendet
         -> falls cancellationRequest = false, dann wird die zweite Mailvorlage mit Link zum Bestätigen in den letzten 24h vor der Reservierung versendet
          */
-    public void sendMail(boolean cancellationRequest, Reservation reservation) throws Exception {
+    public void sendMail(boolean cancellationRequest, Reservation reservation) throws MessagingException {
 
         Session session = Session.getInstance(prop, new Authenticator() {
             @Override
@@ -90,19 +107,28 @@ public class EmailUtils {
 
         MimeBodyPart mimeBodyPart = new MimeBodyPart();
         //Erste Emailvorlage mit Cancellationlink
-        if(cancellationRequest){
-            message.setSubject("1st Reservation Notice - Booking at "+reservation.getRestaurant());
+        if (cancellationRequest) {
+            //message.setSubject("1st Reservation Notice - Booking at " + reservation.getRestaurant());
+            message.setSubject(reservation.getRestaurant().getName() + " - Thank you for your Reservation");
 
-            String cancellationURL = "localhost:8080/reservations/email/cancellation/"+reservation.getId();
+            String cancellationURL = "http://localhost:8080/reservations/email/cancellation/" + reservation.getId();
 
-            String msg = "Dear "+reservation.getClientName()+",\n your Reservation at "+reservation.getRestaurant().getName()+" at the following date "+reservation.getFromTime()+" has been sucessfull. You will receive a final confirmation Request via email 24 hours before your reservation.\n Until then you can cancel your reservation via the following link: "+cancellationURL+"\n Thanks a lot. \n Your EIST-Baer Team";
-
+            String msg = "<html>" +
+                    "Dear " + reservation.getClientName() + ",<br><br>" +
+                    "Your Reservation at <b>" + reservation.getRestaurant().getName() + "</b> for <b>" +
+                    reservation.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(Locale.US)) +
+                    "</b> at <b>" + reservation.getToTime().format(DateTimeFormatter.ofPattern("HH:mm")) +
+                    "</b> was successful. <br><br>" +
+                    "You will receive a final confirmation Request via email 24 hours before your reservation.<br>" +
+                    "Until then you can cancel your reservation <a href=\"" + cancellationURL + "\">here</a>.<br><br>" +
+                    "Thanks a lot, <br>Your EIST-Baer Team" +
+                    "</html>";
 
             mimeBodyPart.setContent(msg, "text/html; charset=utf-8");
 
         }
         //Zweite Emailvorlage mit Confirmation Link (< 24 h vor der Buchung versendet)
-        else{
+        else {
             message.setSubject("Mail Subject");
 
             String msg = "This is my first email using JavaMailer";
@@ -117,7 +143,6 @@ public class EmailUtils {
 
         Transport.send(message);
     }
-
 
 
 }
