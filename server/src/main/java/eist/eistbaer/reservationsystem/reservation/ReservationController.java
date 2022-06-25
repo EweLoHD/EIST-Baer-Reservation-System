@@ -1,9 +1,8 @@
 package eist.eistbaer.reservationsystem.reservation;
 
 import eist.eistbaer.reservationsystem.reservation.email.EmailUtils;
-import eist.eistbaer.reservationsystem.restaurant.Restaurant;
+import eist.eistbaer.reservationsystem.reservation.util.InvalidReservationException;
 import eist.eistbaer.reservationsystem.restaurant.RestaurantRepository;
-import eist.eistbaer.reservationsystem.restaurant.type.RestaurantType;
 //import eist.eistbaer.reservationsystem.restaurant.type.RestaurantTypeRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +32,6 @@ public class ReservationController {
     }
 
     @PostMapping("/reservations")
-    @ExceptionHandler(InvalidReservationException.class)
     Reservation addReservation(@RequestBody Reservation reservation) {
         if (reservation.isValid()) {
             return reservationRepository.save(reservation);

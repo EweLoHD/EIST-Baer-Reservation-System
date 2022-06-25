@@ -1,14 +1,12 @@
 package eist.eistbaer.reservationsystem.reservation;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import eist.eistbaer.reservationsystem.reservation.util.ReservationDeserializer;
 import eist.eistbaer.reservationsystem.restaurant.Restaurant;
 import eist.eistbaer.reservationsystem.restaurant.table.RestaurantTable;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -173,6 +171,16 @@ public class Reservation {
 
     public void setPeople(int people) {
         this.people = people;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Reservation that = (Reservation) o;
+
+        return id.equals(that.id);
     }
 
     @Override

@@ -1,10 +1,11 @@
-package eist.eistbaer.reservationsystem.reservation;
+package eist.eistbaer.reservationsystem.reservation.util;
 
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
+import eist.eistbaer.reservationsystem.reservation.Reservation;
 import eist.eistbaer.reservationsystem.restaurant.RestaurantRepository;
 import eist.eistbaer.reservationsystem.restaurant.table.RestaurantTableRepository;
 import org.springframework.beans.factory.annotation.Autowired;
