@@ -1,6 +1,7 @@
 package eist.eistbaer.reservationsystem.reservation;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -17,7 +18,7 @@ import java.time.LocalTime;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-@JsonPropertyOrder({ "clientName", "clientEmail", "fromTime", "toTime", "date", "table", "restaurant" })
+@JsonPropertyOrder({ "clientName", "clientEmail", "fromTime", "toTime", "people", "date", "table", "restaurant" })
 @JsonDeserialize(using = ReservationDeserializer.class)
 public class Reservation {
     public static final int DEFAULT_DURATION = 2;
@@ -30,12 +31,10 @@ public class Reservation {
     private String clientEmail;
 
     private LocalTime fromTime;
-    //private LocalTime toTime;
     private LocalDate date;
 
     private int people;
 
-    //@JsonBackReference
     @ManyToOne
     private RestaurantTable table;
 
@@ -74,6 +73,7 @@ public class Reservation {
      *  - Checks if table has the necessary capacity
      * @return true if the reservation is valid
      */
+    @JsonIgnore
     public boolean isValid() {
         // Check if table belongs to the restaurant
         if (!restaurant.getRestaurantTables().contains(getTable()))

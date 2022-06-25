@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins="*")
 public class ReviewController {
     private final RestaurantRepository restaurantRepository;
     private final ReviewRepository reviewRepository;
