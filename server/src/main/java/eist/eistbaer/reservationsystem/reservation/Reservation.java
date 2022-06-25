@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import eist.eistbaer.reservationsystem.reservation.util.ReservationDeserializer;
 import eist.eistbaer.reservationsystem.restaurant.Restaurant;
 import eist.eistbaer.reservationsystem.restaurant.table.RestaurantTable;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -24,8 +25,9 @@ public class Reservation {
     public static final int DEFAULT_DURATION = 2;
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    private String id;
 
     private String clientName;
     private String clientEmail;
@@ -101,11 +103,11 @@ public class Reservation {
         return true;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

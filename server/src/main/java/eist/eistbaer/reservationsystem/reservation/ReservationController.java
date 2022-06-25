@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import java.util.List;
 
 @RestController
@@ -27,7 +28,7 @@ public class ReservationController {
     }
 
     @GetMapping("/reservations/{id}")
-    Reservation getReservationById(@PathVariable Long id) {
+    Reservation getReservationById(@PathVariable String id) {
         // TODO Add Error Handling
         return reservationRepository.findById(id).orElseThrow();
     }
@@ -35,15 +36,26 @@ public class ReservationController {
     @PostMapping("/reservations")
     Reservation addReservation(@RequestBody Reservation reservation) {
         if (reservation.isValid()) {
-            return reservationRepository.save(reservation);
+            Reservation newReservation = reservationRepository.save(reservation);
+            try {
+                EmailUtils.defaultEmailUtils().sendCompletedMail(newReservation);
+            } catch (MessagingException e) {
+                throw new RuntimeException(e);
+            }
+            return newReservation;
         } else {
-            //TODO return proper Error Message instead of throwing Error
+            //TODO return proper Error Message
             throw new InvalidReservationException();
         }
     }
 
-    @GetMapping("/reservations/email/confirmation/{id}")
-    ResponseEntity<Reservation> sendConfirmationEmail(@PathVariable Long id) {
+    @DeleteMapping("/reservations/{id}")
+    void deleteReservation(@PathVariable String id) {
+        reservationRepository.deleteById(id);
+    }
+
+    /*@GetMapping("/reservations/email/confirmation/{id}")
+    ResponseEntity<Reservation> sendConfirmationEmail(@PathVariable String id) {
         // TODO Add Error Handling
         Reservation currentReservation = reservationRepository.findById(id).orElseThrow();
         if(currentReservation != null){
@@ -59,27 +71,27 @@ public class ReservationController {
         else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-    }
+    }*/
 
-    @GetMapping("/reservations/email/cancellation/{id}")
-    ResponseEntity<Reservation> sendCancellationRequest(@PathVariable Long id) {
+    /*@GetMapping("/reservations/email/cancellation/{id}")
+    ResponseEntity<Reservation> sendCancellationRequest(@PathVariable String id) {
         // TODO Add Error Handling
         Reservation currentReservation = reservationRepository.findById(id).orElseThrow();
         if(currentReservation != null){
             //TODO: falls benötigt noch den Versand einer Cancellation-Bestätigung implementieren
             //EmailUtils currentEmailUtils = new EmailUtils("smtp.web.de", 587, "eist_table_booking", "EistBaer2022!");
-            /*try {
+            try {
                 currentEmailUtils.sendMail(true, currentReservation);
                 //Response, wenn die Email erfolgreich gesendet werden konnte
                 return new ResponseEntity<>(HttpStatus.OK);
             } catch (Exception e) {
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-            }*/
+            }
             return new ResponseEntity<>(HttpStatus.OK);
         }
         else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-    }
+    }*/
 
 }

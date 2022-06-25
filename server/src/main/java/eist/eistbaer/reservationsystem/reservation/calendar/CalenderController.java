@@ -39,7 +39,7 @@ public class CalenderController {
     }
 
     @GetMapping(path = "/generate-calendar/{id}")
-    public ResponseEntity generateCalenderFile(@PathVariable Long id) {
+    public ResponseEntity generateCalenderFile(@PathVariable String id) {
         Reservation currentReservation = reservationRepository.findById(id).orElseThrow();
         Calendar cal = new Calendar();
 

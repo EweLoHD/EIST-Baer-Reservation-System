@@ -19,6 +19,9 @@ public class EmailUtils {
     private String password;
 
     //attributes for mailcontent
+
+    //TODO A little cleanup (;
+
     private String restaurantName;
     private String customerName;
     private java.util.Date reservationTime;
@@ -46,6 +49,10 @@ public class EmailUtils {
         prop.put("mail.smtp.port", port);
     }
 
+    public static EmailUtils defaultEmailUtils() {
+        //TODO Load Credentials from Config-File
+        return new EmailUtils("smtp.web.de", 587, "eist_table_booking", "EistBaer2022!");
+    }
 
     //methods
 
@@ -111,7 +118,7 @@ public class EmailUtils {
             //message.setSubject("1st Reservation Notice - Booking at " + reservation.getRestaurant());
             message.setSubject(reservation.getRestaurant().getName() + " - Thank you for your Reservation");
 
-            String cancellationURL = "http://localhost:8080/reservations/email/cancellation/" + reservation.getId();
+            String cancellationURL = "http://localhost:3000/reservation-confirmed/" + reservation.getId() + "?cancellation=1";
 
             String msg = "<html>" +
                     "Dear " + reservation.getClientName() + ",<br><br>" +
