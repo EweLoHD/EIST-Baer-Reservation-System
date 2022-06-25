@@ -1,14 +1,29 @@
 package eist.eistbaer.reservationsystem.reservation;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import eist.eistbaer.reservationsystem.restaurant.Restaurant;
 import eist.eistbaer.reservationsystem.restaurant.table.RestaurantTable;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
+@JsonPropertyOrder({ "clientName", "clientEmail", "fromTime", "toTime", "date", "table", "restaurant" })
+@JsonDeserialize(using = ReservationDeserializer.class)
 public class Reservation {
+    public static final int DEFAULT_DURATION = 2;
+
     @Id
     @GeneratedValue
     private Long id;
@@ -17,17 +32,75 @@ public class Reservation {
     private String clientEmail;
 
     private LocalTime fromTime;
-    private LocalTime toTime;
-
+    //private LocalTime toTime;
     private LocalDate date;
 
+    private int people;
+
+    //@JsonBackReference
     @ManyToOne
     private RestaurantTable table;
 
-    @ManyToOne
+    @ManyToOne()
     private Restaurant restaurant;
 
     public Reservation() {
+    }
+
+    /**
+     * Checks if a certain Timestamp (from - to) overlaps with the Timestamp of the reservation
+     * @param fromTime Start time to the Timestamp
+     * @param toTime End time to the Timestamp
+     * @return true if the Timestamp (from - to) overlaps with the Timeslot of the Reservation
+     */
+    public boolean interferingWithTimes(LocalTime fromTime, LocalTime toTime) {
+        LocalDateTime reservationFromTime = this.getFromTime().atDate(LocalDate.now());
+        LocalDateTime reservationToTime = this.getToTime().atDate(this.getFromTime().isBefore(this.getToTime()) ? LocalDate.now() : LocalDate.now().plusDays(1));
+
+        LocalDateTime from = fromTime.atDate(LocalDate.now());
+        LocalDateTime to = toTime.atDate(fromTime.isBefore(toTime) ? LocalDate.now() : LocalDate.now().plusDays(1));
+
+        return (reservationFromTime.isBefore(from) && reservationToTime.isAfter(from))
+                || (reservationFromTime.isBefore(to) && reservationToTime.isAfter(to))
+                || (reservationFromTime.isAfter(from) && reservationToTime.isBefore(to))
+                || (reservationFromTime.isBefore(from) && reservationToTime.isAfter(to))
+                || reservationFromTime.equals(from)
+                || reservationToTime.equals(to);
+    }
+
+    /**
+     * Checks if all the values of the Reservation are correct:
+     *  - Checks if a reservation at the given time is possible (if the provided table is free for the given time and date and if the restaurant has open at the given time and date).
+     *  - Checks if the provided table belongs to the provided restaurant
+     *  - Checks if the date and time doesn't lie in the past
+     *  - Checks if table has the necessary capacity
+     * @return true if the reservation is valid
+     */
+    public boolean isValid() {
+        // Check if table belongs to the restaurant
+        if (!restaurant.getRestaurantTables().contains(getTable()))
+            return false;
+
+        // Check if table is free
+        for (Reservation r : table.getReservations()) {
+            if (r.interferingWithTimes(getFromTime(), getToTime())) {
+                return false;
+            }
+        }
+
+        // Check if restaurant has open at time and date
+        if (!restaurant.hasOpened(getDate(), getFromTime(), getToTime()))
+            return false;
+
+        // Check if the date and time doesn't lie in the past
+        if ((getFromTime().isBefore(LocalTime.now()) && getFromTime().isAfter(LocalTime.of(4, 0))) || getDate().isBefore(LocalDate.now()))
+            return false;
+
+        // Check if table has the necessary capacity
+        if (getTable().getCapacity() < getPeople())
+            return false;
+
+        return true;
     }
 
     public Long getId() {
@@ -63,11 +136,7 @@ public class Reservation {
     }
 
     public LocalTime getToTime() {
-        return toTime;
-    }
-
-    public void setToTime(LocalTime toTime) {
-        this.toTime = toTime;
+         return fromTime != null ? fromTime.plusHours(DEFAULT_DURATION) : null;
     }
 
     public RestaurantTable getTable() {
@@ -86,12 +155,24 @@ public class Reservation {
         this.restaurant = restaurant;
     }
 
+    public void setRestaurant(int restaurantID) {
+        this.restaurant = restaurant;
+    }
+
     public LocalDate getDate() {
         return date;
     }
 
     public void setDate(LocalDate date) {
         this.date = date;
+    }
+
+    public int getPeople() {
+        return people;
+    }
+
+    public void setPeople(int people) {
+        this.people = people;
     }
 
     @Override
@@ -101,7 +182,7 @@ public class Reservation {
                 ", clientName='" + clientName + '\'' +
                 ", clientEmail='" + clientEmail + '\'' +
                 ", fromTime=" + fromTime +
-                ", toTime=" + toTime +
+                ", toTime=" + getToTime() +
                 ", date=" + date +
                 ", table=" + table +
                 ", restaurant=" + restaurant +

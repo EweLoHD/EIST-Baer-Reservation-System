@@ -1,22 +1,42 @@
 package eist.eistbaer.reservationsystem.restaurant.table;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import eist.eistbaer.reservationsystem.reservation.Reservation;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.List;
 
 @Entity
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class RestaurantTable {
     @Id
     @GeneratedValue
     private Long id;
 
     private int x;
-
     private int y;
-
     private int capacity;
 
+    @OneToMany
+    @JoinColumn(name="table_id")
+    private List<Reservation> reservations;
+
     public RestaurantTable() {
+    }
+
+    public boolean isFreeBetween(LocalDate date, LocalTime from, LocalTime to) {
+        for (Reservation r : reservations) {
+            if (r.getDate().isEqual(date) && r.interferingWithTimes(from, to)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public Long getId() {
@@ -51,6 +71,22 @@ public class RestaurantTable {
         this.capacity = capacity;
     }
 
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RestaurantTable that = (RestaurantTable) o;
+        return id.equals(that.id);
+    }
+
     @Override
     public String toString() {
         return "RestaurantTable{" +
@@ -58,6 +94,7 @@ public class RestaurantTable {
                 ", x=" + x +
                 ", y=" + y +
                 ", capacity=" + capacity +
+                ", reservations=" + reservations +
                 '}';
     }
 }

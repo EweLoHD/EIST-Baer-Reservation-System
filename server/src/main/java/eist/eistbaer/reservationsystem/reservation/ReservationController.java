@@ -33,9 +33,14 @@ public class ReservationController {
     }
 
     @PostMapping("/reservations")
+    @ExceptionHandler(InvalidReservationException.class)
     Reservation addReservation(@RequestBody Reservation reservation) {
-        // TODO: Add Error Handling
-        return reservationRepository.save(reservation);
+        if (reservation.isValid()) {
+            return reservationRepository.save(reservation);
+        } else {
+            //TODO return proper Error Message instead of throwing Error
+            throw new InvalidReservationException();
+        }
     }
 
     @GetMapping("/reservations/email/confirmation/{id}")

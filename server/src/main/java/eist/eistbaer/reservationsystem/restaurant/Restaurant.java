@@ -1,6 +1,6 @@
 package eist.eistbaer.reservationsystem.restaurant;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.*;
 import eist.eistbaer.reservationsystem.restaurant.openingtime.OpeningTime;
 import eist.eistbaer.reservationsystem.restaurant.pictures.RestaurantPicture;
 import eist.eistbaer.reservationsystem.restaurant.priceCategory.PriceCategory;
@@ -12,9 +12,16 @@ import eist.eistbaer.reservationsystem.restaurant.address.Address;
 import eist.eistbaer.reservationsystem.restaurant.table.RestaurantTable;
 
 import javax.persistence.*;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Restaurant {
 
     @Id
@@ -37,7 +44,7 @@ public class Restaurant {
     @JsonIgnoreProperties("id")
     private List<OpeningTime> openingTimes;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     @JsonIgnoreProperties("id")
     private Address address;
 
@@ -52,15 +59,6 @@ public class Restaurant {
     public Restaurant() {
     }
 
-//    public Restaurant(String name, String description, String websiteLink, List<RestaurantPicture> restaurantPictures, RestaurantType restaurantType, PriceCategory priceCategory, List<OpeningTime> openingTimes, Address address) {
-//        this.name = name;
-//        this.description = description;
-//        this.websiteLink = websiteLink;
-//        this.restaurantPictures = restaurantPictures;
-//        this.restaurantType = restaurantType;
-//        this.priceCategory = priceCategory;
-//        this.openingTimes = openingTimes;
-//    }
 
     public long getId() {
         return id;
@@ -146,6 +144,12 @@ public class Restaurant {
         this.reviews = reviews;
     }
 
+    @JsonGetter
+    public double getRating() {
+        return reviews.stream().mapToInt(r -> r.getRating().num()).average().orElse(0);
+    }
+
+    @JsonIgnore
     public ReviewRating getAverageRating() {
         double sumRating = 0.0;
         double numberOfReviews = 0.0;
@@ -155,6 +159,38 @@ public class Restaurant {
         }
         int averageRating = (int) Math.round(sumRating / numberOfReviews);
         return ReviewRating.of(averageRating);
+    }
+
+    public List<OpeningTime> getOpeningTimesOfDay(DayOfWeek dayOfWeek) {
+        return openingTimes.stream()
+                .filter(openingTime -> openingTime.getDayOfWeek().getValue() == dayOfWeek.getValue())
+                .toList();
+    }
+
+    /**
+     * Checks if the given Timestamp (from - to) lies in the Opening Times of the Restaurant at the given Date
+     * @param date Date
+     * @param fromTime Start time to the Timestamp
+     * @param toTime End time to the Timestamp
+     * @return true if (fromTime - toTime) lies in the Opening Times of the Restaurant at the given Date
+     */
+    public boolean hasOpened(LocalDate date, LocalTime fromTime, LocalTime toTime) {
+        LocalDateTime from = fromTime.atDate(fromTime.isAfter(LocalTime.of(4, 0)) ? LocalDate.now() : LocalDate.now().plusDays(1));
+        LocalDateTime to = toTime.atDate(fromTime.isBefore(toTime) ? LocalDate.now() : LocalDate.now().plusDays(1));
+
+        List<OpeningTime> openingTimes = getOpeningTimesOfDay(date.getDayOfWeek());
+
+        for (OpeningTime o : openingTimes) {
+            LocalDateTime oF = o.getFromTime().atDate(LocalDate.now());
+            LocalDateTime oT = o.getToTime().atDate(o.getFromTime().isBefore(o.getToTime()) ? LocalDate.now() : LocalDate.now().plusDays(1));
+
+            if ((oF.isBefore(from) || oF.equals(from))
+                    && (oT.isAfter(to) || oT.equals(to))) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Override

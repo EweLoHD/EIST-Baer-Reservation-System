@@ -16,9 +16,9 @@ import java.time.LocalTime;
 public class OpeningTime {
     @Id
     @GeneratedValue
+    @JsonIgnore
     private Long id;
 
-    @JsonIgnore
     private DayOfWeek dayOfWeek;
     private LocalTime fromTime;
     private LocalTime toTime;
