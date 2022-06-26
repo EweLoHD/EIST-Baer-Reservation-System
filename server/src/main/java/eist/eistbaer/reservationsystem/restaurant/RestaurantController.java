@@ -85,7 +85,7 @@ public class RestaurantController {
                     if (table.isFreeBetween(localDate, localTime, localTime.plusHours(Reservation.DEFAULT_DURATION))) {
                         RestaurantTable simpleTable = new RestaurantTable(); // Exclude reservations form Response
                         simpleTable.setId(table.getId());
-                        //simpleTable.setType() //TODO
+                        simpleTable.setTableType(table.getTableType());
                         simpleTable.setCapacity(table.getCapacity());
                         simpleTable.setReservations(new ArrayList<>());
 
