@@ -1,0 +1,199 @@
+_id: req_af42ff302bc34317bdc53a3df1a70ba0
+type: Request
+parentId: wrk_5ea6c50d89684484879a604eecfd2c5d
+modified: 1656273521524
+created: 1656271376383
+url: "{{ base_url }}/restaurants"
+name: Create new Restaurant (Hofbräuhaus)
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: >-
+    {
+    	"name": "Hofbräuhaus München",
+    	"restaurantType": "Bavarian",
+    	"description": "Brauhaus aus dem 16. Jahrhundert über 3 Ebenen, mit bayerischem Restaurant, Shows & guter Stimmung.",
+    	"websiteLink": "hofbraeuhaus.de",
+    	"priceCategory": 2,
+    	"restaurantPictures": [
+    		"https://www.hofbraeuhaus.de/files/contentdata/img/pages/willkommen1_nacht.jpg",
+    		"https://www.hofbraeuhaus.de/files/contentdata/img/pages/willkommen2.jpg",
+    		"https://www.hofbraeuhaus.de/files/contentdata/img/pages/willkommen3.jpg",
+    		"https://www.hofbraeuhaus.de/files/contentdata/img/pages/willkommen4.jpg"
+    	],
+    	"address": {
+    		"lat": 48.137695676157215,
+    		"lon": 11.579936032171066,
+    		"street": "Platzl 9",
+    		"city": "Munich",
+    		"postalCode": 80331,
+    		"country": "Germany"
+    	},
+    	"reviews": [
+    		{
+    			"rating": 5,
+    			"comment": "Wir waren total begeistert. Waren mit unseren Kindern dort. Schnelle und äußerst freundliche Bedienung. Das Essen war auch sehr lecker. Für jeden etwas dabei, auch vegetarisch. Zum Abschied gab es für unsere 2 Kleinen auch noch eine kleine Wundertüte geschenkt."
+    		},
+    		{
+    			"rating": 5,
+    			"comment": "Ich denke es braucht nicht viele Worte. Bekanntes Lokal mit reichlich Platz drinnen wie draußen. Nette LIVE-Musik und leckere Speisen und Getränke sorgen für einen gemütlichen Aufenthalt. Personal ist freundlich und Wartezeiten kurz. Sowohl kulturell als auch kulinarisch ein Muss in München. Vor Ort gibt es natürlich auch noch einen Souveniershop für‘s Mitbringsel für Daheimgebliebene oder das eigene Andenken."
+    		},
+    		{
+    			"rating": 4,
+    			"comment": "Naja was soll man noch schreiben. Es war alles voll und als wir vor den leeren Stammtischen standen hat uns der Tisch-Chef einen frei gemacht, Hammer. Bier war super und essen auch. Wir waren etwas abseits der Kapelle gesessen und konnten uns in Ruhe unterhalten, sofern man das bei dem Lautstärken Pegel im Hofbräuhaus sagen kann."
+    		},
+    		{
+    			"rating": 5,
+    			"comment": "Natürlich ist das absolut der Anlauf für Touristen - Aber guter Eindruck für das Brauchtum, Bayern und Oktoberfest - Man kommt schnell ins Gespräch (mit Touristen) und hat eine kurze und gute Zeit - Das Bier ist lecker und kostet ca. 9 € (1 L) - Essen ist teuer und ok- Essen oder speisen sollte man evtl. woanders in München, das geht besser und günstiger - Ansonsten ist es ein super Erlebnis und meiner Meinung nach sehr zu empfehlen!"
+    		},
+    		{
+    			"rating": 3,
+    			"comment": "Das Bier schmeckt super. Das Essen geschmacklich gut. Kleine Portion und zu wenig Soße für viel Geld. Wäre ich hungrig angekommen, wäre ich hungrig wieder gegangen. Obwohl auf der Speisekarte vermerkt, konnte mir der Service keine Karte mit Allergenenliste bringen. Ja, warum dann der Hinweis, wenn es diese ja doch nicht gibt :("
+    		},
+    		{
+    			"rating": 1,
+    			"comment": "Zugegeben waren wir etwas spät dran. Aber entweder hat die Küche noch offen, dann müssen die rausgegebenen Speisen warm und schmackhaft sein, oder man macht die Küche dicht. Bestellungen aufnehmen und dann nur die Hälfte rausgeben nach 20 min ist nicht gut."
+    		},
+    		{
+    			"rating": 3,
+    			"comment": "Bier lecker, Stimmung gut - muss man mal erlebt haben. Essen allerdings lieblos angerichtet und serviert - der Kaiserschmarrn war zudem eine Katastrophe. Nah an der Grenze zur Touristenfalle, leider."
+    		},
+    		{
+    			"rating": 5,
+    			"comment": "Ein gut funktionierendes Gasthaus, welches von der Tradition lebt. Natürlich gibt es gemütlichere Gasthäuser, aber man sollte es schon einmal erlebt haben in der Schwemme zu sitzen. Das Essen richtig genießen, kann man dann im Sommer im Biergarten oder in den anderen Räumen, denn alles was fernab der schnellen Touristenküche ist, ist richtig gut und erlesen. Wer hier hinkommt, weiß worauf er sich einlässt und wo er am besten speist und in welcher Lautstärke er das gerne hätte. Der Service ist überall gut und ich bewundere immer wieder die Geduld der Crew. ich kann nur die Führungen durch das Hofbräuhaus empfehlen, denn dieser Gasthof hat Geschichten zu erzählen...."
+    		},
+    		{
+    			"rating": 4,
+    			"comment": "Das Bier ist echt super. Das Essen — teils gut, teils geht so… Die Haxe kann ich weiterempfehlen, der Tartar war dagegen richtig schlecht. Man muss auch teilweise wirklich lange warten, auch wenn der Laden bei weitem nicht voll ist, da es an Personal mangelt."
+    		},
+    		{
+    			"rating": 5,
+    			"comment": "Wir hatten ein Schitzel und das Hirschgulasch. Das Gulasch war zart und sehr lecker laut meiner Begleitung. Das Schnitzel war super lecker, die würzige Panade war die beste die ich seid langem gegessen habe... Die Stimmung war Bombe und ein tolles erlebnis, wir gehen sicher wieder hin wenn wir in München sind. Ach und super nette Bedienungen"
+    		}
+    	],
+    	"restaurantTables": [
+    		{
+    			"tableType": "REGULAR",
+    			"capacity": 4
+    		},
+    		{
+    			"tableType": "REGULAR",
+    			"capacity": 4
+    		},
+    		{
+    			"tableType": "REGULAR",
+    			"capacity": 4
+    		},
+    		{
+    			"tableType": "REGULAR",
+    			"capacity": 4
+    		},
+    		{
+    			"tableType": "REGULAR",
+    			"capacity": 4
+    		},
+    		{
+    			"tableType": "REGULAR",
+    			"capacity": 4
+    		},
+    		{
+    			"tableType": "REGULAR",
+    			"capacity": 6
+    		},
+    		{
+    			"tableType": "REGULAR",
+    			"capacity": 6
+    		},{
+    			"tableType": "REGULAR",
+    			"capacity": 6
+    		},
+    		{
+    			"tableType": "REGULAR",
+    			"capacity": 10
+    		},
+    		{
+    			"tableType": "REGULAR",
+    			"capacity": 14
+    		},
+    		{
+    			"tableType": "OUTDOOR",
+    			"capacity": 2
+    		},
+    		{
+    			"tableType": "OUTDOOR",
+    			"capacity": 2
+    		},
+    		{
+    			"tableType": "OUTDOOR",
+    			"capacity": 4
+    		},
+    		{
+    			"tableType": "OUTDOOR",
+    			"capacity": 4
+    		},
+    		{
+    			"tableType": "OUTDOOR",
+    			"capacity": 8
+    		},
+    		{
+    			"tableType": "OUTDOOR",
+    			"capacity": 8
+    		},
+    		{
+    			"tableType": "OUTDOOR",
+    			"capacity": 8
+    		}
+    	],
+    	"openingTimes": [
+    		{
+    			"dayOfWeek": "MONDAY",
+    			"fromTime": "11:00",
+    			"toTime": "00:00"
+    		},
+    		{
+    			"dayOfWeek": "TUESDAY",
+    			"fromTime": "11:00",
+    			"toTime": "00:00"
+    		},
+    		{
+    			"dayOfWeek": "WEDNESDAY",
+    			"fromTime": "11:00",
+    			"toTime": "00:00"
+    		},
+    		{
+    			"dayOfWeek": "THURSDAY",
+    			"fromTime": "11:00",
+    			"toTime": "00:00"
+    		},
+    		{
+    			"dayOfWeek": "FRIDAY",
+    			"fromTime": "11:00",
+    			"toTime": "00:00"
+    		},
+    		{
+    			"dayOfWeek": "SATURDAY",
+    			"fromTime": "11:00",
+    			"toTime": "00:00"
+    		},
+    		{
+    			"dayOfWeek": "SUNDAY",
+    			"fromTime": "11:00",
+    			"toTime": "00:00"
+    		}
+    	]
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_b7de1fb1cfb54ca4a1cf875149451eb6
+authentication: {}
+metaSortKey: -1656271333151
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

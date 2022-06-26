@@ -1,0 +1,21 @@
+_id: req_a737bebe4bb64b598e6ca3c2fa2b1ee4
+type: Request
+parentId: wrk_5ea6c50d89684484879a604eecfd2c5d
+modified: 1656275012234
+created: 1656275003244
+url: "{{ base_url }}/restaurants"
+name: Get all Restaurants
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1656271333113.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

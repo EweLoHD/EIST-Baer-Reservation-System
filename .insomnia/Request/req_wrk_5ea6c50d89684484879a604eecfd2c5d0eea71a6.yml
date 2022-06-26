@@ -1,0 +1,30 @@
+_id: req_wrk_5ea6c50d89684484879a604eecfd2c5d0eea71a6
+type: Request
+parentId: fld_fd0b63c00d854e7b897149e832a2b640
+modified: 1656271353436
+created: 1656270727933
+url: "{{ base_url }}/restaurants/{{ id }}/available-timeslots"
+name: /restaurants/{id}/available-timeslots
+description: ""
+method: GET
+body: {}
+parameters:
+  - name: date
+    disabled: false
+    value: string
+  - name: time
+    disabled: false
+    value: string
+  - name: people
+    disabled: false
+    value: "0"
+headers: []
+authentication: {}
+metaSortKey: -1656270727473
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,26 @@
+_id: req_wrk_5ea6c50d89684484879a604eecfd2c5de407ad4f
+type: Request
+parentId: fld_fd0b63c00d854e7b897149e832a2b640
+modified: 1656271485567
+created: 1656270727969
+url: "{{ base_url }}/restaurants"
+name: /restaurants
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: "null"
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_b7de1fb1cfb54ca4a1cf875149451eb6
+authentication: {}
+metaSortKey: -1656270727923
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
