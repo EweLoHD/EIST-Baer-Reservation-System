@@ -240,7 +240,7 @@ export default {
                     <a href="javascript:;" class="block px-4 py-1 text-base hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="onPeopleSelect(index)">{{ index }}</a>
                 </li>
                 <li key="20+">
-                    <a href="javascript:;" class="block px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="onPeopleSelect(16)">20 +</a>
+                    <a href="javascript:;" class="block px-4 py-1 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" @click="onPeopleSelect(20)">20 +</a>
                 </li>
             </ul>
         </div>
