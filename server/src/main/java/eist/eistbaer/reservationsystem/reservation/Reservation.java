@@ -94,7 +94,8 @@ public class Reservation {
         if (!restaurant.hasOpened(getDate(), getFromTime(), getToTime())) return false;
 
         // Check if the date and time doesn't lie in the past
-        if ((getFromTime().isBefore(LocalTime.now()) && getFromTime().isAfter(LocalTime.of(4, 0))) || getDate().isBefore(LocalDate.now())) return false;
+        if(getDate().isBefore(LocalDate.now())) return false;
+        if (getDate().equals(LocalDate.now()) && getFromTime().isAfter(LocalTime.of(4, 0)) && getFromTime().isBefore(LocalTime.now())) return false;
 
         // Check if table has the necessary capacity
         if (getTable().getCapacity() < getPeople()) return false;

@@ -34,7 +34,8 @@ import net.fortuna.ical4j.model.property.Version;
 @RestController
 public class CalenderController {
     private final ReservationRepository reservationRepository;
-    public CalenderController(ReservationRepository reservationRepository){
+
+    public CalenderController(ReservationRepository reservationRepository) {
         this.reservationRepository = reservationRepository;
     }
 
@@ -46,15 +47,15 @@ public class CalenderController {
         try {
             TimeZone tz = Utils.getTimezone("Europe/Berlin");
 
-      /* Make up a start date 10 days from now.
-         Ensure on an hour boundary
-       */
+          /* Make up a start date 10 days from now.
+             Ensure on an hour boundary
+           */
             java.util.Calendar startDate = new GregorianCalendar();
             startDate.setTimeZone(tz);
-           // startDate.add(java.util.Calendar.DAY_OF_MONTH, 0);
+            // startDate.add(java.util.Calendar.DAY_OF_MONTH, 0);
             startDate.set(currentReservation.getDate().getYear(), currentReservation.getDate().getMonthValue(), currentReservation.getDate().getDayOfYear(), currentReservation.getFromTime().getHour(), currentReservation.getFromTime().getMinute());
-           // startDate.set(java.util.Calendar.MINUTE, 0);
-           // startDate.set(java.util.Calendar.SECOND, 0);
+            // startDate.set(java.util.Calendar.MINUTE, 0);
+            // startDate.set(java.util.Calendar.SECOND, 0);
 
             // Create the event
             String eventName = "Reservierung bei " + currentReservation.getRestaurant().getName();

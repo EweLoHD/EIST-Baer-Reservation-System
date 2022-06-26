@@ -29,7 +29,8 @@ export default {
             dataSelected: false,
             slots: {} as Array<{ time: string, tables: Array<{ id: string, tableType: string }> }>,
             tableTypeModal: {} as Modal,
-            tables: {} as Array<{ id: string, tableType: string }>
+            tables: {} as Array<{ id: string, tableType: string }>,
+            selectedSlot: {} as { time: string, tables: Array<{ id: string, tableType: string }> }
         }
     },
     methods: {
@@ -101,6 +102,8 @@ export default {
         },
         selectSlot(slot: { time: string, tables: Array<{ id: string, tableType: string }> }) {
             this.tables = slot.tables;
+            this.selectedSlot = slot;
+
             if (slot.tables.length > 1) {
                 this.showTableTypeModal();
             } else {
@@ -115,10 +118,12 @@ export default {
         selectTable(table: { id: string, tableType: string }) {
             var params = new URLSearchParams({
                 "date": dateFormat(this.datePicker.getDate(), "yyyy-mm-dd"),
-                "time": dateFormat(new Date(this.selectedTime), "HH:MM"),
+                "time": this.selectedSlot.time.split(':')[0] + ':' + this.selectedSlot.time.split(':')[1],
                 "people": this.selectedPeopleCount+"",
                 "table": table.id
             });
+
+            console.log(dateFormat(new Date(this.selectedTime), "HH:MM"));
 
             window.location.href = this.$route.params.id + "/reservation?" + params.toString();
         },
@@ -247,13 +252,6 @@ export default {
     </div>
     <div v-if="dataSelected">
         <div v-if="tablesFound()" class="grid grid-rows-1 grid-cols-7 gap-4 mt-5 h-14" id="grid">
-            <!--<a class="w-full h-14 bg-gray-200 rounded-md inline-flex items-center justify-center"></a>
-            <button class="w-full h-14 bg-blue-600 hover:bg-blue-700 rounded-md inline-flex items-center justify-center text-white font-semibold">18:00</button>
-            <a class="w-full h-14 bg-gray-200 rounded-md inline-flex items-center justify-center"></a>
-            <button class="w-full h-14 bg-blue-600 hover:bg-blue-700 rounded-md inline-flex items-center justify-center text-white font-semibold">19:00</button>
-            <button class="w-full h-14 bg-blue-600 hover:bg-blue-700 rounded-md inline-flex items-center justify-center text-white font-semibold">19:30</button>
-            <a class="w-full h-14 bg-gray-200 rounded-md inline-flex items-center justify-center"></a>
-            <a class="w-full h-14 bg-gray-200 rounded-md inline-flex items-center justify-center"></a>-->
             <button v-for="slot in slots" @click="selectSlot(slot)" :disabled="slot.tables.length == 0" class="w-full h-14 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 rounded-md inline-flex items-center justify-center text-white font-semibold">
                 {{ slot.time.split(':')[0] + ':' + slot.time.split(':')[1] }}
             </button>
