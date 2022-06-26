@@ -139,7 +139,7 @@ export default {
                 <img :src="restaurant.restaurantPictures[0]" class="object-cover w-full h-full brightness-75" alt="...">
             </div>
         </div>
-        <div class="relative bg-transparent h-[100rem] w-[72rem] z-30">
+        <div class="relative bg-transparent h-full w-[72rem] z-30 pb-10">
             <div class="flex h-[42rem] justify-start items-center">
                 <div class="flex flex-col">
                     <h1 class="text-7xl font-bold text-white align-middle drop-shadow-[10px_10px_15px_rgba(0,0,0,10.0)]">{{ restaurant.name }}</h1>
