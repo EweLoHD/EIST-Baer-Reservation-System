@@ -19,15 +19,18 @@ public class ReviewController {
         this.reviewRepository = reviewRepository;
     }
 
-    @GetMapping("/restaurants/reviews/{id}")
+    @GetMapping("/restaurants/{id}/reviews")
     List<Review> getAllReviews(@PathVariable Long id) {
         return restaurantRepository.findById(id).orElseThrow().getReviews();
     }
 
-    @PostMapping("/restaurants/reviews/{id}")
+    @PostMapping("/restaurants/{id}/reviews")
     @ResponseStatus(value = HttpStatus.FORBIDDEN, reason = "To show an example of a custom message")
     Review addReview(@PathVariable Long id, @RequestBody Review review) {
         Restaurant restaurant = restaurantRepository.findById(id).orElseThrow();
+
+        //TODO Was das?
+
         if (restaurant != null){
 //            List<Review> reviews = restaurant.getReviews();
 //            reviews.add(review);

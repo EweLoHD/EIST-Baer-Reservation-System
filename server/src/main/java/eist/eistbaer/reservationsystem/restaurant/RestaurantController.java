@@ -82,8 +82,7 @@ public class RestaurantController {
                 .toList();
 
         return timeslots.stream().map(availableTimeslot -> {
-            if ((localDate.isAfter(LocalDate.now()) || localDate.isEqual(LocalDate.now()))
-                    && availableTimeslot.getTime().isAfter(LocalTime.now())
+            if ((localDate.isAfter(LocalDate.now()) || (localDate.isEqual(LocalDate.now()) && availableTimeslot.getTime().isAfter(LocalTime.now())))
                     && restaurant.hasOpened(localDate, availableTimeslot.getTime(), availableTimeslot.getTime().plusHours(Reservation.DEFAULT_DURATION))) {
 
                 for (RestaurantTable table : possibleTables) {

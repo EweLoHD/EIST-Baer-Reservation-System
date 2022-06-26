@@ -178,14 +178,30 @@ public class Restaurant {
      * @return true if (fromTime - toTime) lies in the Opening Times of the Restaurant at the given Date
      */
     public boolean hasOpened(LocalDate date, LocalTime fromTime, LocalTime toTime) {
-        LocalDateTime from = fromTime.atDate(fromTime.isAfter(LocalTime.of(4, 0)) ? LocalDate.now() : LocalDate.now().plusDays(1));
-        LocalDateTime to = toTime.atDate(fromTime.isBefore(toTime) ? LocalDate.now() : LocalDate.now().plusDays(1));
+        LocalDateTime from = fromTime.atDate(LocalDate.now());;
+        LocalDateTime to = toTime.atDate(LocalDate.now());
+
+        if ((fromTime.isAfter(LocalTime.of(0, 0)) || fromTime.equals(LocalTime.of(0, 0))) && fromTime.isBefore(LocalTime.of(4, 0))) {
+            from = fromTime.atDate(LocalDate.now().plusDays(1));
+        }
+
+        if ((toTime.isAfter(LocalTime.of(0, 0)) || toTime.equals(LocalTime.of(0, 0))) && toTime.isBefore(LocalTime.of(4, 0))) {
+            to = toTime.atDate(LocalDate.now().plusDays(1));
+        }
 
         List<OpeningTime> openingTimes = getOpeningTimesOfDay(date.getDayOfWeek());
 
         for (OpeningTime o : openingTimes) {
             LocalDateTime oF = o.getFromTime().atDate(LocalDate.now());
-            LocalDateTime oT = o.getToTime().atDate(o.getFromTime().isBefore(o.getToTime()) ? LocalDate.now() : LocalDate.now().plusDays(1));
+            LocalDateTime oT = o.getToTime().atDate(LocalDate.now());
+
+            if ((o.getFromTime().isAfter(LocalTime.of(0, 0)) || o.getFromTime().equals(LocalTime.of(0, 0))) && o.getFromTime().isBefore(LocalTime.of(4, 0))) {
+                oF = o.getFromTime().atDate(LocalDate.now().plusDays(1));
+            }
+
+            if ((o.getToTime().isAfter(LocalTime.of(0, 0)) || o.getToTime().equals(LocalTime.of(0, 0))) && o.getToTime().isBefore(LocalTime.of(4, 0))) {
+                oT = o.getToTime().atDate(LocalDate.now().plusDays(1));
+            }
 
             if ((oF.isBefore(from) || oF.equals(from))
                     && (oT.isAfter(to) || oT.equals(to))) {

@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -18,8 +19,11 @@ public class Review {
     @JsonIgnore
     private Long id;
 
+    @Lob
     private String comment;
+
     private ReviewRating rating;
+
     @CreationTimestamp
     private LocalDate creationDate;
 

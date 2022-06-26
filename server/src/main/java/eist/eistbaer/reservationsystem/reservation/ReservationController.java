@@ -14,17 +14,10 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins="*")
 public class ReservationController {
-    private final RestaurantRepository restaurantRepository;
     private final ReservationRepository reservationRepository;
 
-    public ReservationController(RestaurantRepository restaurantRepository, ReservationRepository reservationRepository) {
-        this.restaurantRepository = restaurantRepository;
+    public ReservationController(ReservationRepository reservationRepository) {
         this.reservationRepository = reservationRepository;
-    }
-
-    @GetMapping("/reservations")
-    List<Reservation> getAllReservations() {
-        return reservationRepository.findAll();
     }
 
     @GetMapping("/reservations/{id}")
@@ -64,45 +57,5 @@ public class ReservationController {
     void deleteReservation(@PathVariable String id) {
         reservationRepository.deleteById(id);
     }
-
-    /*@GetMapping("/reservations/email/confirmation/{id}")
-    ResponseEntity<Reservation> sendConfirmationEmail(@PathVariable String id) {
-        // TODO Add Error Handling
-        Reservation currentReservation = reservationRepository.findById(id).orElseThrow();
-        if(currentReservation != null){
-            EmailUtils currentEmailUtils = new EmailUtils("smtp.web.de", 587, "eist_table_booking", "EistBaer2022!");
-            try {
-                currentEmailUtils.sendMail(true, currentReservation);
-                //Response, wenn die Email erfolgreich gesendet werden konnte
-                return new ResponseEntity<>(HttpStatus.OK);
-            } catch (Exception e) {
-                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-            }
-        }
-        else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }*/
-
-    /*@GetMapping("/reservations/email/cancellation/{id}")
-    ResponseEntity<Reservation> sendCancellationRequest(@PathVariable String id) {
-        // TODO Add Error Handling
-        Reservation currentReservation = reservationRepository.findById(id).orElseThrow();
-        if(currentReservation != null){
-            //TODO: falls benötigt noch den Versand einer Cancellation-Bestätigung implementieren
-            //EmailUtils currentEmailUtils = new EmailUtils("smtp.web.de", 587, "eist_table_booking", "EistBaer2022!");
-            try {
-                currentEmailUtils.sendMail(true, currentReservation);
-                //Response, wenn die Email erfolgreich gesendet werden konnte
-                return new ResponseEntity<>(HttpStatus.OK);
-            } catch (Exception e) {
-                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-            }
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
-        else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }*/
 
 }
