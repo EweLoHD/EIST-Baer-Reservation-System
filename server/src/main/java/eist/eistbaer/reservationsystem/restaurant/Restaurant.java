@@ -31,11 +31,14 @@ public class Restaurant {
     private String name;
     private String description;
     private String websiteLink;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="restaurant_id")
     private List<RestaurantPicture> restaurantPictures;
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     private RestaurantType restaurantType;
+
     @Convert(converter = PriceCategoryConverter.class)
     private PriceCategory priceCategory;
 

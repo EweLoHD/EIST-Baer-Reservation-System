@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import eist.eistbaer.reservationsystem.reservation.Reservation;
+import eist.eistbaer.reservationsystem.restaurant.table.tableType.TableType;
+import eist.eistbaer.reservationsystem.restaurant.table.tableType.TableTypeConverter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -19,8 +21,9 @@ public class RestaurantTable {
     @GeneratedValue
     private Long id;
 
-    private int x;
-    private int y;
+    @Convert(converter = TableTypeConverter.class)
+    private TableType tableType;
+
     private int capacity;
 
     @OneToMany
@@ -47,20 +50,12 @@ public class RestaurantTable {
         this.id = id;
     }
 
-    public int getX() {
-        return x;
+    public TableType getTableType() {
+        return tableType;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public void setY(int y) {
-        this.y = y;
+    public void setTableType(TableType tableType) {
+        this.tableType = tableType;
     }
 
     public int getCapacity() {
@@ -91,8 +86,7 @@ public class RestaurantTable {
     public String toString() {
         return "RestaurantTable{" +
                 "id=" + id +
-                ", x=" + x +
-                ", y=" + y +
+                ", tableType=" + tableType +
                 ", capacity=" + capacity +
                 ", reservations=" + reservations +
                 '}';
