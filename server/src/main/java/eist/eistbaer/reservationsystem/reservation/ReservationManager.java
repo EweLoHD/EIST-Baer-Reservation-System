@@ -26,7 +26,7 @@ public class ReservationManager {
     public void deletePastReservations() {
         List<Reservation> pastReservations = reservationRepository.findAll().stream()
                 .filter(reservation -> reservation.getDate().isBefore(LocalDate.now()))
-                        .toList();
+                .toList();
 
         log.info("Deleting " + pastReservations.size() + " passed Reservations");
 
@@ -44,17 +44,13 @@ public class ReservationManager {
         if (!reservations.isEmpty()) log.info("Sending " + reservations.size() + " Confirmation E-Mails");
 
         reservations.forEach(reservation -> {
-            try {
-                EmailUtils.defaultEmailUtils().sendConfirmationMail(reservation);
+            EmailUtils.defaultEmailUtils().sendConfirmationMail(reservation);
 
-                reservationRepository.findById(reservation.getId())
-                        .map(r -> {
-                            r.setConfirmationMailSent(true);
-                            return reservationRepository.save(r);
-                        });
-            } catch (MessagingException e) {
-                throw new RuntimeException(e);
-            }
+            reservationRepository.findById(reservation.getId())
+                    .map(r -> {
+                        r.setConfirmationMailSent(true);
+                        return reservationRepository.save(r);
+                    });
         });
     }
 

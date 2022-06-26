@@ -11,7 +11,8 @@ export default {
     data() {
         return({
             loading: true,
-            cancellation: parseInt(this.$route.query.cancellation), 
+            cancellation: parseInt(this.$route.query.cancellation as string), 
+            confirmation: parseInt(this.$route.query.confirmation as string), 
             reservation: {}
         })
     },
@@ -39,13 +40,31 @@ export default {
 
                     vm.loading = false;
                     setTimeout(() => {
-                        document.getElementById("main").innerHTML = "Your Reservation was cancelled. You can now close this Page!"
+                        document.getElementById("main")!.innerHTML = "Your Reservation was cancelled. You can now close this Page!"
                     }, 100);
                 })
                 .catch(function (error) {
                     console.log(error);
                     alert(error);
+                    vm.loading = false;
                 });
+        },
+        confirmReservation() {
+            (document.getElementById("confirm") as HTMLInputElement).disabled = true;
+
+            var vm = this;
+            axios.post('http://localhost:8080/reservations/' + this.$route.params.id + '/confirm').then(response => {
+                console.log(response);
+
+                vm.loading = false;
+                setTimeout(() => {
+                    document.getElementById("main")!.innerHTML = "Your Reservation was confirmed 🎉. You can now close this Page!"
+                }, 100);
+            }).catch(e => {
+                console.error(e);
+                alert(e);
+                vm.loading = false;
+            })
         }
     },
     created() {
@@ -64,13 +83,16 @@ export default {
             <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
         </svg>
         <div v-else class="flex flex-col items-center justify-center" id="main">
-            <h1 v-if="!cancellation" class="text-4xl font-bold text-gray-800 inline-flex items-center">
-                Reservation Completed 🎉
-            </h1>
-            <h1 v-else class="text-4xl font-bold text-gray-800 inline-flex items-center mb-6">
+            <h1 v-if="cancellation" class="text-4xl font-bold text-gray-800 inline-flex items-center mb-6">
                 Cancel Reservation 😥
             </h1>
-            <h3 v-if="!cancellation" class="text-md font-base text-gray-800 mb-5 mt-1">We sent you an E-Mail. You can now close this page.</h3>
+            <h1 v-else-if="confirmation" class="text-4xl font-bold text-gray-800 inline-flex items-center mb-6">
+                Confirm Reservation 👌
+            </h1>
+            <h1 v-else class="text-4xl font-bold text-gray-800 inline-flex items-center">
+                Reservation Completed 🎉
+            </h1>
+            <h3 v-if="!cancellation && !confirmation" class="text-md font-base text-gray-800 mb-5 mt-1">We sent you an E-Mail. You can now close this page.</h3>
             <div class="border px-4 pt-3 pb-4 rounded-lg w-128 bg-white shadow-md" id="card">
                 <div class="flex flex-col">
                     <h2 class="text-xl font-semibold text-gray-800 mb-2">Hofbräuhaus München</h2>
@@ -96,17 +118,21 @@ export default {
                         <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                         {{ reservation.clientEmail }}
                     </p>
-
-                    <div v-if="!cancellation" class="flex flex-row justify-between w-full mt-8">
+                    <div v-if="cancellation" class="flex flex-row justify-end w-full mt-4">
+                        <button id="cancel" @click="cancelReservation()" class="focus:outline-none text-white bg-red-600 hover:bg-red-700 disabled:bg-red-800 font-medium rounded-lg text-sm px-5 py-2.5">
+                            Cancel Reservation
+                        </button>
+                    </div>
+                    <div v-else-if="confirmation" class="flex flex-row justify-end w-full mt-4">
+                        <button id="confirm" @click="confirmReservation()" class="focus:outline-none text-white bg-green-500 hover:bg-green-600 disabled:bg-green-700 font-medium rounded-lg text-sm px-5 py-2.5">
+                            Confirm Reservation
+                        </button>
+                    </div>
+                    <div v-else class="flex flex-row justify-between w-full mt-8">
                         <a href="" class="inline-flex py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700">
                             <svg class="w-5 h-5 mr-2 -ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                             Add to your Calendar
                         </a>
-                    </div>
-                    <div v-else class="flex flex-row justify-end w-full mt-4">
-                        <button id="cancel" @click="cancelReservation()" class="focus:outline-none text-white bg-red-600 hover:bg-red-700 disabled:bg-red-800 font-medium rounded-lg text-sm px-5 py-2.5">
-                            Cancel Reservation
-                        </button>
                     </div>
                 </div>
             </div>

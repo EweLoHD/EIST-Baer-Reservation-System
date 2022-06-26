@@ -37,11 +37,9 @@ public class ReservationController {
     Reservation addReservation(@RequestBody Reservation reservation) {
         if (reservation.isValid()) {
             Reservation newReservation = reservationRepository.save(reservation);
-            try {
-                EmailUtils.defaultEmailUtils().sendCompletedMail(newReservation);
-            } catch (MessagingException e) {
-                throw new RuntimeException(e);
-            }
+
+            EmailUtils.defaultEmailUtils().sendCompletedMail(newReservation);
+
             return newReservation;
         } else {
             //TODO return proper Error Message

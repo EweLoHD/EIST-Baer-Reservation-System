@@ -16,6 +16,10 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 @RestController
 @CrossOrigin(origins="*")
@@ -74,12 +78,13 @@ public class RestaurantController {
 
         List<RestaurantTable> possibleTables = restaurant.getRestaurantTables().stream()
                 .filter(t -> t.getCapacity() >= people)
+                .filter(distinctByKey(RestaurantTable::getTableType))
                 .toList();
 
         return timeslots.stream().map(availableTimeslot -> {
             if ((localDate.isAfter(LocalDate.now()) || localDate.isEqual(LocalDate.now()))
-                    && localTime.isAfter(LocalTime.now())
-                    && restaurant.hasOpened(localDate, localTime, localTime.plusHours(Reservation.DEFAULT_DURATION))) {
+                    && availableTimeslot.getTime().isAfter(LocalTime.now())
+                    && restaurant.hasOpened(localDate, availableTimeslot.getTime(), availableTimeslot.getTime().plusHours(Reservation.DEFAULT_DURATION))) {
 
                 for (RestaurantTable table : possibleTables) {
                     if (table.isFreeBetween(localDate, localTime, localTime.plusHours(Reservation.DEFAULT_DURATION))) {
@@ -101,5 +106,11 @@ public class RestaurantController {
     @GetMapping("/search")
     SearchBodyReply searchRestaurant(@RequestBody SearchBodyRequest searchBodyRequest) {
         return RestaurantSearchUtility.search(searchBodyRequest, restaurantRepository, restaurantTypeRepository, reservationRepository);
+    }
+
+    // Source: https://stackoverflow.com/a/27872852/9189184 by Stuart Marks
+    public static <T> Predicate<T> distinctByKey(Function<? super T, ?> keyExtractor) {
+        Set<Object> seen = ConcurrentHashMap.newKeySet();
+        return t -> seen.add(keyExtractor.apply(t));
     }
 }

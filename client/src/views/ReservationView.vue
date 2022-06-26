@@ -15,7 +15,7 @@ export default {
                 clientEmail: "",
                 date: this.$route.query.date as string,
                 fromTime: this.$route.query.time as string,
-                restaurant: parseInt(this.$route.query.restaurant as string) as Number,
+                restaurant: parseInt(this.$route.params.id as string) as Number,
                 restaurantTable: parseInt(this.$route.query.table as string) as Number,
                 people: parseInt(this.$route.query.people as string) as Number
             }
@@ -24,7 +24,7 @@ export default {
     methods: {
         validQuery() {
             var query = this.$route.query;
-            return query.people && query.date && query.time && query.restaurant && query.table
+            return query.people && query.date && query.time && query.table
         },
         submit() {
             //(document.getElementById('submit_btn') as HTMLInputElement).disabled = true

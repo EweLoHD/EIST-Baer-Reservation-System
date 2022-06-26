@@ -49,9 +49,8 @@ public class EmailUtils {
      * E-Mail, that gets send right after a new Reservation is created
      *
      * @param reservation The given Reservation
-     * @throws MessagingException In case of Error regarding the E-Mail Service
      */
-    public void sendCompletedMail(Reservation reservation) throws MessagingException {
+    public void sendCompletedMail(Reservation reservation) {
         String cancellationURL = "http://localhost:3000/reservation-confirmed/" + reservation.getId() + "?cancellation=1";
 
         String subject = reservation.getRestaurant().getName() + " - Thank you for your Reservation";
@@ -66,16 +65,15 @@ public class EmailUtils {
                 "Thanks a lot, <br>Your EIST-Baer Team" +
                 "</html>";
 
-        this.sendMail(reservation.getClientEmail(), subject, msg);
+        this.sendMailAsync(reservation.getClientEmail(), subject, msg);
     }
 
     /**
      * E-Mail, that gets send 24h before the Reservation
      *
      * @param reservation The given Reservation
-     * @throws MessagingException In case of Error regarding the E-Mail Service
      */
-    public void sendConfirmationMail(Reservation reservation) throws MessagingException {
+    public void sendConfirmationMail(Reservation reservation) {
         String confirmationURL = "http://localhost:3000/reservation-confirmed/" + reservation.getId() + "?confirmation=1";
 
         String subject = "Confirm your Reservation at " + reservation.getRestaurant().getName();
@@ -90,7 +88,17 @@ public class EmailUtils {
                 "See you tomorrow, <br>Your " + reservation.getRestaurant().getName() + " Team" +
                 "</html>";
 
-        this.sendMail(reservation.getClientEmail(), subject, msg);
+        this.sendMailAsync(reservation.getClientEmail(), subject, msg);
+    }
+
+    public void sendMailAsync(String address, String subject, String msg) {
+        new Thread(() -> {
+            try {
+                this.sendMail(address, subject, msg);
+            } catch (MessagingException e) {
+                throw new RuntimeException(e);
+            }
+        }).start();
     }
 
     public void sendMail(String address, String subject, String msg) throws MessagingException {
