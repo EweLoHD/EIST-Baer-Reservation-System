@@ -19,7 +19,7 @@ import java.time.LocalTime;
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-@JsonPropertyOrder({ "clientName", "clientEmail", "fromTime", "toTime", "people", "date", "table", "restaurant" })
+@JsonPropertyOrder({ "clientName", "clientEmail", "fromTime", "toTime", "date", "people", "confirmed", "confirmationMailSent", "table", "restaurant" })
 @JsonDeserialize(using = ReservationDeserializer.class)
 public class Reservation {
     public static final int DEFAULT_DURATION = 2;
@@ -36,6 +36,9 @@ public class Reservation {
     private LocalDate date;
 
     private int people;
+
+    private boolean confirmed = false;
+    private boolean confirmationMailSent = false;
 
     @ManyToOne
     private RestaurantTable table;
@@ -78,8 +81,7 @@ public class Reservation {
     @JsonIgnore
     public boolean isValid() {
         // Check if table belongs to the restaurant
-        if (!restaurant.getRestaurantTables().contains(getTable()))
-            return false;
+        if (!restaurant.getRestaurantTables().contains(getTable())) return false;
 
         // Check if table is free
         for (Reservation r : table.getReservations()) {
@@ -89,16 +91,13 @@ public class Reservation {
         }
 
         // Check if restaurant has open at time and date
-        if (!restaurant.hasOpened(getDate(), getFromTime(), getToTime()))
-            return false;
+        if (!restaurant.hasOpened(getDate(), getFromTime(), getToTime())) return false;
 
         // Check if the date and time doesn't lie in the past
-        if ((getFromTime().isBefore(LocalTime.now()) && getFromTime().isAfter(LocalTime.of(4, 0))) || getDate().isBefore(LocalDate.now()))
-            return false;
+        if ((getFromTime().isBefore(LocalTime.now()) && getFromTime().isAfter(LocalTime.of(4, 0))) || getDate().isBefore(LocalDate.now())) return false;
 
         // Check if table has the necessary capacity
-        if (getTable().getCapacity() < getPeople())
-            return false;
+        if (getTable().getCapacity() < getPeople()) return false;
 
         return true;
     }
@@ -175,6 +174,38 @@ public class Reservation {
         this.people = people;
     }
 
+    public boolean isConfirmed() {
+        return confirmed;
+    }
+
+    public void setConfirmed(boolean confirmed) {
+        this.confirmed = confirmed;
+    }
+
+    public boolean isConfirmationMailSent() {
+        return confirmationMailSent;
+    }
+
+    public void setConfirmationMailSent(boolean confirmationMailSent) {
+        this.confirmationMailSent = confirmationMailSent;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id='" + id + '\'' +
+                ", clientName='" + clientName + '\'' +
+                ", clientEmail='" + clientEmail + '\'' +
+                ", fromTime=" + fromTime +
+                ", date=" + date +
+                ", people=" + people +
+                ", confirmed=" + confirmed +
+                ", confirmationMailSent=" + confirmationMailSent +
+                ", table=" + table +
+                ", restaurant=" + restaurant +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -185,17 +216,4 @@ public class Reservation {
         return id.equals(that.id);
     }
 
-    @Override
-    public String toString() {
-        return "Reservation{" +
-                "id=" + id +
-                ", clientName='" + clientName + '\'' +
-                ", clientEmail='" + clientEmail + '\'' +
-                ", fromTime=" + fromTime +
-                ", toTime=" + getToTime() +
-                ", date=" + date +
-                ", table=" + table +
-                ", restaurant=" + restaurant +
-                '}';
-    }
 }

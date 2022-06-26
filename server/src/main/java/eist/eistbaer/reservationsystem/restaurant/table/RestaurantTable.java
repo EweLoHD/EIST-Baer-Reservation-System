@@ -11,9 +11,9 @@ import java.time.LocalTime;
 import java.util.List;
 
 @Entity
-@JsonIdentityInfo(
+/*@JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
+        property = "id")*/
 public class RestaurantTable {
     @Id
     @GeneratedValue

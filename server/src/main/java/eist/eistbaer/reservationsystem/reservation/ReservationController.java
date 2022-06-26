@@ -49,6 +49,19 @@ public class ReservationController {
         }
     }
 
+    @PostMapping("/reservations/{id}/confirm")
+    Reservation confirmReservation(@PathVariable String id) {
+        Reservation reservation = reservationRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+
+        if(reservation.isConfirmationMailSent()) {
+            reservation.setConfirmed(true);
+        } else {
+            throw new RuntimeException("Reservation can't be confirmed, because E-Mail hasn't been sent yet!");
+        }
+
+        return reservation;
+    }
+
     @DeleteMapping("/reservations/{id}")
     void deleteReservation(@PathVariable String id) {
         reservationRepository.deleteById(id);

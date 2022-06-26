@@ -1,5 +1,6 @@
 package eist.eistbaer.reservationsystem.reservation;
 
+import eist.eistbaer.reservationsystem.reservation.email.EmailUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.mail.MessagingException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
@@ -30,5 +33,29 @@ public class ReservationManager {
         reservationRepository.deleteAll(pastReservations);
     }
 
+    @PostConstruct // Run on Startup
+    @Scheduled(fixedRate = 1000 * 60) // Run every Minute
+    public void sendConfirmationMails() {
+        List<Reservation> reservations = reservationRepository.findAll().stream()
+                .filter(reservation -> !reservation.isConfirmationMailSent())
+                .filter(reservation -> reservation.getFromTime().atDate(reservation.getDate()).minusDays(1).isBefore(LocalDateTime.now()))
+                .toList();
+
+        if (!reservations.isEmpty()) log.info("Sending " + reservations.size() + " Confirmation E-Mails");
+
+        reservations.forEach(reservation -> {
+            try {
+                EmailUtils.defaultEmailUtils().sendConfirmationMail(reservation);
+
+                reservationRepository.findById(reservation.getId())
+                        .map(r -> {
+                            r.setConfirmationMailSent(true);
+                            return reservationRepository.save(r);
+                        });
+            } catch (MessagingException e) {
+                throw new RuntimeException(e);
+            }
+        });
+    }
 
 }
