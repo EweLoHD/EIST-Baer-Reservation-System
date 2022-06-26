@@ -1,16 +1,16 @@
 class Address {
     lat: number
-    long: number
-    addressLine: string
+    lon: number
+    street: string
     city: string
     postalCode: string
     country: string
 
 
-	constructor(lat: number, long: number, addressLine: string, city: string, postalCode: string, country: string) {
+	constructor(lat: number, lon: number, street: string, city: string, postalCode: string, country: string) {
         this.lat = lat;
-        this.long = long;
-        this.addressLine = addressLine;
+        this.lon = lon;
+        this.street = street;
         this.city = city;
         this.postalCode = postalCode;
         this.country = country;

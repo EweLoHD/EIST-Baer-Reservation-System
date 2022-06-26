@@ -1,0 +1,21 @@
+_id: req_wrk_5ea6c50d89684484879a604eecfd2c5dc0484aaa
+type: Request
+parentId: fld_fd0b63c00d854e7b897149e832a2b640
+modified: 1656271348075
+created: 1656270727957
+url: "{{ base_url }}/restaurants/types"
+name: /restaurants/types
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1656270727773
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

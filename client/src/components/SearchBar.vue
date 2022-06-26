@@ -31,6 +31,7 @@ onMounted(() => {
   const datepickerEl = document.getElementById('datepickerId');
   datePicker = new Datepicker(datepickerEl, {
     autohide: true,
+    orientation: 'bottom',
     format: 'dd/mm/yyyy',
     weekStart: 1, // Start on Monday
     minDate: today,
@@ -157,7 +158,7 @@ function zeroPad(num : number, places : number) {
                 </ul>
             </div>
             <!--People Picker-->
-            <button id="dropdownButtonPeople" class="py-2 w-40 px-4 text-sm font-medium text-center inline-flex justify-between items-center text-gray-900 bg-white rounded-r-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white" type="button">
+            <button id="dropdownButtonPeople" class="py-2 w-40 px-4 text-sm font-medium text-center inline-flex justify-between items-center text-gray-900 bg-white rounded-r-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white" type="button">
                 <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
                 </svg>

@@ -1,0 +1,21 @@
+_id: req_wrk_5ea6c50d89684484879a604eecfd2c5d07072bed
+type: Request
+parentId: fld_fd0b63c00d854e7b897149e832a2b640
+modified: 1656271351345
+created: 1656270727946
+url: "{{ base_url }}/reservations/{{ id }}/confirm"
+name: /reservations/{id}/confirm
+description: ""
+method: POST
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1656270727623
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

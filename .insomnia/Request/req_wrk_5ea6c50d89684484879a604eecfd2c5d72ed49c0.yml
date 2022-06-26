@@ -1,0 +1,21 @@
+_id: req_wrk_5ea6c50d89684484879a604eecfd2c5d72ed49c0
+type: Request
+parentId: fld_fd0b63c00d854e7b897149e832a2b640
+modified: 1656271356974
+created: 1656270727919
+url: "{{ base_url }}/generate-calendar/{{ id }}"
+name: /generate-calendar/{id}
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1656270727323
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

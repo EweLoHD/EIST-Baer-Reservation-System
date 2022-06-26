@@ -17,27 +17,40 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.mnode.ical4j:ical4j:1.0.7'
+    implementation group: 'javax.cache', name: 'cache-api', version: '1.1.1'
+   // implementation group: 'org.mnode.ical4j', name: 'ical4j', version: '4.0.0-beta1'
     implementation 'org.springframework.boot:spring-boot-starter-test'
+
     implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.h2database:h2'
+
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.9'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    //Dependency für Email-Versand
+    implementation group: 'com.sun.mail', name: 'javax.mail', version: '1.6.2'
+
 }
 
 sourceSets {
     main {
         java {
-            srcDir 'src/main/java'
+            srcDir 'server/src/main/java'
         }
         resources {
-            srcDir 'src/main/resources'
+            srcDir 'server/src/main/resources'
         }
     }
     test {
         java {
-            srcDir 'src/test/java'
+            srcDir 'server/src/test/java'
         }
         resources {
-            'src/test/resources'
+            'server/src/test/resources'
         }
     }
 
@@ -54,7 +67,7 @@ test {
 
 node {
     nodeProjectDir = file("${project.projectDir}/client")
-    download = true
+    download = false
 }
 
 // Install all dependencies for the client server

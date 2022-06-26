@@ -66,7 +66,7 @@ export default {
 
             // Add Marker for each restaurant 
             this.restaurants.forEach((r: Restaurant) => {
-                var marker = L.marker([r.address.lat, r.address.long]).addTo(this.map as L.Map);
+                var marker = L.marker([r.address.lat, r.address.lon]).addTo(this.map as L.Map);
                 
                 // If the user clicks on a marker, the corresponding Restaurant Card should be displayed.
                 marker.on('click', (e: any) => {
