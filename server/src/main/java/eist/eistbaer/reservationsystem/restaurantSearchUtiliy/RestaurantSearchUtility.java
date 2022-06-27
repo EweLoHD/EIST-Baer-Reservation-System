@@ -14,6 +14,7 @@ import eist.eistbaer.reservationsystem.restaurant.type.RestaurantTypeRepository;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -26,25 +27,29 @@ public class RestaurantSearchUtility {
 
     public static SearchBodyReply search(SearchBodyRequest searchBodyRequest, RestaurantRepository restaurantRepository, RestaurantTypeRepository restaurantTypeRepository, ReservationRepository reservationRepository) {
         List<RestaurantType> restaurantTypes = restaurantTypeRepository.findAll();
-        List<Reservation> allReservations = reservationRepository.findAll();
         List<Restaurant> restaurants = restaurantRepository.findAll();
 
         SearchBodyReply reply = new SearchBodyReply();
 
         String searchQuery = searchBodyRequest.getQuery();
         RestaurantType searchedType = null;
+
         if (searchQuery != null) {
             searchedType = checkIfSearchAfterRestaurantType(restaurantTypes, searchQuery);
         }
 
         if (searchedType == null && searchQuery != null) {
             restaurants = searchAfterName(searchQuery, restaurants);
+            reply.setQuery(searchQuery);
         }
 
         if (searchBodyRequest.getRestaurantType() != null) {
             restaurants = searchAfterType(searchBodyRequest.getRestaurantType(), restaurants);
+            reply.setRestaurantType(searchBodyRequest.getRestaurantType());
         } else if (searchedType != null) {
             restaurants = searchAfterType(searchedType, restaurants);
+            reply.setRestaurantType(searchedType);
+            reply.setQuery(searchQuery);
         }
 
 
@@ -61,7 +66,16 @@ public class RestaurantSearchUtility {
             reply.setLocation(searchBodyRequest.getLocation());
             reply.setDistance(searchBodyRequest.getDistance());
         }
-        if(searchBodyRequest.getDate() != null) {
+        if (searchBodyRequest.getDate() != null && searchBodyRequest.getTime() != null && searchBodyRequest.getPeople() != 0) {
+            restaurants = filterAfterDateTimePeople(searchBodyRequest.getDate(), searchBodyRequest.getTime(), searchBodyRequest.getPeople(), restaurants);
+            reply.setDate(searchBodyRequest.getDate());
+            reply.setTime(searchBodyRequest.getTime());
+            reply.setPeople(searchBodyRequest.getPeople());
+        } else if (searchBodyRequest.getDate() != null && searchBodyRequest.getTime() != null) {
+            restaurants = filterAfterDateAndTime(searchBodyRequest.getDate(), searchBodyRequest.getTime(), restaurants);
+            reply.setDate(searchBodyRequest.getDate());
+            reply.setTime(searchBodyRequest.getTime());
+        } else if (searchBodyRequest.getDate() != null) {
             restaurants = filterAfterDate(searchBodyRequest.getDate(), restaurants);
             reply.setDate(searchBodyRequest.getDate());
         }
@@ -128,22 +142,21 @@ public class RestaurantSearchUtility {
     }
 
 
-    private static List<Restaurant> filterAfterDateAndTime(LocalDate date, String time, List<Restaurant> restaurants, List<Reservation> reservations) {
+    private static List<Restaurant> filterAfterDateAndTime(LocalDate date, LocalTime time, List<Restaurant> restaurants) {
         List<Restaurant> result = new ArrayList<>();
-        List<Reservation> reservationToBeConsidered = new ArrayList<>();
-        for (Reservation reservation : reservations) {
-            if (restaurants.contains(reservation.getRestaurant()) && reservation.getDate().equals(date)) {
-                reservationToBeConsidered.add(reservation);
-            }
-        }
+        restaurants = filterAfterDate(date, restaurants);
         for (Restaurant restaurant : restaurants) {
+            if (!OpenForDateAndTime(date, time, restaurant)) {
+                continue;
+            }
             List<RestaurantTable> tables = restaurant.getRestaurantTables();
-            for (Reservation reservation : reservationToBeConsidered) {
-                if (reservation.getRestaurant().equals(restaurant)) {
-                    tables.remove(reservation.getTable());
+            List<RestaurantTable> freeTables = new ArrayList<>();
+            for (RestaurantTable table : tables) {
+                if (table.isFreeBetween(date, time, time.plusHours(Reservation.DEFAULT_DURATION))) {
+                    freeTables.add(table);
                 }
             }
-            if (!tables.isEmpty()) {
+            if (!freeTables.isEmpty()) {
                 result.add(restaurant);
             }
         }
@@ -151,7 +164,41 @@ public class RestaurantSearchUtility {
     }
 
     private static List<Restaurant> filterAfterDateTimePeople(LocalDate date, LocalTime time, int minPeople, List<Restaurant> restaurants) {
-        return restaurants;
+        List<Restaurant> result = new ArrayList<>();
+        restaurants = filterAfterDate(date, restaurants);
+        for (Restaurant restaurant : restaurants) {
+            if (!OpenForDateAndTime(date, time, restaurant)) {
+                continue;
+            }
+            List<RestaurantTable> tables = restaurant.getRestaurantTables();
+            List<RestaurantTable> freeTables = new ArrayList<>();
+            for (RestaurantTable table : tables) {
+                if (table.isFreeBetween(date, time, time.plusHours(Reservation.DEFAULT_DURATION)) && table.getCapacity() >= minPeople) {
+                    freeTables.add(table);
+                }
+            }
+            if (!freeTables.isEmpty()) {
+                result.add(restaurant);
+            }
+        }
+        return result;
+    }
+
+    private static boolean OpenForDateAndTime(LocalDate date, LocalTime time, Restaurant restaurant) {
+        DayOfWeek searchedDayOfWeek = date.getDayOfWeek();
+        List<OpeningTime> openingTimesRestaurant = restaurant.getOpeningTimes();
+        LocalTime toTime = time.plusHours(Reservation.DEFAULT_DURATION);
+        LocalDateTime wantedFromTime = time.atDate(LocalDate.now());
+        LocalDateTime wantedToTime = toTime.atDate(time.isBefore(toTime) ? LocalDate.now() : LocalDate.now().plusDays(1));
+
+        for (OpeningTime openingTime : openingTimesRestaurant) {
+            LocalDateTime openingFromTime = openingTime.getFromTime().atDate(LocalDate.now());
+            LocalDateTime openingToTime = openingTime.getToTime().atDate(openingTime.getFromTime().isBefore(openingTime.getToTime()) ? LocalDate.now() : LocalDate.now().plusDays(1));
+            if (openingTime.getDayOfWeek().equals(searchedDayOfWeek) && (openingFromTime.isBefore(wantedFromTime) || openingFromTime.equals(wantedFromTime)) && (openingToTime.isAfter(wantedToTime) || openingToTime.equals(wantedToTime))) {
+                return true;
+            }
+        }
+        return false;
     }
     private static double similarity(String s1, String s2) {
         String longer = s1, shorter = s2;
