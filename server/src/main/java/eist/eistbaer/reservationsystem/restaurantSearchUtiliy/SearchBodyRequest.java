@@ -6,11 +6,12 @@ import eist.eistbaer.reservationsystem.restaurant.reviewrating.ReviewRating;
 import eist.eistbaer.reservationsystem.restaurant.type.RestaurantType;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class SearchBodyRequest {
     private String query;
     private LocalDate date;
-    private String time;
+    private LocalTime time;
     private int people;
     private Address location;
     private int distance;
@@ -37,11 +38,11 @@ public class SearchBodyRequest {
         this.date = date;
     }
 
-    public String getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 
