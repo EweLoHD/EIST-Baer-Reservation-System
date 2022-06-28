@@ -1,0 +1,153 @@
+{
+  "name": "Bapas - Bayrische Tapas",
+  "restaurantType": "Bavarian",
+  "description": "Modernes, schlichtes Restaurant mit bayerischen kleinen Gerichten zum Frühstück, Mittag- und Abendessen.",
+  "websiteLink": "www.bapas-muenchen.de",
+  "priceCategory": 2,
+  "restaurantPictures": [
+    "https://bapas-muenchen.de/wp-content/uploads/2018/08/bapas_abendkarte-35.jpg",
+    "https://media-cdn.tripadvisor.com/media/photo-s/1c/2f/2c/ff/bapas-munchen-bayerische.jpg",
+    "https://bapas-muenchen.de/wp-content/uploads/2018/08/bapas_frhstck_14.jpg"
+  ],
+  "address": {
+    "lat": 48.1589798,
+    "lon": 11.5856944,
+    "street": "Leopoldstraße 56A",
+    "city": "Munich",
+    "postalCode": 80802,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Genossen die bayerischen Tapas. Wir teilten 9 Tapas zwischen 4 Freunden und die Portionen waren genau richtig. Versuchte einige kalte Tapas (kalte Entenbrust, kalter Schweinebraten, Aufschnitt und Käse) und einige warme (Ochsensandwich in einer Brezel usw.). Das Essen war gut, das Ambiente im Restaurant war schön und der Service war großartig."
+    },
+    {
+      "rating": 4,
+      "comment": "Wir kamen, um ein Geburtstagsessen zu haben. Es ist ein wunderschönes Restaurant in großartiger Lage, sehr freundlicher und schneller Service, kinderfreundlicher und hundefreundlicher Ort. Ein Tapas-Restaurant mit bayerischen Spezialitäten ist sicherlich eine gute Idee, aber nicht alle Gerichte waren so gut, wie wir es uns erhofft hatten. Das Fleisch, die Kürbissuppe und der Marillenknodel waren fantastisch und sie haben eine tolle Bierauswahl, aber die meisten anderen Gerichte auf der Speisekarte waren nicht mehr als durchschnittlich. Ich möchte wirklich wiederkommen, um das Frühstücksmenü zu probieren. . . das klingt wirklich gut."
+    },
+    {
+      "rating": 4,
+      "comment": "Für Tapas-Liebhaber auf jeden Fall zu empfehlen.\nIch war innerhalb eines Monats zweimal an diesem Ort. Super freundliches Personal mit schnellem Service und Essensempfehlungen.\nGeschmacklich einfach genial. Ich habe bei beiden Besuchen verschiedene Dinge aus der Speisekarte probiert, also kann ich sagen, dass ja alles lecker schmeckt.\nDie Portionen sind klein, was dazu führt, dass Sie mehr von dem wollen, was Sie gegessen haben. Ist wenig teuer, aber es lohnt sich für den Geldbeutel, wenn es um ihr Essen geht.\nEin warmes Ambiente mit hoher Energie. Der Ort ist abends voller Menschen."
+    },
+    {
+      "rating": 5,
+      "comment": "So gut, dass die Portionen klein sind. Sie können eine Vielzahl von Speisen genießen und sind nicht vollgestopft.\nSehr nettes Personal und gutes Essen.\nSchneller Service!"
+    },
+    {
+      "rating": 5,
+      "comment": "Wir waren am Sonntag zu zweit essen und fanden es hier richtig gut, das Ambiente, das Essen und die Desserts/Getränke - alles top! Die Bedienung war sehr freundlich, unsere Kellnerin (Xenia wenn wir richtig herausgehört haben) war super hilfreich, auch wenn die Küche mit dem großen Kundenaufkommen etwas überfordert war, hat sie uns Kaffee angeboten und war immer ansprechbar. Wir kommen gerne wieder!"
+    },
+    {
+      "rating": 4,
+      "comment": "Ich fand das Essen in Ordnung, aber nichts besonderes. Ich hatte einen Salat und als Vorspeise Dreierlei Aufstriche. Hausmannskost, so wie man es zuhause auch hinkriegen würde. Service ok. Alle Plätze waren eng besetzt, man versucht hier jeden Zentimeter zu nutzen. In Corona-Zeiten nicht so angenehm."
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "PRIVATE_ROOM",
+      "capacity": 20
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "10:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "10:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "10:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "10:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "10:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "09:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "09:00",
+      "toTime": "23:00"
+    }
+  ]
+}

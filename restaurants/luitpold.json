@@ -1,0 +1,153 @@
+{
+  "name": "Cafe Luitpold",
+  "restaurantType": "Bavarian",
+  "description": "Modernes Kaffeehaus in einem prächtigen Gebäude aus dem 19.Jh., spezialisiert auf Kuchen und Gourmetschokolade.",
+  "websiteLink": "www.cafe-luitpold.de",
+  "priceCategory": 2,
+  "restaurantPictures": [
+    "https://muenchen.mitvergnuegen.com/wp-content/uploads/sites/3/2016/11/dsc00766.jpg",
+    "https://www.luitpoldblock.de/wp-content/uploads/2020/06/700x900_Palmengarten-foto-heinrich-682x877.jpg",
+    "https://www.zimtundzyankali.de/backend/userdata/partner/1358661819.jpg"
+  ],
+  "address": {
+    "lat": 48.1429452,
+    "lon": 11.5750041,
+    "street": "Brienner Str. 11",
+    "city": "Munich",
+    "postalCode": 80333,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Wir hatten einen schönen Abend. Das Essen war sehr lecker, auch vegetarisch sind verschiedene Speisen vorhandenen. Wir kommen bestimmt wieder!"
+    },
+    {
+      "rating": 4,
+      "comment": "Das Essen hier war sehr lecker und der Service recht gut. Einen Stern Abzug gibt es weil im Restaurant die Karte als QR-Code auf dem Tisch ist, es jedoch kein WLAN gibt und das Netz da drin nicht gerade gut ist."
+    },
+    {
+      "rating": 1,
+      "comment": "Sehr sehr enttäuschend und nicht zu empfehlen. Das Personal interesierte sich am Sonntag lieber für den Plausch untereinander (3 Servicekräfte standen gemütlich mit Kaffee zusammen), als für den Gast. Nachdem uns ein Tisch zugewiesen wurde, kam das Servicepersonal nach langer Wartezeit, um uns die Karte zu bringen und das war es dann. Schade.Ein weiterer Tisch mit mehreren Gästen versuchte ohne Erfolg auf sich aufmerksam zu machen. Erst als ein Gast auf das Servicepersonal zugegangen ist, hat man sich um die Gäste gekümmert. Wir haben uns dann dazu entschieden, wieder zu gehen. Auf unser \"Auf Wiedersehen\" haben wir seitens des Personals keinerlei Reaktion erfahren. Die richtige Definition von Dienstleistung ist in diesem Lokal noch nicht angekommen."
+    },
+    {
+      "rating": 5,
+      "comment": "Haben gestern Abend einen Tisch bekommen, obwohl wir nicht reserviert hatten. Das Essen war sehr lecker und auch die Cocktails haben gut geschmeckt. Unsere Bedienung war sehr nett, hätte aber öfter mal fragen können ob wir z.B. noch eine Nachspeise möchten. Der Preis ist vergleichsweise hoch. Aber trotzdem ein tolles Lokal und wir kommen gerne wieder."
+    },
+    {
+      "rating": 5,
+      "comment": "Wir waren am Sonntag zu zweit essen und fanden es hier richtig gut, das Ambiente, das Essen und die Desserts/Getränke - alles top! Die Bedienung war sehr freundlich, unsere Kellnerin (Xenia wenn wir richtig herausgehört haben) war super hilfreich, auch wenn die Küche mit dem großen Kundenaufkommen etwas überfordert war, hat sie uns Kaffee angeboten und war immer ansprechbar. Wir kommen gerne wieder!"
+    },
+    {
+      "rating": 4,
+      "comment": "Ich fand das Essen in Ordnung, aber nichts besonderes. Ich hatte einen Salat und als Vorspeise Dreierlei Aufstriche. Hausmannskost, so wie man es zuhause auch hinkriegen würde. Service ok. Alle Plätze waren eng besetzt, man versucht hier jeden Zentimeter zu nutzen. In Corona-Zeiten nicht so angenehm."
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "PRIVATE_ROOM",
+      "capacity": 20
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "10:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "10:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "10:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "10:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "10:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "09:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "09:00",
+      "toTime": "23:00"
+    }
+  ]
+}

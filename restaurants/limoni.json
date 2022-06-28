@@ -1,0 +1,153 @@
+{
+  "name": "Limoni Ristorante",
+  "restaurantType": "Italian",
+  "description": "Eleganter Ort für mit Hummer gefüllte Tortellini und Garnelenrisotto, gepaart mit erlesenen italienischen Weinen.",
+  "websiteLink": "www.limoni-ristorante.com",
+  "priceCategory": 3,
+  "restaurantPictures": [
+    "https://limoni-ristorante.com/wp-content/uploads/kaminzimmer3.jpg",
+    "https://limoni-ristorante.com/wp-content/uploads/slide_newa-1030x560.jpg",
+    "https://limoni-ristorante.com/wp-content/uploads/gal-2.jpg"
+  ],
+  "address": {
+    "lat": 48.1487064,
+    "lon": 11.5775606,
+    "street": "Amalienstraße 38",
+    "city": "Munich",
+    "postalCode": 80799,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Dieses Restaurant war fantastisch. Das Essen und der Service waren wunderbar. Sehr empfehlenswert."
+    },
+    {
+      "rating": 4,
+      "comment": "Gehobenes italienisches Restaurant mit exzellentem Service, das Gruppen beherbergen kann.\nDas 5-Gänge-Menü ist sehr gut, auch wenn es etwas teuer ist (70€). Getränke sind auch auf der teuren Seite."
+    },
+    {
+      "rating": 5,
+      "comment": "Italienisches Restaurant der Spitzenklasse. Leckere Vorspeisen/Essen/Desserts und eine gute Auswahl an Weinen. Auch die Atmosphäre im Inneren hat mir gut gefallen."
+    },
+    {
+      "rating": 1,
+      "comment": "Terrible Service. One hour wait between the starters and main dishes. Food just regular.\nAnother restaurant that pretends to be good but they don't have a clue on what a good restaurant is.\nVery average, approximating to poor.\nSave yourself a bad experience.\nAvoid!!!!!\n"
+    },
+    {
+      "rating": 5,
+      "comment": "Service, Essen, Qualität, Ambiente, Freundlichkeit alles außergewöhnlich. Durchaus angenehmer Ort, um den Abend zu verbringen."
+    },
+    {
+      "rating": 1,
+      "comment": "Heute wollte ich meinen Geburtstag feiern und ich war enttäuscht. Schreckliche Aufmerksamkeit, sie haben uns die Teller an den Kopf geworfen, in Eile und sehr freundlich haben sie uns aus dem Restaurant geschmissen, um 21:51 Uhr auf der Straße zu verbringen und 100 € für 2 Gerichte zu zahlen. . . und reden wir nicht über einen Geburtstagspfannkuchen. .. Du hast meinen Tag ruiniert, vielen Dank :'("
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "PRIVATE_ROOM",
+      "capacity": 20
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "18:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "18:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "18:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "18:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "16:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "16:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "16:00",
+      "toTime": "23:00"
+    }
+  ]
+}
