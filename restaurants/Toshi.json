@@ -1,0 +1,156 @@
+{
+  "name": “TOSHI Restaurant & Bar”,
+  "restaurantType": “Asian”,
+  "description": "Restaurant mit leichter japanischer Küche einschließlich Sushi und Sashimi sowie großer Auswahl an Weinen.”,
+  "websiteLink": "https://www.toshi-muenchen.de",
+  "priceCategory": 3,
+  "restaurantPictures": [
+    "https://media-cdn.tripadvisor.com/media/photo-s/03/cc/a2/eb/nagisa-japanese-restaurant.jpg",
+    "https://www.ab-in-den-urlaub.de/magazin/wp-content/uploads/2021/03/1616746060_Sushi-mit-rohem-Fisch.jpg",
+    "https://www.ab-in-den-urlaub.de/magazin/wp-content/uploads/2021/03/1616745889_Angebratene-Gyoza.jpg”,
+	“https://www.ab-in-den-urlaub.de/magazin/wp-content/uploads/2021/03/1616745827_Onigiri-mit-Sesam.jpg”
+  ],
+  "address": {
+    "lat": 48.139153,
+    "lon": 1.582488,
+    "street": “Wurzerstraße 18”,
+    "city": "Munich",
+    "postalCode": 80539,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Wir hatten einen schönen Abend. Das Essen war sehr lecker, auch vegetarisch sind verschiedene Speisen vorhandenen. Wir kommen bestimmt wieder!"
+    },
+    {
+      "rating": 4,
+      "comment": "Sehr hochwertige und leckere Speisen. Jedes Gericht für sich ist eine Reise der Geschmacksknospen. Wunderbar kombiniert. Sehr netter und zuvorkommender Service. Das Ambiente des Restaurants ist schlicht gehalten, was wiederum das Essen in den Fokus rückt. Also kein Restaurant für Liebhaber von weißen Tischdecken, oder einem Ober, der vor Feinheit die die Augen nicht öffnen kann. Bei saisonalem Menü-Wechsel kommen wir gern wieder."
+    },
+    {
+      "rating": 5,
+      "comment": "Hevorragendes Restaurant. Ambiente, Küche, Service,  Getränke einfach alles ist auf einem Top-Level! Und es ist jeden Cent wert. Wir hatten einen perfekten Abend hier, vielen Dank. Wir empfehlen das Restaurant wärmstens weiter."
+    },
+    {
+      "rating": 5,
+      "comment": "Haben gestern Abend einen Tisch bekommen, obwohl wir nicht reserviert hatten. Das Essen war sehr lecker und auch die Cocktails haben gut geschmeckt. Unsere Bedienung war sehr nett, hätte aber öfter mal fragen können ob wir z.B. noch eine Nachspeise möchten. Der Preis ist vergleichsweise hoch. Aber trotzdem ein tolles Lokal und wir kommen gerne wieder."
+    },
+    {
+      "rating": 5,
+      "comment": "Das Surf and Turf war sehr gut, sowohl die bloody and die medium Rare Variante. Für einen Mexikaner wirklich gut. Abzug muss ich für die Beilagen geben, die Kartoffelsosse schmeckte salzig. Die Kartoffelecken waren hingegen super."
+    },
+    {
+      "rating": 4,
+      "comment": "Wir waren heute zu 9t im Toshi zum Abendessen. Wie die letzten Male sehr lecker. Einen Stern muss ich aber abziehen: wir haben um 19:15h das April Menü (80€) bestellt und hatten erst um 21:00h den 3ten Gang. Der Hauptgang (Sushi) kam eine Stunde später! Als der endlich kam haben wir gebeten das Dessert gleich zu servieren. Gleich nach dem Nachtisch haben wir bezahlt und sind um 22:45h aus dem Restaurant gekommen.
+Beim letzten Mal waren wir 7 Personen und es hatte auch sehr lange gedauert (auch Menü). Das Lokal selber war zu einem Drittel gefüllt. Nichtsdestotrotz das Essen war sehr gut!
+"
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "PRIVATE_ROOM",
+      "capacity": 20
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "10:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "10:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "10:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "10:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "10:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "09:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "09:00",
+      "toTime": "23:00"
+    }
+  ]
+}
