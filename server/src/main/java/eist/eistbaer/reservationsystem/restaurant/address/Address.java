@@ -83,7 +83,13 @@ public class Address {
     }
 
     public int calculateDistance(Address other) {
-        return (int) Math.round(Math.sqrt(Math.pow(lat - other.getLat(), 2) + Math.pow(lon - other.getLon(), 2)));
+        float lat2 = other.getLat();
+        float lon2 = other.getLon();
+
+        var p = 0.017453292519943295;    // Math.PI / 180
+        var a = 0.5 - Math.cos((lat2 - lat) * p)/2 + Math.cos(lat * p) * Math.cos(lat2 * p) * (1 - Math.cos((lon2 - lon) * p))/2;
+
+        return (int) Math.round(12742 * Math.asin(Math.sqrt(a))); // 2 * R; R = 6371 km
     }
 
     @Override
