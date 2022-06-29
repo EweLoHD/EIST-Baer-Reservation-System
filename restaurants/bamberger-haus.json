@@ -1,0 +1,192 @@
+{
+  "name": "Bamberger Haus",
+  "restaurantType": "Bavarian",
+  "description": "Europäische Klassiker in einem großen Restaurant mit gehobenem Vintagedekor und Biergarten.",
+  "websiteLink": "https://www.bambergerhaus.com/",
+  "priceCategory": 2,
+  "restaurantPictures": [
+    "https://resizer.otstatic.com/v2/photos/wide-huge/3/42781867.jpg",
+    "https://resizer.otstatic.com/v2/photos/xlarge/1/30267345.jpg",
+    "https://resizer.otstatic.com/v2/photos/xlarge/1/30267348.jpg"
+  ],
+  "address": {
+    "lat": 48.1706885,
+    "lon": 11.5681132,
+    "street": "Brunnerstraße 2",
+    "city": "Munich",
+    "postalCode": 80804,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Wunderschönes Gasthaus mit leckerem Essen, sehr nettem Personal. Was mir besonders gefallen der Traditionelle eingerichtete Gastraum...zum Wohlfühlen.  In freien viele junge Menschen beim Eisstockschießen. Auch der Biergarten war geöffnet und es roch nach Glühwein und der Biergarten war gut besucht. Vielen Dank ich komme gerne wieder."
+    },
+    {
+      "rating": 2,
+      "comment": "Super Ambiente, super Lage, freundliches Personal. Aber: Das Essen im Biergarten ist wirklich nicht gut, teilweise kalt und nicht viel. Für den Preis leider nicht wert! Schade!"
+    },
+    {
+      "rating": 4,
+      "comment": "Natürlich sehr schön gelegen im Luitpoldpark. Und wenn man Glück hat, und es nicht zu voll ist, bekommt man auch einen Platz. Wenn es richtig voll braucht es schon seine Zeit um etwas zu Essen und zu Trinken zu bekommen."
+    },
+    {
+      "rating": 4,
+      "comment": "Sehr schöner Biergarten im Luitpoldpark. Bei gekühltem Augustiner und typisch bayerischen Speisen lässt es sich hier sehr gut aushalten. Familienfreundlich, da auch ein separater Spielplatz vorhanden. Der Biergarten ist in jedem Fall ein Besuch Wert...vielleicht auch in Kombination auf dem Weg Richtung Olympiapark"
+    },
+    {
+      "rating": 5,
+      "comment": "Absolut toller und wunderschöner Biergarten im Herzen von München, im Herzen des LuitpoldParks. Hier kann eine Familie genießen, ankommen und das besondere der Münchner Biergärten genießen."
+    },
+    {
+      "rating": 3,
+      "comment": "Schöner Biergarten, Essen unbedingt selbst mitbringen, das Angebot vor Ort ist knapp und freundlich gesagt \"langweilig\" (hilft beim Abnehmen)"
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 8
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 8
+    },
+    {
+      "tableType": "PRIVATE_ROOM",
+      "capacity": 20
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "15:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "15:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "15:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "15:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "15:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "12:00",
+      "toTime": "00:00"
+    }
+  ]
+}

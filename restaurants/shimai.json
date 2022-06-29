@@ -1,0 +1,145 @@
+{
+  "name": "Shimai",
+  "restaurantType": "Asian",
+  "description": "Moderne vietnamesische Gerichte und Cocktails in einem trendigen Restaurant mit Terrasse.",
+  "websiteLink": "https://shimai.de/",
+  "priceCategory": 3,
+  "restaurantPictures": [
+    "https://shimai.de/wp-content/uploads/2020/05/slider_1-scaled.jpg",
+    "https://shimai.de/wp-content/uploads/2020/04/DSC02457_1.jpg",
+    "https://media-cdn.tripadvisor.com/media/photo-s/13/09/d7/21/gastraum-hinten.jpg"
+  ],
+  "address": {
+    "lat": 48.1517651,
+    "lon": 11.5612521,
+    "street": "Theresienstraße 87",
+    "city": "Munich",
+    "postalCode": 80333,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Super Location! Sehr stilvolle eingerichtet, ohne zu kühl zu wirken. Das Essen ist große Klasse. Alles hat herausragend geschmeckt und auch die Qualität war top! Service sehr zuvorkommend und freundlich. "
+    },
+    {
+      "rating": 4,
+      "comment": "Wir hatten uns die Bun Bowls bestellt. Das war sehr lecker und frisch. Die Bedienung war schnell und freundlich. Die Atmosphäre war sehr angenehm bis auf das WC..Darauf müsste mehr Wert gelegt werden.\nIch würde trotzdem nochmal vorbeikommen."
+    },
+    {
+      "rating": 2,
+      "comment": "Die positiven Rezensionen für mich nicht ganz nachvollziehbar. Das Interieur ist wirklich klasse. Da gibt´s nichts einzuwenden. Die Gerichte waren ok, jedoch nicht außergewöhlich oder besonders schmackhaft. Schmecken nicht anders als bei einem gewöhnlichen Asia-Imbiss. Da gibts bessere und deutlich günstigere Alternativen. Beim Service ist ebenfalls noch viel Luft nach oben. Getränkebestellung hat 20 - 30 minuten gedauert. Das geht einfach nicht. Für das was man bekommt stimmt einfach das Preis-/Leistungsverhältnis nicht. Fazit: Viel Luft nach oben."
+    },
+    {
+      "rating": 5,
+      "comment": "Fine Asia Cuisine ... Tolles Ambiente \"by jean paul gaultier\". Sehr gut und super Service."
+    },
+    {
+      "rating": 4,
+      "comment": "Glaube vegan war nichts dabei, aber die veggie Tofurollen waren köstlich, sowie auch mein Gemüsecurry. Wenn man fleischlos essen möchte aber leider wenig Auswahl. Wir saßen draußen im Pavillonbereich neben Wärmestrahlern, was uns gefallen hat."
+    },
+    {
+      "rating": 5,
+      "comment": "Essen war super lecker, die Cocktails waren hervorragend und der Service überragend. Hier kommen wir definitiv wieder."
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "11:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "11:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "11:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "11:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "11:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "17:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "11:30",
+      "toTime": "23:00"
+    }
+  ]
+}

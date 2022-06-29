@@ -1,0 +1,169 @@
+{
+  "name": "JACCI Asian Kitchen",
+  "restaurantType": "Asian",
+  "description": "Traditionelle vietnamesische und panasiatische Küche in einem Restaurant im schicken Retrostil.",
+  "websiteLink": "https://www.jacci.de/",
+  "priceCategory": 2,
+  "restaurantPictures": [
+    "https://www.jacci.de/assets/images/restaurant/1900x1200/img_6.jpg",
+    "https://www.jacci.de/assets/images/restaurant/1900x1200/img_12.jpg",
+    "https://www.jacci.de/assets/images/restaurant/1900x1200/img_4.jpg"
+  ],
+  "address": {
+    "lat": 48.1546561,
+    "lon": 11.5356128,
+    "street": "Ysenburgstraße 13",
+    "city": "Munich",
+    "postalCode": 80634,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Super gutes Lokal, mit sehr freundlichen, aufmerksamen und höflichen Personal. Das Essen ist hervorragend und mal große Portionen:)\nWir waren zu meinem Geburtstag dort und es war ein gelungener Abend.\nUns wurde des Lokal empfohlen und auch ich würde es wieder empfehlen.\nWir kommen gerne wieder ."
+    },
+    {
+      "rating": 4,
+      "comment": "Alles vorzüglich: Vorspeise, Hauptspeise, Wein, Service, Ambiente, bis auf die Nachspeise.  Die Kokos Panna Cotta war schon etwas \"älter\" hatte eine harte, gummiartige \"Hautschicht\" drüber. Die drunter liegende Creme konnte gegessen werden, war aber nichts besonderes."
+    },
+    {
+      "rating": 5,
+      "comment": "Essen Super, Cocktails genial und sehr freundliches Personal.\nAlles in allem sehr zu empfehlen."
+    },
+    {
+      "rating": 2,
+      "comment": "Das Essen war gut aber durchschnittlich!\nDie Bedienung etwas verschlafen aber freundlich, leider versteht sie einen nicht so gut.\nBesonders positiv war, dass wir nach 2h noch sitzen bleiben durften.\nNegativ war, das man 27€ auf 50€ nicht bar raus geben konnte. Das fand ich echt schwach.\nBeim Bezahlen wird einem weder vorgelesen was man bezahlt noch bekommt man einen Beleg, das kenne ich sonst anders."
+    },
+    {
+      "rating": 4,
+      "comment": "Sehr lecker und sehr freundlich. nur im Restaurant etwas laut!"
+    },
+    {
+      "rating": 3,
+      "comment": "Bei der Eröffnung war die Qualität noch extrem gut. Mittlerweile nur noch Umsatz und schnell alles durch. Nur noch Mittelmaß leider."
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 2
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 2
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "11:30",
+      "toTime": "23:30"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "11:30",
+      "toTime": "23:30"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "11:30",
+      "toTime": "23:30"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "11:30",
+      "toTime": "23:30"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "11:30",
+      "toTime": "23:30"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "11:30",
+      "toTime": "22:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "11:30",
+      "toTime": "22:00"
+    }
+  ]
+}

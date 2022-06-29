@@ -1,0 +1,173 @@
+{
+  "name": "Lo Studente",
+  "restaurantType": "Italian",
+  "description": "Klassische Holzofenpizza sowie Pasta und Gnocchi in einem schlichten, von vormittags bis spät abends geöffneten Lokal.",
+  "websiteLink": "https://lo-studente.de/",
+  "priceCategory": 1,
+  "restaurantPictures": [
+    "https://lo-studente.de/wp-content/uploads/2021/11/lostudente-aussenansicht-e1637069638499.jpg",
+    "https://www.stadtgui.de/_images/lo_studente_20150310%20(6).jpg",
+    "https://i0.wp.com/www.smart-travelling.net/wp-content/uploads/2020/05/305845_244413375607584_1778145516_n.jpg?quality=99&ssl=1"
+  ],
+  "address": {
+    "lat": 48.1504489,
+    "lon": 11.5756694,
+    "street": "Schellingstraße 30",
+    "city": "Munich",
+    "postalCode": 80799,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Sehr nettes Lokal, das Essen lecker, der Service flink und freundlich"
+    },
+    {
+      "rating": 4,
+      "comment": "Das Essen kam sehr schnell an den Platz und war wirklich sehr gut! Die Pizzen waren großzügig belegt und vom Preis-Leistungs-Verhältnis absolut in Ordnung. Der Tiramisu hingegen war leider nicht unbedingt das gelbe vom Ei, aber insgesamt in Ordnung."
+    },
+    {
+      "rating": 3,
+      "comment": "Nur die Pizza ist gut, restliche Gerichte insb. die Nudeln sind geschmacklich nur Durchschnitt. Zudem sitzt man draußen an viel zu kleinen Tischen viel zu eng aufeinander"
+    },
+    {
+      "rating": 5,
+      "comment": "Unschlagbares Essen für den fairen Preis!\nMeine Quattro Formaggi war sehr gut.\nAußerdem ist die Pizzeria sehr gut angebunden an Öffentliche. Nach dem Essen gibt es reichlich Möglichkeiten was trinken zu gehen in den Cafés oder Kneipen in der Uni Gegend.\nIch komme immer wieder gerne hier her!"
+    },
+    {
+      "rating": 3,
+      "comment": "Das Essen schwankt zwischen wirklich gut und durchschnittlich, auch spät Abends unter der Woche bekommt man hier noch Essen. Wunderbar.\nDas Flair und die Einrichtung sind unterdurchschnittlich, daher nur 3 Sterne."
+    },
+    {
+      "rating": 4,
+      "comment": "Sehr schönes, hippes Ambiente! Das Essen kommt unglaublich schnell, eignet sich also super dort Mittag zu essen. Die Pizzen sind super für den Preis, jedoch nicht herausragend. Ich empfehle das Mittagsmenü. Zusätzlich ist die Bedienung auch sehr freundlich und professionell."
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "11:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "11:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "11:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "11:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "11:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "11:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "11:00",
+      "toTime": "00:00"
+    }
+  ]
+}

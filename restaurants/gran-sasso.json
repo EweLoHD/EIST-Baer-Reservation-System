@@ -1,0 +1,148 @@
+{
+  "name": "Gran Sasso",
+  "restaurantType": "Italian",
+  "description": "Traditionelles, geräumiges Familienrestaurant mit mittelitalienischer Küche.",
+  "websiteLink": "https://www.ristorante-pizzeria-gran-sasso.de/",
+  "priceCategory": 2,
+  "restaurantPictures": [
+    "https://www.ristorante-pizzeria-gran-sasso.de/bildgalerie/#",
+    "https://www.stadtgui.de/_images/gran_sasso_20151213%20(2).jpg",
+    "https://www.ristorante-pizzeria-gran-sasso.de/bildgalerie/#"
+  ],
+  "address": {
+    "lat": 48.1634686,
+    "lon": 11.5406726,
+    "street": "Ebenauer Str. 1",
+    "city": "Munich",
+    "postalCode": 80637,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Wir waren ein paar Tage in München und haben in einem Hotel in der Nähe gewohnt. Durch eine Google-Suche sind wir auf dieses Restaurant aufmerksam geworden und wurden nicht enttäuscht. Der Service war sehr freundlich und aufmerksam, und das Essen sehr lecker. Von außen macht das Restaurant vielleicht nicht viel her (liegt an einer Hauptstraße), innen ist es jedoch sehr gepflegt und größer, als es von außen wirkt. Insgesamt sehr zu empfehlen!"
+    },
+    {
+      "rating": 5,
+      "comment": "Das beste Tiramisu und Panna Cotta Münchens."
+    },
+    {
+      "rating": 1,
+      "comment": "Unfreundliche Bedienung, kein Kinder Menü, Essen ist naja, man kann es essen. Unsere Pizza (fast ganze) wurde so \"liebvoll\" in eine Allufolie übereinander verpackt!"
+    },
+    {
+      "rating": 5,
+      "comment": "Absolut nichts zu Bemängeln. Saubere und gepflegte Räume. Freundliches Personal und sehr leckere Pizza."
+    },
+    {
+      "rating": 1,
+      "comment": "Leider nicht zu empfehlen: drei von drei Gläsern schmutzig. Der Kellner ist wortkarg, fast unfreundlich und trotz \"Mittagsangebot\" wurden uns die teuren Preise berechnet. Geschmacklich war das Essen Ok, leider habe ich in meinem Lachsgericht einen undefinierbaren Knochen (???) gefunden. Enttäuschende Erfahrung"
+    },
+    {
+      "rating": 4,
+      "comment": "Wirkt von außen nicht besonders einladend aber die Pizza war sehr gut und der Service sehr lustig und freundlich. Kann ich nur empfehlen."
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 5
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "11:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "11:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "11:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "11:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "11:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "11:00",
+      "toTime": "23:00"
+    }
+  ]
+}

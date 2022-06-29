@@ -1,0 +1,156 @@
+{
+  "name": "Yee Chino",
+  "restaurantType": "Asian",
+  "description": "Sushi, chinesische Entengerichte und vietnamesische Frühlingsrollen in einem modernen Restaurant mit Live-Klaviermusik.",
+  "websiteLink": "https://www.yeechino-muenchen.de/",
+  "priceCategory": 2,
+  "restaurantPictures": [
+    "https://www.yeechino-muenchen.de/wp-content/uploads/2020/02/DSC03455-2_1.jpg",
+    "https://www.yeechino-muenchen.de/wp-content/uploads/2020/02/DSC03460-2-scaled.jpg",
+    "https://www.yeechino-muenchen.de/wp-content/uploads/2020/02/DSC03448-2_1.jpg"
+  ],
+  "address": {
+    "lat": 48.1630038,
+    "lon": 11.5432241,
+    "street": "Helene-Weber-Allee 19",
+    "city": "Munich",
+    "postalCode": 80637,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Ich wurde höflich empfangen und konnte mir zum Mittagessen einen schönen Platz selbst aussuchen. Die Bestellung wurde flott aufgenommen und die Vorspeise zeitnah mit Getränk gebracht. Das Essen schmeckt sehr frisch und das Gemüse war knackig, hätte es selbst nicht besser hinbekommen. Komme gerne wieder."
+    },
+    {
+      "rating": 4,
+      "comment": "Sehr leckeres Essen mit knackigem Gemüse und kurz gebratenem Rindfleisch. Die Ente mit Erdnusssoße war auch sehr knusprig und lecker. Der Nachtisch - flambiertes Eis - war ebenfalls sehr gut. Service wahr auch sehr freundlich, etwas hektisch und man hat paar Minuten länger warten müssen um Getränke zu bestellen. Preise für Münchner Verhältnis ebenfalls in Ordnung. Werden definitiv wieder kommen."
+    },
+    {
+      "rating": 4,
+      "comment": "Große Auswahl, einladend Atmosphäre im Innenraum sowie im Garten auf der Rückseite. Freundliche Bedienung, das Essen kommt schnell und ist schön dekoriert, mengenmäßig gut bemessen und nicht allzu scharf. Die Speisekarte enthält Sushi, Curry, Ente und Crossover-Gerichte, zum Beispiel Panna Cotta mit Kokossauce.\nLeider entfiel im Mai der Mittagsservice. Dafür wird am Samstagabend der Flügel aufgeklapp"
+    },
+    {
+      "rating": 5,
+      "comment": "Bestes asiatisches Restaurant in München.\n\nSuper leckeres Essen, freundlicher Service und tolles Ambiente. Jederzeit wieder! :)"
+    },
+    {
+      "rating": 3,
+      "comment": "Ambiente ist sehr gemütlich, die Bedienungen waren auch alle freundlich,  das Essen war ebenfalls super.\nWir müssen leider einen Stern abziehen, da ein Kellner unsere Teller abgeräumt hat nachdem er vom Rauchen zurück kam. Ohne vorher Hände zu waschen."
+    },
+    {
+      "rating": 5,
+      "comment": "Für mich ein Geheimtipp in München sehr nett und freundlich,die Speisekarte läßt keine Wünsche offen,sehr lecker!!"
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "17:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "17:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "17:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "17:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "17:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "17:00",
+      "toTime": "23:00"
+    }
+  ]
+}
