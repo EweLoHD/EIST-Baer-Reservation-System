@@ -9,7 +9,7 @@ class Restaurant {
     websiteLink?: string;
     restaurantType: string;
     priceCategory: number;
-    averageRating: number;
+    rating: number;
     restaurantPictures: Array<string>;
     address: Address;
     openingTimes?: Array<OpeningTime>;
@@ -21,7 +21,7 @@ class Restaurant {
         name: string, 
         restaurantType: string, 
         priceCategory: number, 
-        averageRating: number, 
+        rating: number, 
         restaurantPictures: Array<string>,
         address: Address,
         description?: string,
@@ -33,7 +33,7 @@ class Restaurant {
         this.name = name
         this.restaurantType = restaurantType
         this.priceCategory = priceCategory
-        this.averageRating = averageRating
+        this.rating = rating
         this.restaurantPictures = restaurantPictures
         this.address = address
         this.description = description

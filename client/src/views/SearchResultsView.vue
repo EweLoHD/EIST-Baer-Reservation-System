@@ -39,8 +39,8 @@ export default {
         getData() {
             this.loading = true;
             // TODO Send search request to backend
-            axios.get('test.json').then(response => {
-                this.restaurants = response.data.restaurants as Array<Restaurant>;
+            axios.get('http://localhost:8080/restaurants').then(response => {
+                this.restaurants = response.data as Array<Restaurant>;
                 this.loading = false;
             }).catch(e => {
                 console.error(e);

@@ -1,19 +1,19 @@
 {
-  "name": “EscoBar Muenchen",
-  "restaurantType": “Italian",
-  "description": "Restaurant und Bar mit traditioneller italienischer Küche.”,
+  "name": "EscoBar Muenchen",
+  "restaurantType": "Italian",
+  "description": "Restaurant und Bar mit traditioneller italienischer Küche.",
   "websiteLink": "https://escobar-muenchen.de",
   "priceCategory": 2,
   "restaurantPictures": [
     "https://speisekartenweb.de/restaurantbild.php/?id=123320",
     "https://www.arena.berlin/wp-content/uploads/2015/04/Loc_Escobar_Relaunch_094.jpg",
-    "https://www.arena.berlin/wp-content/uploads/2015/04/Impr_EscobarcMarkusNass-5-1.jpg”,
-	“https://www.arena.berlin/wp-content/uploads/2015/04/Loc_Escobar-Markus-Nass-1-1.jpg”
+    "https://www.arena.berlin/wp-content/uploads/2015/04/Impr_EscobarcMarkusNass-5-1.jpg",
+	"https://www.arena.berlin/wp-content/uploads/2015/04/Loc_Escobar-Markus-Nass-1-1.jpg"
   ],
   "address": {
     "lat": 48.130571,
     "lon": 11.604728,
-    "street": “Breisacher Straße 19”,
+    "street": "Breisacher Straße 19",
     "city": "Munich",
     "postalCode": 81667,
     "country": "Germany"

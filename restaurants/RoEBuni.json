@@ -1,38 +1,36 @@
 {
 
-	"name": “Osteria der Katzlmacher”,
+	"name": "RO e BUNI",
 
-	"restaurantType": “Italian”,
+	"restaurantType": "Italian",
 
-	"description": "
-Italienisches Gourmetrestaurant mit täglich wechselnder Karte, großer Weinauswahl & schickem rustikalen Flair.
-",
+	"description": "Das gemütliche Lokal mit urigen Holzbalken bereitet italienische Speisen mit Bioprodukten aus dem Allgäu zu.",
 
-	"websiteLink": "https://www.der-katzlmacher.com",
+	"websiteLink": "https://www.roebuni.de/#Speisekarten",
 
-	"priceCategory": 2,
+	"priceCategory": 4,
 
 	"restaurantPictures": [
 
-		"https://res.cloudinary.com/tf-lab/image/upload/w_1200,h_674,c_fill,g_auto:subject,q_auto,f_auto/restaurant/7ff999d9-7fa4-45cc-bcff-f041f5e6cd0a/e0d0fd43-9eac-45e9-8e35-d4b062267aa7.jpg",
+		"https://media-cdn.tripadvisor.com/media/photo-s/13/48/dd/f7/newly-refurbished-in.jpg",
 
-		"https://res.cloudinary.com/tf-lab/image/upload/w_1200,h_674,c_fill,g_auto:subject,q_auto,f_auto/restaurant/7ff999d9-7fa4-45cc-bcff-f041f5e6cd0a/c5775daf-822d-47cc-b34d-4044b1f739ab.jpg",
+		"https://res.cloudinary.com/tf-lab/image/upload/restaurant/55bd73d3-fbec-4387-83a7-4db6b54b775b/0bc7cce4-9978-4dff-88ba-f44009e02cd6.jpg",
 
-		"https://res.cloudinary.com/tf-lab/image/upload/w_1200,h_674,c_fill,g_auto:subject,q_auto,f_auto/restaurant/7ff999d9-7fa4-45cc-bcff-f041f5e6cd0a/c0431df1-6e95-4e64-b462-475bd8c1c23e.jpg"
+		"https://as2.ftcdn.net/v2/jpg/02/56/99/97/1000_F_256999751_NCibfL3kuVkzQzCaPZGrlTdnxx90uHJ7.jpg"
 
 	],
 
 	"address": {
 
-		"lat": 48.137738,
+		"lat": 48.161410,
 
-		"lon": 11.580044,
+		"lon": 11.577367,
 
-		"street": “Bräuhausstraße 6”,
+		"street": "Kaiserstrasse 55,
 
 		"city": "Munich",
 
-		"postalCode": 80331,
+		"postalCode": 80801,
 
 		"country": "Germany"
 
@@ -60,7 +58,7 @@ Italienisches Gourmetrestaurant mit täglich wechselnder Karte, großer Weinausw
 
 			"rating": 1,
 
-			"comment": “Leider fand ich ein Haar in der Suppe.”
+			"comment": "Leider fand ich ein Haar in der Suppe."
 
 		},
 
