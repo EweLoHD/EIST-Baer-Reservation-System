@@ -62,7 +62,7 @@ public class CalenderController {
             startDate.set(java.util.Calendar.SECOND, 0);
 
             // Create the event
-            String eventName = "Reservierung bei " + currentReservation.getRestaurant().getName();
+            String eventName = "Reservation - " + currentReservation.getRestaurant().getName();
             DateTime start = new DateTime(startDate.getTime());
             start.setTimeZone(tz);
 
@@ -85,7 +85,7 @@ public class CalenderController {
          escaping of special characters.
        */
             props.add(new Description(
-                    "Danke für die Reservierung in unserem Restaurant wir freuen uns auf Sie "));
+                    "Thank you for your Reservation. We are looking forward to your visit!"));
 
             /* Create a calendar object */
             PropertyList calProps = cal.getProperties();
@@ -111,7 +111,7 @@ public class CalenderController {
         Resource resource = new ByteArrayResource(calendarByte);
 
         HttpHeaders header = new HttpHeaders();
-        header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename="+currentReservation.getRestaurant().getName()+".ics");
+        header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=Reservation - "+currentReservation.getRestaurant().getName()+".ics");
         header.add("Cache-Control", "no-cache, no-store, must-revalidate");
         header.add("Pragma", "no-cache");
         header.add("Expires", "0");
