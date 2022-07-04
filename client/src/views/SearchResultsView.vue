@@ -81,6 +81,9 @@ export default {
                 this.restaurants = response.data.restaurants as Array<Restaurant>;
                 this.loading = false;
 
+                if(response.data.restaurantType) this.filterData.category = response.data.restaurantType;
+                (document.getElementById("search-bar") as HTMLInputElement).value = response.data.query;
+
                 console.log(response.data.restaurants)
             }).catch(e => {
                 console.error(e);
@@ -161,10 +164,15 @@ export default {
 <template>
     <div class="flex flex-col items-center justify-screen h-screen dark:bg-gray-900 relative">
         <div class="fixed inline-flex justify-between items-center mb-4 p-4 w-full bg-white border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <a class="basis-1/4 text-2xl font-bold pl-2 mb-1 inline-flex" href="/">
+            <!--<a class="basis-1/4 text-2xl font-bold pl-2 mb-1 inline-flex" href="/">
                 <svg class="w-9 h-9 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 Reservation System
-            </a>
+            </a>-->
+            <div class="basis-1/4 text-2xl font-bold">
+                <div class="hover:bg-gray-200 rounded-lg w-fit h-fit p-2" onclick="location.href='/';" style="cursor: pointer;">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+                </div>
+            </div>
             <div class="basis-1/2 pr-2">
                 <SearchBar :date="parseInt(urlQuery.date)" :time="parseInt(urlQuery.time)" :people="parseInt(urlQuery.people)" :query="urlQuery.query"></SearchBar>
             </div>
@@ -179,7 +187,7 @@ export default {
                 </button>
                 <!--Filter Sidebar-->
                 <div class="h-fit px-4 py-3 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-                    <Filter @onFilterApplied="onFilterApplied"></Filter>
+                    <Filter @onFilterApplied="onFilterApplied" :preselected-filter-data="filterData"></Filter>
                 </div>
             </div>
             

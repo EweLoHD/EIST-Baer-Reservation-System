@@ -107,6 +107,9 @@ export default {
 
 <template>
     <div v-if="!loading" class="flex flex-col items-center justify-center dark:bg-gray-900">
+        <div class="absolute left-2 top-2 z-50 text-white hover:bg-white hover:text-gray-800 rounded-lg w-fit h-fit p-2" onclick="history.back()" style="cursor: pointer;">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+        </div>
         <div v-if="restaurant.restaurantPictures.length > 1" id="pictures-carousel" class="w-full absolute top-0">
             <!-- Carousel wrapper -->
             <div class="overflow-hidden relative h-[42rem]">
