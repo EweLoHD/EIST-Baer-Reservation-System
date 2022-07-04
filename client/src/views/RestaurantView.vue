@@ -37,7 +37,6 @@ export default {
                 this.restaurant.openingTimes = response.data.openingTimes?.map((t: { dayOfWeek: Number; fromTime: String; toTime: String; }) => new OpeningTime(t.dayOfWeek, t.fromTime, t.toTime))
                 this.restaurant.reviews = response.data.reviews?.map((t: { rating: Number; comment: String; creationDate: string; }) => new Review(t.rating, t.comment, LocalDate.parse(t.creationDate)));
 
-                this.restaurant.averageRating = 4.3; // TODO
                 console.log(this.restaurant);
                 this.loading = false;
 
@@ -152,8 +151,8 @@ export default {
             </div>
             <div class="bg-white w-full -mt-11 px-7 py-8 rounded-lg shadow-lg grid grid-rows-1 grid-cols-3 items-center justify-between">
                 <div class="inline-flex">
-                    <Rating :rating="Math.floor(restaurant.averageRating)" :size="6" class="mt-1"/>
-                    <a class="ml-1.5 text-lg font-semibold text-gray-500">• {{restaurant.averageRating}} / 5.0</a>
+                    <Rating :rating="Math.floor(restaurant.rating)" :size="6" class="mt-1"/>
+                    <a class="ml-1.5 text-lg font-semibold text-gray-500">• {{restaurant.rating == 0 ? "No Reviews" : restaurant.rating.toFixed(1) + " / 5.0"}}</a>
                 </div>
                 <PriceCategory :category="restaurant.priceCategory" :size="'lg'" class="justify-self-center"></PriceCategory>
                 <a class="text-lg font-semibold justify-self-end inline-flex items-center text-gray-800" :href="restaurant.websiteLink" target="_blank">
