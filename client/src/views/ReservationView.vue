@@ -18,7 +18,8 @@ export default {
                 restaurant: parseInt(this.$route.params.id as string) as Number,
                 restaurantTable: parseInt(this.$route.query.table as string) as Number,
                 people: parseInt(this.$route.query.people as string) as Number
-            }
+            },
+            restaurantName: ""
         })
     },
     methods: {
@@ -47,7 +48,15 @@ export default {
         }
     },
     created() {
-        
+        var vm = this;
+        axios.get('http://localhost:8080/restaurants/' + this.reservation.restaurant)
+            .then(function (response) {
+                vm.restaurantName = response.data.name;
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert(error);
+            });
     }
 }
 </script>
@@ -60,7 +69,7 @@ export default {
         <h1 v-if="validQuery()" class="text-5xl font-bold text-gray-800 mb-5 -m-16 inline-flex items-center">Reservation</h1>
         <div v-if="validQuery()" class="border px-4 pt-3 pb-4 rounded-lg w-128 bg-white shadow-md">
             <div class="flex flex-col">
-                <h2 class="text-xl font-semibold text-gray-800 mb-2">TODO</h2>
+                <h2 class="text-xl font-semibold text-gray-800 mb-2">{{ restaurantName }}</h2>
                 <p class="text-md inline-flex items-center">
                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                     {{ LocalDate.parse(reservation.date).getFormated() }}
