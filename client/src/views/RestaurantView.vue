@@ -30,7 +30,6 @@ export default {
     methods: {
         getData() {
             this.loading = true;
-            // TODO Send search request to backend
             axios.get('http://localhost:8080/restaurants/' + this.$route.params.id).then(response => {
                 this.restaurant = response.data as Restaurant;
 
@@ -45,10 +44,8 @@ export default {
                 }, 100)
             }).catch(e => {
                 console.error(e);
-
-                // TODO Handle Errors
+                alert(e);
                 this.loading = false;
-                //this.error = true;
             })
         },
         showCarousel() {

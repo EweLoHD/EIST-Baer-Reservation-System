@@ -14,7 +14,6 @@ class Restaurant {
     address: Address;
     openingTimes?: Array<OpeningTime>;
     reviews?: Array<Review>;
-    //TODO Tables
     
     constructor(
         id: number, 

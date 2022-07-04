@@ -24,19 +24,10 @@ public class ReviewController {
         return restaurantRepository.findById(id).orElseThrow().getReviews();
     }
 
-    @PostMapping("/restaurants/{id}/reviews")
-    @ResponseStatus(value = HttpStatus.FORBIDDEN, reason = "To show an example of a custom message")
+    /*@PostMapping("/restaurants/{id}/reviews")
     Review addReview(@PathVariable Long id, @RequestBody Review review) {
         Restaurant restaurant = restaurantRepository.findById(id).orElseThrow();
 
-        //TODO Was das?
-
-        if (restaurant != null){
-//            List<Review> reviews = restaurant.getReviews();
-//            reviews.add(review);
-//            restaurant.setReviews(reviews);
-            return reviewRepository.save(review);
-        }
-        throw new ForbiddenException();
-    }
+        return reviewRepository.save(review);
+    }*/
 }

@@ -21,7 +21,7 @@ public class ReservationController {
     }
 
     @GetMapping("/reservations/{id}")
-    Reservation getReservationById(@PathVariable String id) {// TODO Add Error Handling
+    Reservation getReservationById(@PathVariable String id) {
         return reservationRepository.findById(id).orElseThrow();
     }
 
@@ -34,7 +34,6 @@ public class ReservationController {
 
             return newReservation;
         } else {
-            //TODO return proper Error Message
             throw new InvalidReservationException();
         }
     }

@@ -42,7 +42,6 @@ export default {
     methods: {
         getData() {
             this.loading = true;
-            // TODO Send search request to backend
 
             var reqBody = {} as {
                 query: string,
@@ -88,9 +87,9 @@ export default {
             }).catch(e => {
                 console.error(e);
 
-                // TODO Handle Errors
                 this.loading = false;
                 this.error = true;
+                alert(e);
             })
         },
         showMap() {

@@ -43,7 +43,6 @@ public class RestaurantController {
 
     @GetMapping("/restaurants/{id}")
     Restaurant getRestaurantById(@PathVariable Long id) {
-        // TODO Add Error Handling
         return restaurantRepository.findById(id).orElseThrow();
     }
 
