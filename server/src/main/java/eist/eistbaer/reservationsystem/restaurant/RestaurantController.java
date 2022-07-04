@@ -6,9 +6,9 @@ import eist.eistbaer.reservationsystem.restaurant.availableTimeslots.AvailableTi
 import eist.eistbaer.reservationsystem.restaurant.table.RestaurantTable;
 import eist.eistbaer.reservationsystem.restaurant.type.RestaurantType;
 import eist.eistbaer.reservationsystem.restaurant.type.RestaurantTypeRepository;
-import eist.eistbaer.reservationsystem.restaurantSearchUtiliy.RestaurantSearchUtility;
-import eist.eistbaer.reservationsystem.restaurantSearchUtiliy.SearchBodyReply;
-import eist.eistbaer.reservationsystem.restaurantSearchUtiliy.SearchBodyRequest;
+import eist.eistbaer.reservationsystem.restaurant.search.RestaurantSearchUtility;
+import eist.eistbaer.reservationsystem.restaurant.search.SearchResponse;
+import eist.eistbaer.reservationsystem.restaurant.search.SearchRequestBody;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -102,8 +102,8 @@ public class RestaurantController {
         }).toList();
     }
 
-    @GetMapping("/search")
-    SearchBodyReply searchRestaurant(@RequestBody SearchBodyRequest searchBodyRequest) {
+    @RequestMapping(value = "/restaurants/search", method = {RequestMethod.GET, RequestMethod.POST})
+    SearchResponse searchRestaurant(@RequestBody SearchRequestBody searchBodyRequest) {
         return RestaurantSearchUtility.search(searchBodyRequest, restaurantRepository, restaurantTypeRepository, reservationRepository);
     }
 

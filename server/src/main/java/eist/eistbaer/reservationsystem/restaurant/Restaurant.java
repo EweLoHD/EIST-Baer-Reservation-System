@@ -147,11 +147,19 @@ public class Restaurant {
         this.reviews = reviews;
     }
 
+    /**
+     * Calculates the average of all ratings and returns it as decimal number
+     * @return Average Rating as double
+     */
     @JsonGetter
     public double getRating() {
         return reviews.stream().mapToInt(r -> r.getRating().num()).average().orElse(0);
     }
 
+    /**
+     * Calculates the average of all ratings and returns the corresponding ReviewRating
+     * @return Average Rating as ReviewRating
+     */
     @JsonIgnore
     public ReviewRating getAverageRating() {
         double sumRating = 0.0;
@@ -164,6 +172,11 @@ public class Restaurant {
         return ReviewRating.of(averageRating);
     }
 
+    /**
+     * Gets the Opening Hours of the given day of the Week
+     * @param dayOfWeek Weekday
+     * @return OpeningTimes at given DayOfWeek
+     */
     public List<OpeningTime> getOpeningTimesOfDay(DayOfWeek dayOfWeek) {
         return openingTimes.stream()
                 .filter(openingTime -> openingTime.getDayOfWeek().getValue() == dayOfWeek.getValue())

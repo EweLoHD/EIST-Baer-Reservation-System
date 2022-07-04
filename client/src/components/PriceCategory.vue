@@ -3,8 +3,6 @@ const props = defineProps<{
     category: number,
     size?: string
 }>()
-
-console.log(props)
 </script>
 <template>
     <div class="flex items-center">

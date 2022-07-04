@@ -120,7 +120,8 @@ export default {
                 "date": dateFormat(this.datePicker.getDate(), "yyyy-mm-dd"),
                 "time": this.selectedSlot.time.split(':')[0] + ':' + this.selectedSlot.time.split(':')[1],
                 "people": this.selectedPeopleCount+"",
-                "table": table.id
+                "table": table.id,
+                "tableType": table.tableType
             });
 
             console.log(dateFormat(new Date(this.selectedTime), "HH:MM"));

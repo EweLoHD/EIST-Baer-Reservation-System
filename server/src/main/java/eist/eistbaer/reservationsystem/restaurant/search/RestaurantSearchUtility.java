@@ -1,4 +1,4 @@
-package eist.eistbaer.reservationsystem.restaurantSearchUtiliy;
+package eist.eistbaer.reservationsystem.restaurant.search;
 
 import eist.eistbaer.reservationsystem.reservation.Reservation;
 import eist.eistbaer.reservationsystem.reservation.ReservationRepository;
@@ -25,11 +25,11 @@ public class RestaurantSearchUtility {
     private static final double MIN_RESTAURANT_TYPE = 0.7;
     private static final double MIN_RESTAURANT_NAME = 0.1;
 
-    public static SearchBodyReply search(SearchBodyRequest searchBodyRequest, RestaurantRepository restaurantRepository, RestaurantTypeRepository restaurantTypeRepository, ReservationRepository reservationRepository) {
+    public static SearchResponse search(SearchRequestBody searchBodyRequest, RestaurantRepository restaurantRepository, RestaurantTypeRepository restaurantTypeRepository, ReservationRepository reservationRepository) {
         List<RestaurantType> restaurantTypes = restaurantTypeRepository.findAll();
         List<Restaurant> restaurants = restaurantRepository.findAll();
 
-        SearchBodyReply reply = new SearchBodyReply();
+        SearchResponse reply = new SearchResponse();
 
         String searchQuery = searchBodyRequest.getQuery();
         RestaurantType searchedType = null;

@@ -1,5 +1,6 @@
-package eist.eistbaer.reservationsystem.restaurantSearchUtiliy;
+package eist.eistbaer.reservationsystem.restaurant.search;
 
+import eist.eistbaer.reservationsystem.restaurant.Restaurant;
 import eist.eistbaer.reservationsystem.restaurant.address.Address;
 import eist.eistbaer.reservationsystem.restaurant.priceCategory.PriceCategory;
 import eist.eistbaer.reservationsystem.restaurant.reviewrating.ReviewRating;
@@ -7,8 +8,10 @@ import eist.eistbaer.reservationsystem.restaurant.type.RestaurantType;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
-public class SearchBodyRequest {
+public class SearchResponse {
+    private List<Restaurant> restaurants;
     private String query;
     private LocalDate date;
     private LocalTime time;
@@ -19,7 +22,15 @@ public class SearchBodyRequest {
     private PriceCategory price;
     private RestaurantType restaurantType;
 
-    public SearchBodyRequest() {
+    public SearchResponse() {
+    }
+
+    public List<Restaurant> getRestaurants() {
+        return restaurants;
+    }
+
+    public void setRestaurants(List<Restaurant> restaurants) {
+        this.restaurants = restaurants;
     }
 
     public String getQuery() {

@@ -2,6 +2,7 @@
 import { onBeforeMount, onMounted, ref } from '@vue/runtime-core';
 //import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
+import dateFormat, { masks } from 'dateformat';
 
 import Modal from 'flowbite/src/components/modal'
 
@@ -27,7 +28,10 @@ export default {
             error: false,
             loading: true,
             locationSearchModal: null as Modal,
-            filterData: {} as FilterData,
+            filterData: {
+                minRating: 1,
+                maxPrice: 3
+            } as FilterData,
             map: {} as L.Map,
             mapModal: null as Modal,
             mapData: {
@@ -39,9 +43,45 @@ export default {
         getData() {
             this.loading = true;
             // TODO Send search request to backend
-            axios.get('http://localhost:8080/restaurants').then(response => {
-                this.restaurants = response.data as Array<Restaurant>;
+
+            var reqBody = {} as {
+                query: string,
+                date: string,
+                time: string,
+                people: number,
+                location: {
+                    lat: number,
+                    lon: number
+                },
+                distance: number,
+                rating: number,
+                price: number,
+                restaurantType: string
+            }
+
+            const query = new URLSearchParams(window.location.search);
+
+            if (query.has("query") && query.get("query") != "") reqBody.query = query.get("query")!;
+            if (query.has("date")) reqBody.date = dateFormat(new Date().setTime(parseInt(query.get("date")!)), "yyyy-mm-dd");
+            if (query.has("time")) reqBody.time = dateFormat(new Date().setTime(parseInt(query.get("time")!)), "HH:MM");
+            if (query.has("people")) reqBody.people = parseInt(query.get("people")!);
+
+            if (this.filterData.location?.lat && this.filterData.location?.lon) {
+                reqBody.location = {lat: this.filterData.location.lat, lon: this.filterData.location.lon};
+            }
+            if (this.filterData.maxDistance) reqBody.distance = this.filterData.maxDistance;
+            if (this.filterData.minRating) reqBody.rating = this.filterData.minRating;
+            if (this.filterData.maxPrice) reqBody.price = this.filterData.maxPrice;
+            if (this.filterData.category && this.filterData.category != "") reqBody.restaurantType = this.filterData.category as string;
+
+            console.log(reqBody);
+
+
+            axios.post('http://localhost:8080/restaurants/search', reqBody).then(response => {
+                this.restaurants = response.data.restaurants as Array<Restaurant>;
                 this.loading = false;
+
+                console.log(response.data.restaurants)
             }).catch(e => {
                 console.error(e);
 
@@ -81,6 +121,7 @@ export default {
         },
         onFilterApplied(filterData: FilterData) {
             this.filterData = filterData;
+            console.log(filterData);
             this.getData();
         }
     },
