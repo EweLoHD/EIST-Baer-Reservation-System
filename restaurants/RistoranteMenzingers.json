@@ -1,0 +1,304 @@
+{
+
+  "name": “Ristorante Menzingers”,
+
+  "restaurantType": “Italian”,
+
+  "description": “In einer historischen Villa gelegenes, stilvolles Lokal mit originellen Lampen serviert mediterrane Gerichte.”,
+
+  "websiteLink": "https://menzingers.de",
+
+  "priceCategory": 2,
+
+  "restaurantPictures": [
+
+    "https://menzingers.de/wp-content/uploads/sites/5/2015/06/1-63-1024x680.jpg",
+
+    "data:image/jpeg;base64,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"
+,”data:image/jpeg;base64,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”
+
+  ],
+
+  "address": {
+
+    "lat": 48.1726920,
+
+    "lon": 11.48017467,
+
+    "street": “Menzinger “Straße 123”,
+
+    "city": “Muenchen”,
+
+    "postalCode": 80997,
+
+    "country": "Germany"
+
+  },
+
+  "reviews": [
+
+    {
+
+      "rating": 5,
+
+      "comment": "Wir hatten einen schönen Abend. Das Essen war sehr lecker, auch vegetarisch sind verschiedene Speisen vorhandenen. Wir kommen bestimmt wieder!"
+
+    },
+
+    {
+
+      "rating": 4,
+
+      "comment": "Das Essen hier war sehr lecker und der Service recht gut. Einen Stern Abzug gibt es weil im Restaurant die Karte als QR-Code auf dem Tisch ist, es jedoch kein WLAN gibt und das Netz da drin nicht gerade gut ist."
+
+    },
+
+    {
+
+      "rating": 1,
+
+      "comment": "Sehr sehr enttäuschend und nicht zu empfehlen. Das Personal interesierte sich am Sonntag lieber für den Plausch untereinander (3 Servicekräfte standen gemütlich mit Kaffee zusammen), als für den Gast. Nachdem uns ein Tisch zugewiesen wurde, kam das Servicepersonal nach langer Wartezeit, um uns die Karte zu bringen und das war es dann. Schade.Ein weiterer Tisch mit mehreren Gästen versuchte ohne Erfolg auf sich aufmerksam zu machen. Erst als ein Gast auf das Servicepersonal zugegangen ist, hat man sich um die Gäste gekümmert. Wir haben uns dann dazu entschieden, wieder zu gehen. Auf unser \"Auf Wiedersehen\" haben wir seitens des Personals keinerlei Reaktion erfahren. Die richtige Definition von Dienstleistung ist in diesem Lokal noch nicht angekommen."
+
+    },
+
+    {
+
+      "rating": 5,
+
+      "comment": "Haben gestern Abend einen Tisch bekommen, obwohl wir nicht reserviert hatten. Das Essen war sehr lecker und auch die Cocktails haben gut geschmeckt. Unsere Bedienung war sehr nett, hätte aber öfter mal fragen können ob wir z.B. noch eine Nachspeise möchten. Der Preis ist vergleichsweise hoch. Aber trotzdem ein tolles Lokal und wir kommen gerne wieder."
+
+    },
+
+    {
+
+      "rating": 5,
+
+      "comment": "Wir waren am Sonntag zu zweit essen und fanden es hier richtig gut, das Ambiente, das Essen und die Desserts/Getränke - alles top! Die Bedienung war sehr freundlich, unsere Kellnerin (Xenia wenn wir richtig herausgehört haben) war super hilfreich, auch wenn die Küche mit dem großen Kundenaufkommen etwas überfordert war, hat sie uns Kaffee angeboten und war immer ansprechbar. Wir kommen gerne wieder!"
+
+    },
+
+    {
+
+      "rating": 4,
+
+      "comment": "Ich fand das Essen in Ordnung, aber nichts besonderes. Ich hatte einen Salat und als Vorspeise Dreierlei Aufstriche. Hausmannskost, so wie man es zuhause auch hinkriegen würde. Service ok. Alle Plätze waren eng besetzt, man versucht hier jeden Zentimeter zu nutzen. In Corona-Zeiten nicht so angenehm."
+
+    }
+
+  ],
+
+  "restaurantTables": [
+
+    {
+
+      "tableType": "REGULAR",
+
+      "capacity": 4
+
+    },
+
+    {
+
+      "tableType": "REGULAR",
+
+      "capacity": 4
+
+    },
+
+    {
+
+      "tableType": "REGULAR",
+
+      "capacity": 4
+
+    },
+
+    {
+
+      "tableType": "REGULAR",
+
+      "capacity": 6
+
+    },
+
+    {
+
+      "tableType": "REGULAR",
+
+      "capacity": 6
+
+    },
+
+    {
+
+      "tableType": "REGULAR",
+
+      "capacity": 6
+
+    },
+
+    {
+
+      "tableType": "HIGH_TOP",
+
+      "capacity": 6
+
+    },
+
+    {
+
+      "tableType": "HIGH_TOP",
+
+      "capacity": 6
+
+    },
+
+    {
+
+      "tableType": "REGULAR",
+
+      "capacity": 10
+
+    },
+
+    {
+
+      "tableType": "BAR",
+
+      "capacity": 3
+
+    },
+
+    {
+
+      "tableType": "BAR",
+
+      "capacity": 3
+
+    },
+
+    {
+
+      "tableType": "BAR",
+
+      "capacity": 3
+
+    },
+
+    {
+
+      "tableType": "OUTDOOR",
+
+      "capacity": 2
+
+    },
+
+    {
+
+      "tableType": "OUTDOOR",
+
+      "capacity": 2
+
+    },
+
+    {
+
+      "tableType": "OUTDOOR",
+
+      "capacity": 4
+
+    },
+
+    {
+
+      "tableType": "OUTDOOR",
+
+      "capacity": 4
+
+    },
+
+    {
+
+      "tableType": "PRIVATE_ROOM",
+
+      "capacity": 20
+
+    }
+
+  ],
+
+  "openingTimes": [
+
+    {
+
+      "dayOfWeek": "MONDAY",
+
+      "fromTime": "10:00",
+
+      "toTime": "23:00"
+
+    },
+
+    {
+
+      "dayOfWeek": "TUESDAY",
+
+      "fromTime": "10:00",
+
+      "toTime": "23:00"
+
+    },
+
+    {
+
+      "dayOfWeek": "WEDNESDAY",
+
+      "fromTime": "10:00",
+
+      "toTime": "23:00"
+
+    },
+
+    {
+
+      "dayOfWeek": "THURSDAY",
+
+      "fromTime": "10:00",
+
+      "toTime": "23:00"
+
+    },
+
+    {
+
+      "dayOfWeek": "FRIDAY",
+
+      "fromTime": "10:00",
+
+      "toTime": "00:00"
+
+    },
+
+    {
+
+      "dayOfWeek": "SATURDAY",
+
+      "fromTime": "09:00",
+
+      "toTime": "00:00"
+
+    },
+
+    {
+
+      "dayOfWeek": "SUNDAY",
+
+      "fromTime": "09:00",
+
+      "toTime": "23:00"
+
+    }
+
+  ]
+
+}
