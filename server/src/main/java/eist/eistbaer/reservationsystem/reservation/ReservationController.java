@@ -1,6 +1,7 @@
 package eist.eistbaer.reservationsystem.reservation;
 
 import eist.eistbaer.reservationsystem.reservation.email.EmailUtils;
+import eist.eistbaer.reservationsystem.reservation.util.CancellationException;
 import eist.eistbaer.reservationsystem.reservation.util.InvalidReservationException;
 import eist.eistbaer.reservationsystem.restaurant.RestaurantRepository;
 //import eist.eistbaer.reservationsystem.restaurant.type.RestaurantTypeRepository;
@@ -40,20 +41,23 @@ public class ReservationController {
 
     @PostMapping("/reservations/{id}/confirm")
     Reservation confirmReservation(@PathVariable String id) {
-        Reservation reservation = reservationRepository.findById(id).orElseThrow(IllegalArgumentException::new);
-
-        if(reservation.isConfirmationMailSent()) {
-            reservation.setConfirmed(true);
-        } else {
-            throw new RuntimeException("Reservation can't be confirmed, because E-Mail hasn't been sent yet!");
-        }
-
-        return reservation;
+        return reservationRepository.findById(id).map(r -> {
+            if (r.isConfirmationMailSent()) {
+                r.setConfirmed(true);
+                return reservationRepository.save(r);
+            } else {
+                throw new RuntimeException("Reservation can't be confirmed, because E-Mail hasn't been sent yet!");
+            }
+        }).orElseThrow();
     }
 
     @DeleteMapping("/reservations/{id}")
     void deleteReservation(@PathVariable String id) {
-        reservationRepository.deleteById(id);
+        if (!reservationRepository.findById(id).orElseThrow().isConfirmed()) {
+            reservationRepository.deleteById(id);
+        } else {
+            throw new CancellationException();
+        }
     }
 
 }

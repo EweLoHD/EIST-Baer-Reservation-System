@@ -3,6 +3,7 @@ import LocalDate from '../types/LocalDate';
 import LocalTime from '../types/LocalTime';
 import Error from '../components/Error.vue';
 import axios from 'axios';
+import type Restaurant from '@/types/Restaurant';
 
 
 </script>
@@ -13,12 +14,23 @@ export default {
             loading: true,
             cancellation: parseInt(this.$route.query.cancellation as string), 
             confirmation: parseInt(this.$route.query.confirmation as string), 
-            reservation: {},
+            reservation: {} as {
+                id: string
+                clientName: string
+                clientEmail: string
+                fromTime: string
+                toTime: string
+                date: string
+                people: number
+                confirmed: boolean
+                confirmationMailSent: boolean,
+                restaurant: Restaurant
+            }
         })
     },
     methods: {
-        getData() {
-            axios.get('http://localhost:8080/reservations/' + this.$route.params.id).then(response => {
+        async getData() {
+            await axios.get('http://localhost:8080/reservations/' + this.$route.params.id).then(response => {
                 this.reservation = response.data;
                 this.loading = false;
             }).catch(e => {
@@ -68,7 +80,19 @@ export default {
         }
     },
     created() {
-        this.getData();
+        this.getData().then(() => {
+            if (this.cancellation && this.reservation.confirmed) {
+                document.getElementById("main")!.innerHTML = "❌ This Reservation can no longer be canceled, because it has already been confirmed."    
+            }
+
+            if (this.confirmation && this.reservation.confirmed) {
+                document.getElementById("main")!.innerHTML = "🐧 This Reservation has already been confirmed!"    
+            }
+        })
+       
+    },
+    mounted() {
+        
     }
 }
 </script>
