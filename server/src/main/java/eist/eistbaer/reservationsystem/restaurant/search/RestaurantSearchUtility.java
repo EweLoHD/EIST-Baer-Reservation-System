@@ -49,7 +49,6 @@ public class RestaurantSearchUtility {
         } else if (searchedType != null) {
             restaurants = searchAfterType(searchedType, restaurants);
             reply.setRestaurantType(searchedType);
-            reply.setQuery(searchQuery);
         }
 
 
@@ -78,6 +77,9 @@ public class RestaurantSearchUtility {
         } else if (searchBodyRequest.getDate() != null) {
             restaurants = filterAfterDate(searchBodyRequest.getDate(), restaurants);
             reply.setDate(searchBodyRequest.getDate());
+        } else {
+            restaurants = filterAfterDate(LocalDate.now(), restaurants);
+            reply.setDate(LocalDate.now());
         }
 
         reply.setRestaurants(restaurants);
