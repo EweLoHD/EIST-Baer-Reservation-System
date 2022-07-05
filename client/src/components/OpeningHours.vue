@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import OpeningTime from '@/types/OpeningTime'
+import type OpeningTime from '@/types/OpeningTime'
 
 </script>
 <script lang="ts">
 export default {
     props: {
-        openingTimes: Array<OpeningTime>
+        openingTimes: Array as () => Array<OpeningTime>
     },
     methods: {
         getOpeningTimesByDay(dayOfWeek: Number): Array<OpeningTime> {

@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Carousel from 'flowbite/src/components/carousel'
 
-import Restaurant from '@/types/Restaurant';
+import type Restaurant from '@/types/Restaurant';
 import Address from '@/types/Address';
 import Review from '@/types/Review';
 import LocalDate from "@/types/LocalDate";
@@ -25,7 +25,7 @@ export default {
             urlParams: {} as URLSearchParams,
             loading: true,
             restaurant: {} as Restaurant,
-            carousel: {} as Carousel
+            carousel: {} as typeof Carousel
         }
     },
     methods: {

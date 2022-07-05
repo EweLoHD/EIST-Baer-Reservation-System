@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Datepicker from 'flowbite-datepicker/Datepicker';
+import Dropdown from 'flowbite/src/components/dropdown'
 import { onMounted } from '@vue/runtime-core';
 import { useRouter } from 'vue-router';
 
@@ -23,9 +24,9 @@ const today = new Date().setHours(0, 0, 0, 0);
 const timeDropdownStart = 6; // The dropdown starts at 6h
 const timeDropdownEnd = 23; // The dropdown ends at 23h
 
-let datePicker: Datepicker;
-let timeDropdown : Dropdown;
-let peopleDropdown : Dropdown;
+let datePicker: typeof Datepicker;
+let timeDropdown : typeof Dropdown;
+let peopleDropdown : typeof Dropdown;
 
 var selectedTime = 0;
 var selectedPeopleCount = 0;

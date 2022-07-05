@@ -3,7 +3,7 @@ import LocalDate from '../types/LocalDate';
 import LocalTime from '../types/LocalTime';
 import Error from '../components/Error.vue';
 import axios from 'axios';
-import Restaurant from '@/types/Restaurant';
+import type Restaurant from '@/types/Restaurant';
 
 
 </script>

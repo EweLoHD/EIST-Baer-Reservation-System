@@ -4,6 +4,7 @@ import { onBeforeMount, onMounted, ref } from '@vue/runtime-core';
 import axios from 'axios';
 import dateFormat, { masks } from 'dateformat';
 
+
 import Modal from 'flowbite/src/components/modal'
 
 import 'leaflet/dist/leaflet.css';
@@ -27,13 +28,13 @@ export default {
             restaurants: [] as Array<Restaurant>,
             error: false,
             loading: true,
-            locationSearchModal: null as Modal,
+            locationSearchModal: null as typeof Modal,
             filterData: {
                 minRating: 1,
                 maxPrice: 3
             } as FilterData,
             map: {} as L.Map,
-            mapModal: null as Modal,
+            mapModal: null as typeof Modal,
             mapData: {
                 selectedRestaurant: {} as Restaurant
             }
@@ -129,7 +130,7 @@ export default {
     },
     watch: {
         // If query updates, reload data
-        $route (to, from){
+        $route (to: any, from: any){
             if(JSON.stringify(to.query) != JSON.stringify(from.query)) {
                 this.getData();
             }

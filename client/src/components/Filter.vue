@@ -26,7 +26,7 @@ export default {
     },
     data() {
         return {
-            locationSearchModal: null as Modal,
+            locationSearchModal: null as typeof Modal,
             filterData: {
                 location: {
                     // lat & lon of Munich
@@ -42,7 +42,7 @@ export default {
         }
     },
     watch: {
-        'preselectedFilterData.category'(value) {
+        'preselectedFilterData.category'(value: any) {
             this.filterData.category = this.preselectedFilterData!.category;
         }
     },
@@ -64,6 +64,10 @@ export default {
             this.locationSearchModal.show();
         },
         onLocationSelected(location: {lat: number, lon: number}) {
+            if (location.lat == 0 && location.lon == 0) {
+                return;
+            }
+
             this.filterData.location = location;
 
             if(this.filterData.maxDistance == 0 && Object.keys(location).length > 0) {

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Datepicker from 'flowbite-datepicker/Datepicker';
 import Modal from 'flowbite/src/components/modal'
+import Dropdown from 'flowbite/src/components/dropdown'
 import { onMounted } from '@vue/runtime-core';
 import { useRoute, useRouter } from 'vue-router';
 import dateFormat, { masks } from 'dateformat';
@@ -21,14 +22,14 @@ export default {
             // The dropdown goes from timeDropdownStart to timeDropdownEnd in 0,5h increments
             timeDropdownStart: 6, // The dropdown starts at 6h
             timeDropdownEnd: 23, // The dropdown ends at 23h
-            datePicker: {} as DatePicker,
-            timeDropdown: {} as Dropdown,
-            peopleDropdown: {} as Dropdown,
+            datePicker: {} as typeof Datepicker,
+            timeDropdown: {} as typeof Dropdown,
+            peopleDropdown: {} as typeof Dropdown,
             selectedTime: 0,
             selectedPeopleCount: 0,
             dataSelected: false,
             slots: {} as Array<{ time: string, tables: Array<{ id: string, tableType: string }> }>,
-            tableTypeModal: {} as Modal,
+            tableTypeModal: {} as typeof Modal,
             tables: {} as Array<{ id: string, tableType: string }>,
             selectedSlot: {} as { time: string, tables: Array<{ id: string, tableType: string }> }
         }

@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import Review from '@/types/Review';
+import type Review from '@/types/Review';
 import Rating from './Rating.vue';
 </script>
 <script lang="ts">
 export default {
     props: {
-        reviews: { type: Array<Review>, required: true }
+        reviews: { 
+            type: Array as () => Array<Review>, 
+            required: true 
+        }
     },
     methods: {
         getPercentageOfReviewsByStars(stars: Number): string {
