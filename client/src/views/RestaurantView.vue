@@ -22,6 +22,7 @@ import Reviews from "@/components/Reviews.vue";
 export default {
     data() {
         return {
+            urlParams: {} as URLSearchParams,
             loading: true,
             restaurant: {} as Restaurant,
             carousel: {} as Carousel
@@ -30,6 +31,9 @@ export default {
     methods: {
         getData() {
             this.loading = true;
+
+            this.urlParams = new URLSearchParams(window.location.search);
+
             axios.get('http://localhost:8080/restaurants/' + this.$route.params.id).then(response => {
                 this.restaurant = response.data as Restaurant;
 
@@ -164,7 +168,7 @@ export default {
                     <!-- Reservation -->
                     <h3 class="text-3xl font-bold text-gray-800 mb-6 pt-4" id="reservation">Reservation</h3>
                     <div class="border rounded-lg p-4">
-                        <ReservationField></ReservationField>
+                        <ReservationField :p-date="parseInt(urlParams.get('date')!)" :p-time="parseInt(urlParams.get('time')!)" :p-people="parseInt(urlParams.get('people')!)"></ReservationField>
                     </div>
                     <!-- Reviews -->
                     <h3 class="text-3xl font-bold text-gray-800 mb-6 mt-36" id="reservation">Reviews</h3>

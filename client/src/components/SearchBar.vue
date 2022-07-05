@@ -11,6 +11,10 @@ const props = defineProps({
     queryRequired: { type: Boolean, required: false, default: false }
 })
 
+const emit = defineEmits({
+    onSubmit(playLoad: {date: number, time: number, people: number}) {}
+})
+
 const router = useRouter();
 
 const today = new Date().setHours(0, 0, 0, 0);
@@ -109,6 +113,12 @@ function onSearch() {
         }*/
         //;
     }
+
+    emit('onSubmit', { 
+        date: selectedDate ? selectedDate : undefined,
+        time: (selectedTime ? selectedTime : undefined) as number,
+        people: (selectedPeopleCount ? selectedPeopleCount : undefined) as number
+    });
 }
 
 // Add leading Zeroes to number (Source: https://stackoverflow.com/a/2998874/9189184)

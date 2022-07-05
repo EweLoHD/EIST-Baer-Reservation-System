@@ -12,8 +12,15 @@ const props = defineProps<{
     restaurant: Restaurant
 }>()
 
+function getURLParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.delete("query");
+
+    return urlParams;
+}
+
 function onCardClick() {
-    window.location.href = "/restaurant/" + props.restaurant.id;
+    window.location.href = "/restaurant/" + props.restaurant.id + "?" + getURLParams().toString();
 }
 
 </script>
@@ -36,7 +43,7 @@ function onCardClick() {
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
                 <a class="truncate text-base font-medium ml-1">{{ restaurant.address.street }}, {{ restaurant.address.city }}</a>
             </p>
-            <a :href="'/restaurant/' + restaurant.id + '#reservation'" class="w-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <a :href="'/restaurant/' + restaurant.id + '?' + getURLParams().toString() + '#reservation'" class="w-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Book Table
                 <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </a> 
