@@ -1,0 +1,189 @@
+{
+  "name": "L'Osteria",
+  "restaurantType": "Italian",
+  "description": "Willkommen bei L'Osteria! Wir verwöhnen Dich mit der besten besten Pizza, Pasta d'Amore, himmlischen Dolci und einer quirligen Atmosphäre.",
+  "websiteLink": "https://losteria.net/de/restaurants/restaurant/muenchen-leopoldstrasse/?utm_source=google&utm_medium=Yext",
+  "priceCategory": 2,
+  "restaurantPictures": [
+    "https://losteria.net/fileadmin/user_upload/lo_muc-kuenstlerhaus_AE0_2447_web-header.jpg",
+    "https://losteria.net/fileadmin/user_upload/losteria-muenchen-leopoldstrasse__6_.jpg",
+    "https://www.abendzeitung-muenchen.de/storage/image/6/6/1/5/985166_fancybox_1v8gxP_eoZpZo.jpg"
+  ],
+  "address": {
+    "lat": 48.1551666,
+    "lon": 11.581857,
+    "street": "Leopoldstraße 28a",
+    "city": "Munich",
+    "postalCode": 80802,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Danke für den rundum perfekten Abend.  Angefangen von der Vorspeise für zwei und gefolgt von der Pizza Salami mit Egerlingen . Das Tiramisu  als Dessert war ein Traum.\nBesonders hervorzuheben waren definitiv die immer aufmerksamen und freundlichen Servicekräfte. Das finde ich heutzutage echt selten und mir ist das so positiv aufgefallen.  Ich werde bald wiederkommen."
+    },
+    {
+      "rating": 3,
+      "comment": "Extrem Laut!\nEssen top nur diese Lautstärke im Lokal ist unerträglich. Keine Schalldämpfung dazu noch die Kellner die verständlicherweise\nz. B.  Besteck beim einordnen in die Schubladen knallen - bei der Lautstärke wie auf dem Oktoberfest ist an entspanntes Essen nicht zu denken.\nWen das nicht stört oder außen isst der findet hier top Pizza und Pasta. Die Bedienung war sehr freundlich."
+    },
+    {
+      "rating": 1,
+      "comment": "Saßen zu zweit in der Mitte, da es zu laut war wollten wir fragen ob wir außen sitzen dürfen. Der Kellner in unserem Bereich meinte ja also sind wir zum anderen Tisch, drüben sagt uns der andere Kellner das ja andere schon so lange warten und wir nicht einfach wechseln können, obwohl wir sagten das der andere Kellner uns gesagt hat das ginge. Übrigens haben wir davor gesehen das andere nach Anfrage zu einem anderen Tisch problemlos geführt wurden."
+    },
+    {
+      "rating": 5,
+      "comment": "Sehr leckere Gerichte besonders die Hausgemachte Pasta nur zu Empfehlen. Die Pizzen frisch zubereitet im Steinofen erhalten dadurch einen unverwechselbaren Geschmack. Guter Service mit netten Bedienungen und schneller Zubereitung. Der Besuch jedesmal ein Geschmacks Erlebnis."
+    },
+    {
+      "rating": 3,
+      "comment": "Überforderte Bedienungen, keine Parkmöglichkeiten und längere Wartezeiten auf das Essen.\n\nAber dafür schmeckt es wirklich gut!"
+    },
+    {
+      "rating": 2,
+      "comment": "Wir mussten länger warten bis wir überhaupt die Bestellung aufgeben konnten und dem entsprechend hat es auch gedauert bis das Essen ankam.\nIch hatte eine Pizza Tonno an sich war die Pizza lecker aber leider an manchen Stellen so hart das man es kaum essen konnte."
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "PRIVATE_ROOM",
+      "capacity": 20
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "11:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "11:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "11:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "11:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "11:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "11:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "12:00",
+      "toTime": "23:00"
+    }
+  ]
+}

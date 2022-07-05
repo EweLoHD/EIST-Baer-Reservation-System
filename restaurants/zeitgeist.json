@@ -1,0 +1,185 @@
+{
+  "name": "Cafe Zeitgeist",
+  "restaurantType": "Bavarian",
+  "description": "Burger, Pasta, Salate und Frühstück in einem zwanglosen Restaurant mit Sitzgelegenheiten im Freien.",
+  "websiteLink": "https://089zeitgeist.de/",
+  "priceCategory": 2,
+  "restaurantPictures": [
+    "https://www.sueddeutsche.de/image/sz.1.5501194/704x396?v=1642003096",
+    "https://img.oastatic.com/img2/44115565/max/cafe-zeitgeist.jpg",
+    "https://nummerfuenfzehn.com/wp-content/uploads/2019/03/Cafe-Zeitgeist_cafes-in-Muenchen_Annalena-Huppert_Nummer-Fuenfzehn_Lifestyleblog-aus-Muenchen-18-of-31-750x675.jpg"
+  ],
+  "address": {
+    "lat": 48.151141,
+    "lon": 11.576688,
+    "street": "Türkenstraße 74",
+    "city": "Munich",
+    "postalCode": 80799,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Definitiv eines der schönsten Cafés in München. Das Ambiente mit all den Pflanzen ist super einladend und wirkt sehr erfrischend grün. Das Essen ist natürlich auch überragend lecker und auch deswegen definitiv einen Besuch wert. Hier hat es mir wirklich sehr gefallen und ich werde definitiv wieder kommen!"
+    },
+    {
+      "rating": 3,
+      "comment": "Schönes Café, Interior ist nett gestaltet und die Sitze bequem. Die Kellner:innen sind nett, wirken aber überfordert und sind nicht aufmerksam - wenn man zahlen möchte und man ihnen hinterherruft registrieren sie es selbst dann manchmal nicht."
+    },
+    {
+      "rating": 4,
+      "comment": "Tolles Ambiente. Lecker essen und trinken. Außenbereich vormittags schön sonnig. Nettes Personal, sehr aufmerksam.\nDie pancakes waren jedoch ein bisschen zu trocken, aber alles in allem ein sehr schöner Besuch."
+    },
+    {
+      "rating": 3,
+      "comment": "Ich war samstags am späten Vormittag dort und hatte Glück und bekam eine kleinen Tisch in einer Fensternische. Die Bedienung war extrem schnell mit der Aufnahme der Bestellung. Die heisse Schokolade war lecker nur ohne Löffel. Die Frühstücksbowls waren ebenso schnell da wie kalt. Schade, kaltes und leicht trockenes Rührei ist nicht lecker. Allerdings ist der Laden so voll, dass es wohl nur mit Fließbandarbeit geht. Die Teller waren kaum leer und schon abgeräumt; beim Kuchen habe ich mir daher mehr Zeit gelassen, um bei so schnellem Abräumen nicht das Gefühl zu haben, gleich gehen zu müssen. Der Käsekuchen war sehr gut und mächtig. Alles in allem ist das Preis-Leistungsverhältnis gut. Bei so ansprechenden Preisen darf man bei der Lage und der vollen Besetzung wohl weder große Portionen noch allzu warmes Essen erwarten. Der Service ist beeindruckend schnell. Das lädt nur nicht zum gemütlichen Verweilen ein."
+    },
+    {
+      "rating": 4,
+      "comment": "Das Essen war lecker und sehr schön serviert aber die Portionen waren bisschen klein und die Kellnerin war nicht so gut darauf. Man kann schon verstehen, dass es in dem Zeitraum sehr voll war, als wir da waren. Trotzdem kann ich weiter empfehlen :) es hat ein schöne Atmosphäre"
+    },
+    {
+      "rating": 3,
+      "comment": "Das Ambiente und das Essen waren ganz gut, allerdings war die Bedienung schlecht. Ich empfand die Behandlung der Gäste generell als unmotiviert, weswegen ich das Restaurant nicht weiterempfehle."
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 2
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 2
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 2
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "09:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "09:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "09:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "09:00",
+      "toTime": "01:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "09:00",
+      "toTime": "01:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "09:00",
+      "toTime": "01:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "09:00",
+      "toTime": "00:00"
+    }
+  ]
+}
