@@ -3,7 +3,7 @@ import LocalDate from '../types/LocalDate';
 import LocalTime from '../types/LocalTime';
 import Error from '../components/Error.vue';
 import axios from 'axios';
-import type Restaurant from '@/types/Restaurant';
+import Restaurant from '@/types/Restaurant';
 
 
 </script>
@@ -23,7 +23,7 @@ export default {
                 date: string
                 people: number
                 confirmed: boolean
-                confirmationMailSent: boolean,
+                confirmationMailSent: boolean
                 restaurant: Restaurant
             }
         })
@@ -32,6 +32,9 @@ export default {
         async getData() {
             await axios.get('http://localhost:8080/reservations/' + this.$route.params.id).then(response => {
                 this.reservation = response.data;
+                this.reservation.restaurant = response.data.restaurant as Restaurant
+
+                //this.reservation.restaurant = response.data.restaurant as Restaurant;
                 this.loading = false;
             }).catch(e => {
                 console.error(e);

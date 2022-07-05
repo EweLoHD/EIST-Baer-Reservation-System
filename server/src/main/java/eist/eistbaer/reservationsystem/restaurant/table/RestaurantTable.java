@@ -1,6 +1,7 @@
 package eist.eistbaer.reservationsystem.restaurant.table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import eist.eistbaer.reservationsystem.reservation.Reservation;
@@ -28,6 +29,7 @@ public class RestaurantTable {
 
     @OneToMany
     @JoinColumn(name="table_id")
+    @JsonIgnore
     private List<Reservation> reservations;
 
     public RestaurantTable() {

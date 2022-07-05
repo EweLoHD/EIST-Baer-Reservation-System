@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.MessagingException;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @RestController
@@ -29,6 +31,18 @@ public class ReservationController {
     @PostMapping("/reservations")
     Reservation addReservation(@RequestBody Reservation reservation) {
         if (reservation.isValid()) {
+            LocalDateTime dateTime = reservation.getFromTime().atDate(reservation.getDate());
+
+            if (reservation.getFromTime().isAfter(LocalTime.of(0, 0)) && reservation.getFromTime().isBefore(LocalTime.of(4, 0))) {
+                dateTime = dateTime.plusDays(1);
+            }
+
+            // Reservations that are made within 12h before Start are automatically confirmed.
+            if (dateTime.isBefore(LocalDateTime.now().plusHours(12))) {
+                reservation.setConfirmed(true);
+                reservation.setConfirmationMailSent(true);
+            }
+
             Reservation newReservation = reservationRepository.save(reservation);
 
             EmailUtils.defaultEmailUtils().sendCompletedMail(newReservation);

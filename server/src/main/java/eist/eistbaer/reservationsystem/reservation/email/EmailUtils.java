@@ -83,7 +83,7 @@ public class EmailUtils {
                 reservation.getDate().format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(Locale.US)) +
                 "</b> at <b>" + reservation.getFromTime().format(DateTimeFormatter.ofPattern("HH:mm")) +
                 "</b> needs to be confirmed! <br><br>" +
-                "You have to confirm your Reservation during the next 24h <a href=\"" + confirmationURL + "\">here</a>, otherwise it will \n" +
+                "You have to confirm your Reservation during the next 12h <a href=\"" + confirmationURL + "\">here</a>, otherwise it will \n" +
                 "automatically be canceled!<br><br>" +
                 "See you tomorrow, <br>Your " + reservation.getRestaurant().getName() + " Team" +
                 "</html>";
