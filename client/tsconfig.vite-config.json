@@ -3,6 +3,8 @@
   "include": ["vite.config.*"],
   "compilerOptions": {
     "composite": true,
+    "allowJs": true,
+    "declaration": true,
     "types": ["node"]
   }
 }

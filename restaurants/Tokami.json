@@ -1,0 +1,306 @@
+{
+
+	"name": "Tokami",
+
+	"restaurantType": "Asian",
+
+	"description": "Klassische japanische Aalspezialitäten, Grillgerichte und Sushi in modernem Lokal mit Tresen- und Tischplätzen.",
+
+	"websiteLink": "https://tokami-muenchen.eu/homepage/#reservierung",
+
+	"priceCategory": 2,
+
+	"restaurantPictures": [
+
+		"https://tokami-muenchen.eu/wp-content/uploads/2019/10/Tokami_Ecke-hinter-Bar_frontal_Internet.jpg",
+
+		"https://tokami-muenchen.eu/wp-content/uploads/2019/11/Tokami_Bar_frontal_Internet.jpg",
+
+		"https://tokami-muenchen.eu/wp-content/uploads/2019/11/Tokami_Koheya_offen_Internet.jpg"
+
+	],
+
+	"address": {
+
+		"lat": 48.148533, 
+
+		"lon": 11.573986,
+
+		"street": "Theresienstraße 54",
+
+		"city": "Munich",
+
+		"postalCode": 80333,
+
+		"country": "Germany"
+
+	},
+
+	"reviews": [
+
+		{
+
+			"rating": 5,
+
+			"comment": "Wir hatten einen schönen Abend. Das Essen war sehr lecker, auch vegetarisch sind verschiedene Speisen vorhandenen. Wir kommen bestimmt wieder!"
+
+		},
+
+		{
+
+			"rating": 4,
+
+			"comment": "Das Essen hier war sehr lecker und der Service recht gut. Einen Stern Abzug gibt es weil im Restaurant die Karte als QR-Code auf dem Tisch ist, es jedoch kein WLAN gibt und das Netz da drin nicht gerade gut ist."
+
+		},
+
+		{
+
+			"rating": 1,
+
+			"comment": "Etwas teuer, gerade die Reisgerichte (Yaki-Niku?) bekommt man für den halben Preis bei vielen anderen Asiatischen Restaurants um die Ecke."
+      
+
+		},
+
+		{
+
+			"rating": 5,
+
+			"comment": "Haben gestern Abend einen Tisch bekommen, obwohl wir nicht reserviert hatten. Das Essen war sehr lecker und auch die Cocktails haben gut geschmeckt. Unsere Bedienung war sehr nett, hätte aber öfter mal fragen können ob wir z.B. noch eine Nachspeise möchten. Der Preis ist vergleichsweise hoch. Aber trotzdem ein tolles Lokal und wir kommen gerne wieder."
+
+		},
+
+		{
+
+			"rating": 5,
+
+			"comment": "Das Sushi schmeckt und der Service war sehr gut. Die Udon Suppe war wie in Tokyo. Unbedingt (telefonisch) reservieren! Nicht unbedingt günstig."
+
+		},
+
+		{
+
+			"rating": 4,
+
+			"comment": "Exklusive Sushi-Auswahl von einem aus dem Fernsehen bekannten Sushi-Meister. Dazu noch ausgesprochen freundliche Bedienung und authentisch japanische Atmosphäre. Eine klare Empfehlung für alle Sushi-Liebhaber."
+
+		}
+
+	],
+
+	"restaurantTables": [
+
+		{
+
+			"tableType": "REGULAR",
+
+			"capacity": 4
+
+		},
+
+		{
+
+			"tableType": "REGULAR",
+
+			"capacity": 4
+
+		},
+
+		{
+
+			"tableType": "REGULAR",
+
+			"capacity": 4
+
+		},
+
+		{
+
+			"tableType": "REGULAR",
+
+			"capacity": 6
+
+		},
+
+		{
+
+			"tableType": "REGULAR",
+
+			"capacity": 6
+
+		},
+
+		{
+
+			"tableType": "REGULAR",
+
+			"capacity": 6
+
+		},
+
+		{
+
+			"tableType": "HIGH_TOP",
+
+			"capacity": 6
+
+		},
+
+		{
+
+			"tableType": "HIGH_TOP",
+
+			"capacity": 6
+
+		},
+
+		{
+
+			"tableType": "REGULAR",
+
+			"capacity": 10
+
+		},
+
+		{
+
+			"tableType": "BAR",
+
+			"capacity": 3
+
+		},
+
+		{
+
+			"tableType": "BAR",
+
+			"capacity": 3
+
+		},
+
+		{
+
+			"tableType": "BAR",
+
+			"capacity": 3
+
+		},
+
+		{
+
+			"tableType": "OUTDOOR",
+
+			"capacity": 2
+
+		},
+
+		{
+
+			"tableType": "OUTDOOR",
+
+			"capacity": 2
+
+		},
+
+		{
+
+			"tableType": "OUTDOOR",
+
+			"capacity": 4
+
+		},
+
+		{
+
+			"tableType": "OUTDOOR",
+
+			"capacity": 4
+
+		},
+
+		{
+
+			"tableType": "PRIVATE_ROOM",
+
+			"capacity": 20
+
+		}
+
+	],
+
+	"openingTimes": [
+
+		{
+
+			"dayOfWeek": "MONDAY",
+
+			"fromTime": "10:00",
+
+			"toTime": "23:00"
+
+		},
+
+		{
+
+			"dayOfWeek": "TUESDAY",
+
+			"fromTime": "10:00",
+
+			"toTime": "23:00"
+
+		},
+
+		{
+
+			"dayOfWeek": "WEDNESDAY",
+
+			"fromTime": "10:00",
+
+			"toTime": "23:00"
+
+		},
+
+		{
+
+			"dayOfWeek": "THURSDAY",
+
+			"fromTime": "10:00",
+
+			"toTime": "23:00"
+
+		},
+
+		{
+
+			"dayOfWeek": "FRIDAY",
+
+			"fromTime": "10:00",
+
+			"toTime": "00:00"
+
+		},
+
+		{
+
+			"dayOfWeek": "SATURDAY",
+
+			"fromTime": "09:00",
+
+			"toTime": "00:00"
+
+		},
+
+		{
+
+			"dayOfWeek": "SUNDAY",
+
+			"fromTime": "09:00",
+
+			"toTime": "23:00"
+
+		}
+
+	]
+
+}

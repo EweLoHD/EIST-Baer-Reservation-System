@@ -3,6 +3,7 @@ import LocalDate from '../types/LocalDate';
 import LocalTime from '../types/LocalTime';
 import Error from '../components/Error.vue';
 import axios from 'axios';
+import type Restaurant from '@/types/Restaurant';
 
 
 </script>
@@ -13,13 +14,27 @@ export default {
             loading: true,
             cancellation: parseInt(this.$route.query.cancellation as string), 
             confirmation: parseInt(this.$route.query.confirmation as string), 
-            reservation: {}
+            reservation: {} as {
+                id: string
+                clientName: string
+                clientEmail: string
+                fromTime: string
+                toTime: string
+                date: string
+                people: number
+                confirmed: boolean
+                confirmationMailSent: boolean
+                restaurant: Restaurant
+            }
         })
     },
     methods: {
-        getData() {
-            axios.get('http://localhost:8080/reservations/' + this.$route.params.id).then(response => {
+        async getData() {
+            await axios.get('http://localhost:8080/reservations/' + this.$route.params.id).then(response => {
                 this.reservation = response.data;
+                this.reservation.restaurant = response.data.restaurant as Restaurant
+
+                //this.reservation.restaurant = response.data.restaurant as Restaurant;
                 this.loading = false;
             }).catch(e => {
                 console.error(e);
@@ -68,7 +83,19 @@ export default {
         }
     },
     created() {
-        this.getData();
+        this.getData().then(() => {
+            if (this.cancellation && this.reservation.confirmed) {
+                document.getElementById("main")!.innerHTML = "❌ This Reservation can no longer be canceled, because it has already been confirmed."    
+            }
+
+            if (this.confirmation && this.reservation.confirmed) {
+                document.getElementById("main")!.innerHTML = "🐧 This Reservation has already been confirmed!"    
+            }
+        })
+       
+    },
+    mounted() {
+        
     }
 }
 </script>
@@ -95,7 +122,7 @@ export default {
             <h3 v-if="!cancellation && !confirmation" class="text-md font-base text-gray-800 mb-5 mt-1">We sent you an E-Mail. You can now close this page.</h3>
             <div class="border px-4 pt-3 pb-4 rounded-lg w-128 bg-white shadow-md" id="card">
                 <div class="flex flex-col">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-2">Hofbräuhaus München</h2>
+                    <h2 class="text-xl font-semibold text-gray-800 mb-2">{{ reservation.restaurant.name }}</h2>
                     <p class="text-md inline-flex items-center">
                         <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         {{ LocalDate.parse(reservation.date).getFormated() }}
@@ -106,10 +133,6 @@ export default {
                         <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                         {{ reservation.people }} People
                     </p>
-                    <p class="text-md text-gray-800 inline-flex items-center">
-                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
-                        {{ "Test Table" }}
-                    </p> 
                     <p class="text-md text-gray-800 inline-flex items-center mt-4">
                         <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                         {{ reservation.clientName }}
@@ -129,7 +152,7 @@ export default {
                         </button>
                     </div>
                     <div v-else class="flex flex-row justify-between w-full mt-8">
-                        <a href="" class="inline-flex py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700">
+                        <a :href="'http://localhost:8080/generate-calendar/' + $route.params.id" class="inline-flex py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700">
                             <svg class="w-5 h-5 mr-2 -ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                             Add to your Calendar
                         </a>

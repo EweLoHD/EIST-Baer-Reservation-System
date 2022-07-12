@@ -1,0 +1,156 @@
+{
+  "name": "Mongkok",
+  "restaurantType": "Asian",
+  "description": "Modernes panasiatisches Restaurant mit Sushi-Bar, Feuertopf-Gerichten, Dim Sum, Cocktails und Lounge-Bereich.",
+  "websiteLink": "https://www.mongkok-restaurant.de/",
+  "priceCategory": 3,
+  "restaurantPictures": [
+    "https://media-cdn.tripadvisor.com/media/photo-s/07/56/46/a9/bar.jpg",
+    "https://img.grouponcdn.com/seocmsimages/6z2ccYTTHesjMu4A6ZXX/mv-992x557",
+    "https://resizer.otstatic.com/v2/photos/xlarge/1/24004124.jpg"
+  ],
+  "address": {
+    "lat": 48.1240775,
+    "lon": 11.5653984,
+    "street": "Kapuzinerstraße 39",
+    "city": "Munich",
+    "postalCode": 80469,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Sehr gutes Essen und schöne Inneneinrichtung. Es gibt mehrere vegane Optionen bei den Hauptspeisen und auch bei den Vorspeisen sowie Suppen. Zu den Gerichten wird Reis serviert.\nSehr zu empfehlen sind die Süßkartoffeln als Vorspeise."
+    },
+    {
+      "rating": 4,
+      "comment": "Circa 23 Euro für Hauptgericht und Getränk ist teuer, aber dafür waren Lage und Ambiente super! Entspannte Musik und freundliches Personal - meckern kann man nicht. Das Essen war auch hervorragend. Die Protion sind groß und man hat nicht das Gefühl man wird über den Tisch gezogen. Kann ich nur weiterempfehlen."
+    },
+    {
+      "rating": 5,
+      "comment": "Nur zu empfehlen  :) das Essen ist jedes mal super gut und das Personal ist immer mehr als freundlich ! Definitiv eines meiner Lieblings Restaurants in München :D"
+    },
+    {
+      "rating": 1,
+      "comment": "vielleicht habe ich ein anderes gastronomisches verständnis, doch leider  fand ich die speisen sowohl aufgrund der qualität der zutaten als auch aufgrund der zubereitung durch die bank schlecht. es wirkte für mich, als fehle die liebe und das verständnis zur sache. da in keinem moment gefragt wurde, ob es schmeckt und alles passe, gehe ich davon aus, dass das personal einfach lieber gleich gar nicht nachfrägt, weil selbst nicht überzeugt von dem, was da an den gast geht. stil und ambiente sind geschmackssache, aber auch hier für mich gefühlt, wie ein roter faden, als lieblos und zu gewollt auf lounge getrimmt. und absolut nervig - ein nicht ordentlich funktionierendes online order system mit unausgereifter UX."
+    },
+    {
+      "rating": 2,
+      "comment": "Leider nur durchschnittlich - erster und letzter Besuch.\nPortionen sind sehr übersichtlich für den Preis. Das Cumin Beef ölig und nur lauwarm, das Singapore Style trocken und fad im Geschmack inkl. vier kleiner verirrter Garnelen.\nOb die Dumplings „hausgemacht“ waren, darüber kann man streiten.\nNoch dazu schlechtes Timing bei vier bestellten Essen - zwei Personen bereits fertig, zwei warteten immer noch auf den Hauptgang."
+    },
+    {
+      "rating": 5,
+      "comment": "Hervorragendes Essen, super zuvorkommender und einfach sehr netter Service und eine tolle Atmosphäre. Ich war zufällig dort und besser hätte ich es nicht treffen können. Weiter so!"
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 4
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 4
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 4
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "17:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "17:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "17:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "17:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "17:30",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "17:30",
+      "toTime": "00:00"
+    }
+  ]
+}

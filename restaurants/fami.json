@@ -1,0 +1,176 @@
+{
+  "name": "FAMI",
+  "restaurantType": "Italian",
+  "description": "Kreative und traditionelle Pizzen sowie Pasta und Antipasti in einem großen, modernen Lokal mit Terrasse.",
+  "websiteLink": "https://fami-restaurant.de/",
+  "priceCategory": 2,
+  "restaurantPictures": [
+    "https://biancas-blog.de/wp-content/uploads/2018/08/Fami-Restaurant-Pizza-3.jpg",
+    "https://biancas-blog.de/wp-content/uploads/2018/08/Fami-Restaurant-Pizza-17.jpg",
+    "https://biancas-blog.de/wp-content/uploads/2018/08/Fami-Restaurant-Pizza-2.jpg"
+  ],
+  "address": {
+    "lat": 48.164353,
+    "lon": 11.5571322,
+    "street": "Georg-Birk-Straße 10",
+    "city": "Munich",
+    "postalCode": 80797,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Modernes italienisches Lokal mit guter Auswahl an vegetarischen Gerichten. Pasta mit Trüffel ist sehr gut, die Pizza noch besser. Freundlicher und aufmerksamer Service, vorbildliche 2G Kontrolle."
+    },
+    {
+      "rating": 4,
+      "comment": "Sehr aufmerksamer und sympathischer Service. Wir genossen in einem ruhigen Nebenraum einen entspannten Kindergeburtstag, weil das regnerische Wetter uns nach drinnen gezwungen hatte. Das Speiseangebot ist reichlich und kommt toll angerichtet auf den Tisch. Alle waren angetan von Pizza bis Pasta und Steak. Wir kommen definitiv wieder und sprechen eine Empfehlung aus."
+    },
+    {
+      "rating": 5,
+      "comment": "Wir waren dort auf einer Geburtstagsfeier eingeladen. Als Vorspeise gab es verschiedene Antipasti. Und als Hauptspeise bekam jeder Tisch verschiedene Pizzen. Ich muss sagen, ich hab noch nie so gute Pizzen gegessen. Unser Kellner hieß Simon. Der war auch super nett und aufmerksam. Alles in allem sehr empfehlenswert!!"
+    },
+    {
+      "rating": 1,
+      "comment": "Pizza leider nur noch schwach.... Schmeckt nur nach angebrannten Ofen, sonst nichts. Zutaten sind wahrscheinlich auch nicht mehr die besten. War bis vor ca 2 Jahren noch besser dort. Kann nur abraten - komme nicht wieder"
+    },
+    {
+      "rating": 5,
+      "comment": "Wir hatten Pizza, Nudel mit Garnele und der kleine chicken Nuggets. Alles hat ausgezeichnet geschmeckt und wurde mit Liebe zubereitet. Selbst die chicken Nuggets, waren wirklich gut. Danke für den schönen und leckeren Moment."
+    },
+    {
+      "rating": 2,
+      "comment": "Wir standen erstmal gute 10 Minuten an, obwohl das Restaurant nur zu circa 50% ausgelastet war. Als dann mal ein Kellner kam wurden wir an einem Platz gesetzt, warteten 5 Minuten auf die Karten, um festzustellen, dass ganz normale italienische Klassiker wie Gnochi oder Bruschetta nicht auf der Karte stehen. Die Preise waren überteuert und nachdem wir auch 40 Minuten später nicht einmal nach Getränkewünschen gefragt wurden sind wir wieder gegangen."
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "11:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "11:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "11:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "11:30",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "11:00",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "11:00",
+      "toTime": "23:00"
+    }
+  ]
+}

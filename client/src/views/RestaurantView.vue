@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Carousel from 'flowbite/src/components/carousel'
 
-import Restaurant from '@/types/Restaurant';
+import type Restaurant from '@/types/Restaurant';
 import Address from '@/types/Address';
 import Review from '@/types/Review';
 import LocalDate from "@/types/LocalDate";
@@ -22,22 +22,24 @@ import Reviews from "@/components/Reviews.vue";
 export default {
     data() {
         return {
+            urlParams: {} as URLSearchParams,
             loading: true,
             restaurant: {} as Restaurant,
-            carousel: {} as Carousel
+            carousel: {} as typeof Carousel
         }
     },
     methods: {
         getData() {
             this.loading = true;
-            // TODO Send search request to backend
+
+            this.urlParams = new URLSearchParams(window.location.search);
+
             axios.get('http://localhost:8080/restaurants/' + this.$route.params.id).then(response => {
                 this.restaurant = response.data as Restaurant;
 
                 this.restaurant.openingTimes = response.data.openingTimes?.map((t: { dayOfWeek: Number; fromTime: String; toTime: String; }) => new OpeningTime(t.dayOfWeek, t.fromTime, t.toTime))
                 this.restaurant.reviews = response.data.reviews?.map((t: { rating: Number; comment: String; creationDate: string; }) => new Review(t.rating, t.comment, LocalDate.parse(t.creationDate)));
 
-                this.restaurant.averageRating = 4.3; // TODO
                 console.log(this.restaurant);
                 this.loading = false;
 
@@ -46,10 +48,8 @@ export default {
                 }, 100)
             }).catch(e => {
                 console.error(e);
-
-                // TODO Handle Errors
+                alert(e);
                 this.loading = false;
-                //this.error = true;
             })
         },
         showCarousel() {
@@ -107,6 +107,9 @@ export default {
 
 <template>
     <div v-if="!loading" class="flex flex-col items-center justify-center dark:bg-gray-900">
+        <div class="absolute left-2 top-2 z-50 text-white hover:bg-white hover:text-gray-800 rounded-lg w-fit h-fit p-2" onclick="history.back()" style="cursor: pointer;">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"></path></svg>
+        </div>
         <div v-if="restaurant.restaurantPictures.length > 1" id="pictures-carousel" class="w-full absolute top-0">
             <!-- Carousel wrapper -->
             <div class="overflow-hidden relative h-[42rem]">
@@ -149,8 +152,8 @@ export default {
             </div>
             <div class="bg-white w-full -mt-11 px-7 py-8 rounded-lg shadow-lg grid grid-rows-1 grid-cols-3 items-center justify-between">
                 <div class="inline-flex">
-                    <Rating :rating="Math.floor(restaurant.averageRating)" :size="6" class="mt-1"/>
-                    <a class="ml-1.5 text-lg font-semibold text-gray-500">• {{restaurant.averageRating}} / 5.0</a>
+                    <Rating :rating="Math.floor(restaurant.rating)" :size="6" class="mt-1"/>
+                    <a class="ml-1.5 text-lg font-semibold text-gray-500">• {{restaurant.rating == 0 ? "No Reviews" : restaurant.rating.toFixed(1) + " / 5.0"}}</a>
                 </div>
                 <PriceCategory :category="restaurant.priceCategory" :size="'lg'" class="justify-self-center"></PriceCategory>
                 <a class="text-lg font-semibold justify-self-end inline-flex items-center text-gray-800" :href="restaurant.websiteLink" target="_blank">
@@ -165,7 +168,7 @@ export default {
                     <!-- Reservation -->
                     <h3 class="text-3xl font-bold text-gray-800 mb-6 pt-4" id="reservation">Reservation</h3>
                     <div class="border rounded-lg p-4">
-                        <ReservationField></ReservationField>
+                        <ReservationField :p-date="parseInt(urlParams.get('date')!)" :p-time="parseInt(urlParams.get('time')!)" :p-people="parseInt(urlParams.get('people')!)"></ReservationField>
                     </div>
                     <!-- Reviews -->
                     <h3 class="text-3xl font-bold text-gray-800 mb-6 mt-36" id="reservation">Reviews</h3>

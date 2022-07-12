@@ -2,6 +2,7 @@
 import LocationSearch from '@/components/LocationSearch.vue'
 import Modal from 'flowbite/src/components/modal'
 import type { PropType } from '@vue/runtime-core'
+import axios from 'axios'
 </script>
 
 <script lang="ts">
@@ -17,15 +18,15 @@ export interface FilterData {
 }
 
 export default {
-    /*props: {
+    props: {
         preselectedFilterData: {
             type: Object as PropType<FilterData>,
             required: false
         }
-    },*/
+    },
     data() {
         return {
-            locationSearchModal: null as Modal,
+            locationSearchModal: null as typeof Modal,
             filterData: {
                 location: {
                     // lat & lon of Munich
@@ -36,7 +37,13 @@ export default {
                 minRating: 1,
                 maxPrice: 3,
                 category: ""
-            } as FilterData
+            } as FilterData,
+            types: [] as Array<string>
+        }
+    },
+    watch: {
+        'preselectedFilterData.category'(value: any) {
+            this.filterData.category = this.preselectedFilterData!.category;
         }
     },
     emits: {
@@ -45,10 +52,22 @@ export default {
         }
     },
     methods: {
+        getTypes() {
+            axios.get('http://localhost:8080/restaurants/types').then(response => {
+                this.types = response.data as Array<string>
+            }).catch(e => {
+                console.error(e);
+                alert(e);
+            })
+        },
         showLoctionSearch() {
             this.locationSearchModal.show();
         },
         onLocationSelected(location: {lat: number, lon: number}) {
+            if (location.lat == 0 && location.lon == 0) {
+                return;
+            }
+
             this.filterData.location = location;
 
             if(this.filterData.maxDistance == 0 && Object.keys(location).length > 0) {
@@ -61,6 +80,9 @@ export default {
         onApply() {
             this.$emit('onFilterApplied', this.filterData)
         }
+    },
+    beforeMount() {
+        this.getTypes();
     },
     created() {
         /*if (this.preselectedFilterData && Object.keys(this.preselectedFilterData).length > 0) {
@@ -124,9 +146,7 @@ export default {
     <label for="category" class="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400">Category</label>
     <select id="category" v-model="filterData.category" class="block p-2 mb-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option value="">Filter Category</option>
-        <option value="bavarian">Bavarian</option>
-        <option value="italian">Italian</option>
-        <option value="burger">Burger</option>
+        <option v-for="t in types" :value="t">{{t}}</option>
     </select>
     <!--Apply Filter Button-->
     <div class="flex flex-row-reverse mt-12">

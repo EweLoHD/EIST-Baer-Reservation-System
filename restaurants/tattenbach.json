@@ -1,0 +1,177 @@
+{
+  "name": "Tattenbach Wirtshaus & Stüberl",
+  "restaurantType": "Bavarian",
+  "description": "Klassische bayerische Gerichte und eine saisonale Tageskarte in einem Speisesaal mit bemaltem Gewölbe.",
+  "websiteLink": "https://www.tattenbach.de/",
+  "priceCategory": 2,
+  "restaurantPictures": [
+    "https://www.tattenbach.de/typo3temp/pics/IMG_8573a_78d4024d88.jpg",
+    "https://www.tattenbach.de/typo3temp/pics/IMG_9029a_af8f0f8891.jpg",
+    "https://images.portal.muenchen.de/000/000/220/772/versions/tattenbach-bb.jpg"
+  ],
+  "address": {
+    "lat": 48.1399478,
+    "lon": 11.5898292,
+    "street": "Tattenbachstraße 6",
+    "city": "Munich",
+    "postalCode": 80538,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Essen gehen bei Freunden\nWir waren vor der Öffnungszeit da und haben höflich angefragt ob wir bereits rein dürfen. Zack drin und wurden bewirtet als wenn wir bereits ewig Stammgäste wären. Das Bier war kalt und lecker und das Essen kam rasch und war köstlich. Fotos hänge ich an. Die Bedienung war sehr aufmerksam und freundlich. Der Laden füllte sich ab etwa 18 Uhr ...das hat der Freundlichkeit aber nichts abgetan. Wir würden zu jeder Zeit wieder hin"
+    },
+    {
+      "rating": 5,
+      "comment": "Super leckeres Essen, ordentlich große Portionen und nette Bedienung. Besonders empfehlenswert ist der hausgemachte Kaiserschmarrn. Lecker."
+    },
+    {
+      "rating": 5,
+      "comment": "Sehr tolles Wirtshaus. Wir sind durch die Empfehlung unseres Hotel hierher gekommen. Man kann wirklich  nichts schlechtes sagen. Das Essen war sehr gut und die Preis/Leitung stimmt einfach in diesem Lokal.\nEbenfalls muss man das Personal loben, es ist sehr aufmerksam und auf Zack.\nKlare Empfehlung für jemanden, der abseits der Touri-Restaurants etwas vernünftiges essen möchte."
+    },
+    {
+      "rating": 4,
+      "comment": "Super urige original aussehende Wirtschaft -  zu empfehlen die ganze Speisekarte - Spezialität das Münchnerschnitzel - der Service freundlich und kompetent - bis zum Nächsten mal !"
+    },
+    {
+      "rating": 4,
+      "comment": "Freundliche Bedienung, traditionelle Innengestaltung, Essen war ok (war schon mal besser, kann aber daran liegen, dass es extrem gut besucht war an dem Abend). (Kredit-)Kartenzahlung möglich.\nWir kommen gern wieder :)"
+    },
+    {
+      "rating": 3,
+      "comment": "Das Tattenbach ist eine urige gemütliche Wirtschaft. Das Publikum ist sehr gemischt. Man trifft sich auf ein Bier oder zum Essen. Die Kässpatzen waren eher fad und mit etwas Flüssigem (Sahne?) aufbereitet. Biokäse alleine hilft eben nicht, auf den Geschmack kommt es an. Der eigentlich obligatorische Salat musste extra bestellt werden. Der war allerdings riesig und auch ganz gut. Beim Kaiserschmarrn meines Begleiters war nur eine Miniportion Apfelmus dabei. Eine Nachbestellung macht 1 €.\nZumindest die Bedienung war sehr freundlich."
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "PRIVATE_ROOM",
+      "capacity": 20
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "11:00",
+      "toTime": "01:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "11:00",
+      "toTime": "01:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "11:00",
+      "toTime": "01:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "11:00",
+      "toTime": "01:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "11:00",
+      "toTime": "01:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "17:00",
+      "toTime": "01:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "17:00",
+      "toTime": "01:00"
+    }
+  ]
+}

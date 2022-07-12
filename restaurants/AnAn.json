@@ -1,0 +1,153 @@
+{
+  "name": "An An Vietnamese Fine Cuisine",
+  "restaurantType": "Asian",
+  "description": "Pho-Suppen, Nudeln und moderne klassische Gerichte in einem schicken traditionellen Speisesaal mit asiatischen Motiven.",
+  "websiteLink": "www.anan-restaurant.de",
+  "priceCategory": 2,
+  "restaurantPictures": [
+    "https://media-cdn.tripadvisor.com/media/photo-s/12/75/5a/29/restaurant.jpg",
+    "https://www.anan-restaurant.de/wp-content/uploads/2018/06/firmenevent.jpg",
+    "https://www.anan-restaurant.de/wp-content/uploads/2018/06/slider4a.jpg"
+  ],
+  "address": {
+    "lat": 48.1490158,
+    "lon": 11.5406239,
+    "street": "Elvirastraße 12",
+    "city": "Munich",
+    "postalCode": 80636,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 5,
+      "comment": "Guter Service, tolles Essen mit großer Portion, „günstiger“ Preis!"
+    },
+    {
+      "rating": 4,
+      "comment": "Ruhiger und intimer Ort mit einer abwechslungsreichen Speisekarte mit klassischen vietnamesischen Gerichten. Die Portionen waren recht großzügig!"
+    },
+    {
+      "rating": 5,
+      "comment": "Freundlicher und schneller Service, leckeres Essen, schöne große Portionen, modernes Interieur."
+    },
+    {
+      "rating": 5,
+      "comment": "Toller Ort, besonders für das Pho (Rind)! Tolle Suppenbasisaromen. Das Beste, was wir hatten, seit wir Hawaii verlassen haben!"
+    },
+    {
+      "rating": 5,
+      "comment": "Sehr delikates vietnamesisches Essen mit schönen Dekorationen. Auch der Service ist nett und freundlich."
+    },
+    {
+      "rating": 5,
+      "comment": "Wir waren nur 4 Nächte in München und haben zweimal im An An zu Abend gegessen! Tolles Essen und Service. Der Enten-Mango-Salat ist ein Muss."
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "PRIVATE_ROOM",
+      "capacity": 20
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "11:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "11:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "11:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "11:30",
+      "toTime": "23:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "11:30",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "12:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "12:00",
+      "toTime": "23:00"
+    }
+  ]
+}

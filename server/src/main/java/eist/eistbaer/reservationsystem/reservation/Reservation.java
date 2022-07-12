@@ -5,10 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import eist.eistbaer.reservationsystem.ReservationSystemApplication;
 import eist.eistbaer.reservationsystem.reservation.util.ReservationDeserializer;
 import eist.eistbaer.reservationsystem.restaurant.Restaurant;
 import eist.eistbaer.reservationsystem.restaurant.table.RestaurantTable;
 import org.hibernate.annotations.GenericGenerator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -22,6 +25,8 @@ import java.time.LocalTime;
 @JsonPropertyOrder({ "clientName", "clientEmail", "fromTime", "toTime", "date", "people", "confirmed", "confirmationMailSent", "table", "restaurant" })
 @JsonDeserialize(using = ReservationDeserializer.class)
 public class Reservation {
+    private static final Logger log = LoggerFactory.getLogger(Reservation.class);
+
     public static final int DEFAULT_DURATION = 2;
 
     @Id
@@ -81,23 +86,40 @@ public class Reservation {
     @JsonIgnore
     public boolean isValid() {
         // Check if table belongs to the restaurant
-        if (!restaurant.getRestaurantTables().contains(getTable())) return false;
+        if (!restaurant.getRestaurantTables().contains(getTable())) {
+            log.warn("Table doesn't belong to Restaurant");
+            return false;
+        }
 
         // Check if table is free
-        for (Reservation r : table.getReservations()) {
+        for (Reservation r : table.getReservations().stream().filter(r -> r.getDate().equals(getDate())).toList()) {
             if (r.interferingWithTimes(getFromTime(), getToTime())) {
+                log.warn("Table is not free");
                 return false;
             }
         }
 
         // Check if restaurant has open at time and date
-        if (!restaurant.hasOpened(getDate(), getFromTime(), getToTime())) return false;
+        if (!restaurant.hasOpened(getDate(), getFromTime(), getToTime())) {
+            log.warn("Restaurant has not opened");
+            return false;
+        }
 
         // Check if the date and time doesn't lie in the past
-        if ((getFromTime().isBefore(LocalTime.now()) && getFromTime().isAfter(LocalTime.of(4, 0))) || getDate().isBefore(LocalDate.now())) return false;
+        if(getDate().isBefore(LocalDate.now())) {
+            log.warn("Date lies in the past");
+            return false;
+        }
+        if (getDate().equals(LocalDate.now()) && getFromTime().isAfter(LocalTime.of(4, 0)) && getFromTime().isBefore(LocalTime.now())) {
+            log.warn("Time lies in the past");
+            return false;
+        }
 
         // Check if table has the necessary capacity
-        if (getTable().getCapacity() < getPeople()) return false;
+        if (getTable().getCapacity() < getPeople()) {
+            log.warn("Table does not have necessary capacity");
+            return false;
+        }
 
         return true;
     }

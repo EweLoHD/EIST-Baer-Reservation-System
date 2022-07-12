@@ -16,8 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-
-
 import net.fortuna.ical4j.model.Calendar;
 import net.fortuna.ical4j.model.DateTime;
 import net.fortuna.ical4j.model.PropertyList;
@@ -34,7 +32,8 @@ import net.fortuna.ical4j.model.property.Version;
 @RestController
 public class CalenderController {
     private final ReservationRepository reservationRepository;
-    public CalenderController(ReservationRepository reservationRepository){
+
+    public CalenderController(ReservationRepository reservationRepository) {
         this.reservationRepository = reservationRepository;
     }
 
@@ -46,18 +45,24 @@ public class CalenderController {
         try {
             TimeZone tz = Utils.getTimezone("Europe/Berlin");
 
-      /* Make up a start date 10 days from now.
-         Ensure on an hour boundary
-       */
+          /* Make up a start date 10 days from now.
+             Ensure on an hour boundary
+           */
             java.util.Calendar startDate = new GregorianCalendar();
             startDate.setTimeZone(tz);
-           // startDate.add(java.util.Calendar.DAY_OF_MONTH, 0);
-            startDate.set(currentReservation.getDate().getYear(), currentReservation.getDate().getMonthValue(), currentReservation.getDate().getDayOfYear(), currentReservation.getFromTime().getHour(), currentReservation.getFromTime().getMinute());
-           // startDate.set(java.util.Calendar.MINUTE, 0);
-           // startDate.set(java.util.Calendar.SECOND, 0);
+            // startDate.add(java.util.Calendar.DAY_OF_MONTH, 10);
+            //startDate.set(currentReservation.getDate().getYear(), currentReservation.getDate().getMonthValue(), currentReservation.getDate().getDayOfYear(), currentReservation.getFromTime().getHour(), currentReservation.getFromTime().getMinute());
+            // startDate.set(java.util.Calendar.MINUTE, 0);
+            // startDate.set(java.util.Calendar.SECOND, 0);
+            startDate.set(java.util.Calendar.MONTH, currentReservation.getDate().getMonthValue()-1);
+            startDate.set(java.util.Calendar.DAY_OF_MONTH, currentReservation.getDate().getDayOfMonth());
+            startDate.set(java.util.Calendar.YEAR, currentReservation.getDate().getYear());
+            startDate.set(java.util.Calendar.HOUR_OF_DAY, currentReservation.getFromTime().getHour());
+            startDate.set(java.util.Calendar.MINUTE, currentReservation.getFromTime().getMinute());
+            startDate.set(java.util.Calendar.SECOND, 0);
 
             // Create the event
-            String eventName = "Reservierung bei " + currentReservation.getRestaurant().getName();
+            String eventName = "Reservation - " + currentReservation.getRestaurant().getName();
             DateTime start = new DateTime(startDate.getTime());
             start.setTimeZone(tz);
 
@@ -66,7 +71,7 @@ public class CalenderController {
             PropertyList props = event.getProperties();
 
             /* One hour */
-            Duration dur = new Duration(null, "PT1H");
+            Duration dur = new Duration(null, "PT2H");
             props.add(dur);
 
             /* Need a uid */
@@ -80,7 +85,7 @@ public class CalenderController {
          escaping of special characters.
        */
             props.add(new Description(
-                    "Danke für die Reservierung in unserem Restaurant wir freuen uns auf Sie "));
+                    "Thank you for your Reservation. We are looking forward to your visit!"));
 
             /* Create a calendar object */
             PropertyList calProps = cal.getProperties();
@@ -93,13 +98,12 @@ public class CalenderController {
             // Add the event and print
             cal.getComponents().add(event);
 
-            Utils.pline("Example " + "test");
-            Utils.pline("");
+            //      Utils.pline("Example " + "test");
+            //      Utils.pline("");
 
       /* Use the ical4j CalendarOutputter class to fold the output lines
          to a maximum length.
        */
-            Utils.pline(Utils.calToString(cal));
         } catch (Throwable t) {
             t.printStackTrace();
         }
@@ -107,14 +111,13 @@ public class CalenderController {
         Resource resource = new ByteArrayResource(calendarByte);
 
         HttpHeaders header = new HttpHeaders();
-        header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=mycalendar.ics");
+        header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=Reservation - "+currentReservation.getRestaurant().getName()+".ics");
         header.add("Cache-Control", "no-cache, no-store, must-revalidate");
         header.add("Pragma", "no-cache");
         header.add("Expires", "0");
         //return new ResponseEntity(HttpStatus.OK);
 
         return ResponseEntity.ok().headers(header).contentType(MediaType.APPLICATION_OCTET_STREAM).body(resource);
-
     }
 
 }

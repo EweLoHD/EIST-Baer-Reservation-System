@@ -1,0 +1,181 @@
+{
+  "name": "Kaisergarten",
+  "restaurantType": "Bavarian",
+  "description": "Bayerisches Restaurant in Jugendstilgebäude mit modern-rustikalem Dekor & einem schattigen Biergarten.",
+  "websiteLink": "http://www.kaisergarten.com/",
+  "priceCategory": 2,
+  "restaurantPictures": [
+    "http://www.kaisergarten.com/uploads/tx_templavoila/kaisergarten-38_01.jpg",
+    "http://www.kaisergarten.com/uploads/tx_templavoila/kaisergarten-42.jpg",
+    "http://www.kaisergarten.com/uploads/tx_templavoila/kaisergarten-39.jpg"
+  ],
+  "address": {
+    "lat": 48.161148,
+    "lon": 11.5813814,
+    "street": "Kaiserstraße 34",
+    "city": "Munich",
+    "postalCode": 80801,
+    "country": "Germany"
+  },
+  "reviews": [
+    {
+      "rating": 4,
+      "comment": "Sehr schönes Ambiente\nHochwertiges gut, bürgerliches Essen. Die Preise sind nicht die günstigsten, aber dafür sind die Gerichte teilweise auch etwas kreativer. Ich fand mein Essen sehr sehr gut! Zum Nachtisch haben wir uns einen Kaiserschmarrn geteilt. Der war im Vergleich zu den Hauptspeisen enttäuschend. Nicht sehr fluffig und etwas zu fettig. Auch war die Portion für 2 und die Beilagen: Apfelmus und Pflaumen sehr sparsam. Fazit: Hauptspeisen hot, Kaiserschmarrn not."
+    },
+    {
+      "rating": 5,
+      "comment": "Wir waren Samstag zum Frühstück da. Schöne Auswahl auf der Karte und geschmacklich hervorragend. Draußen gibt es einen großen Biergarten."
+    },
+    {
+      "rating": 3,
+      "comment": "Nettes Personal, leider sieht das Essen besser aus als es geschmeckt hat. Ente war relativ trocken und wenig gewürzt, dazu recht hochpreisig. Die Haut war weich und leider gar nicht knusprig wie es sein sollte."
+    },
+    {
+      "rating": 4,
+      "comment": "Schönes, kleines Lokal im Herzen von Schwabing mit großer Terrasse. Waren Samstag dort zum Weißwurstfrühstück. Aufmerksamer, schneller und netter Service, Qualität der Produkte gut, lediglich etwas sportlich bepreist wie wir finden. Die Bequemlichkeiten sind etwas in die Jahre gekommen."
+    },
+    {
+      "rating": 4,
+      "comment": "Kleiner, ruhiger, schattiger Biergarten. Interessante kleine Speisekarte, vom Opatznd mit Breze bis zu zwei Speckknödeln in Schwammersoße.\nZwei riesige Scheiben Schweinebraten vom Hällschen Bio-Schwein (14,50€) oder zwei Fleischplanzerl aus Kalbfleisch mit Käse gefüllt und Kartoffelstampf mit Leinöl angemacht, oder zwei riesige Schnitzel vom Kalb (24€). Halbe Axinger Bier 4,20€.\nGemütlich, Geschmack i.O., Bedienung freundlich. Gesamteindruck: empfehlenswert."
+    },
+    {
+      "rating": 5,
+      "comment": "Mein Lieblings-Biergarten in München. Der Kaisergarten ist toll gelegen, mitten in Schwabing in der prachtvollen Kaiserstraße unweit vom wunderschönen Kaiserplatz. Das Essen ist hervorragend. Das Wiener Schnitzel ist groß und schön buttrig und man bekommt Bratkartoffeln und Beilagensalat dazu. Der Service war freundlich und auf Zack. Alles wie immer also!"
+    }
+  ],
+  "restaurantTables": [
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 4
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 6
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 8
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 6
+    },
+    {
+      "tableType": "HIGH_TOP",
+      "capacity": 8
+    },
+    {
+      "tableType": "REGULAR",
+      "capacity": 10
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "BAR",
+      "capacity": 3
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 2
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 4
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    },
+    {
+      "tableType": "OUTDOOR",
+      "capacity": 6
+    }
+  ],
+  "openingTimes": [
+    {
+      "dayOfWeek": "MONDAY",
+      "fromTime": "12:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "TUESDAY",
+      "fromTime": "12:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "WEDNESDAY",
+      "fromTime": "12:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "THURSDAY",
+      "fromTime": "12:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "FRIDAY",
+      "fromTime": "12:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SATURDAY",
+      "fromTime": "10:00",
+      "toTime": "00:00"
+    },
+    {
+      "dayOfWeek": "SUNDAY",
+      "fromTime": "10:00",
+      "toTime": "00:00"
+    }
+  ]
+}

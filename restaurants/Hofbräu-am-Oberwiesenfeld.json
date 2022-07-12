@@ -1,0 +1,152 @@
+{
+	"name": "Hofbräu am Oberwiesenfeld",
+	"restaurantType": "Bavarian",
+	"description": "Biere sowie großzügige Portionen traditioneller Gerichte in einem altmodischen Restaurant mit Terrasse.",
+	"websiteLink": "http://oberwiesenfeld.de/",
+	"priceCategory": 2,
+	"restaurantPictures": [
+		"https://static.wixstatic.com/media/325e11_516008176bbc4dd0be1a8f4aa0b66e2b~mv2.png/v1/fill/w_1543,h_901,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/325e11_516008176bbc4dd0be1a8f4aa0b66e2b~mv2.png",
+		"https://static.wixstatic.com/media/325e11_5043dd194c244647a6e22da35bdd4e34~mv2.jpg/v1/crop/x_0,y_230,w_2126,h_1187/fill/w_600,h_335,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Hofbr%C3%A4u%20Oberwiesenfeld.jpg"
+	],
+	"address": {
+		"lat": 48.1661529,
+		"lon": 11.5531407,
+		"street": "Hildeboldstraße 23",
+		"city": "Munich",
+		"postalCode": 80797,
+		"country": "Germany"
+	},
+	"reviews": [
+		{
+			"rating": 5,
+			"comment": "Wir hatten einen schönen Abend. Das Essen war sehr lecker, auch vegetarisch sind verschiedene Speisen vorhandenen. Wir kommen bestimmt wieder!"
+		},
+		{
+			"rating": 4,
+			"comment": "Das Essen hier war sehr lecker und der Service recht gut. Einen Stern Abzug gibt es weil im Restaurant die Karte als QR-Code auf dem Tisch ist, es jedoch kein WLAN gibt und das Netz da drin nicht gerade gut ist."
+		},
+		{
+			"rating": 1,
+			"comment": "Sehr sehr enttäuschend und nicht zu empfehlen. Das Personal interesierte sich am Sonntag lieber für den Plausch untereinander (3 Servicekräfte standen gemütlich mit Kaffee zusammen), als für den Gast. Nachdem uns ein Tisch zugewiesen wurde, kam das Servicepersonal nach langer Wartezeit, um uns die Karte zu bringen und das war es dann. Schade.Ein weiterer Tisch mit mehreren Gästen versuchte ohne Erfolg auf sich aufmerksam zu machen. Erst als ein Gast auf das Servicepersonal zugegangen ist, hat man sich um die Gäste gekümmert. Wir haben uns dann dazu entschieden, wieder zu gehen. Auf unser \"Auf Wiedersehen\" haben wir seitens des Personals keinerlei Reaktion erfahren. Die richtige Definition von Dienstleistung ist in diesem Lokal noch nicht angekommen."
+		},
+		{
+			"rating": 5,
+			"comment": "Haben gestern Abend einen Tisch bekommen, obwohl wir nicht reserviert hatten. Das Essen war sehr lecker und auch die Cocktails haben gut geschmeckt. Unsere Bedienung war sehr nett, hätte aber öfter mal fragen können ob wir z.B. noch eine Nachspeise möchten. Der Preis ist vergleichsweise hoch. Aber trotzdem ein tolles Lokal und wir kommen gerne wieder."
+		},
+		{
+			"rating": 5,
+			"comment": "Wir waren am Sonntag zu zweit essen und fanden es hier richtig gut, das Ambiente, das Essen und die Desserts/Getränke - alles top! Die Bedienung war sehr freundlich, unsere Kellnerin (Xenia wenn wir richtig herausgehört haben) war super hilfreich, auch wenn die Küche mit dem großen Kundenaufkommen etwas überfordert war, hat sie uns Kaffee angeboten und war immer ansprechbar. Wir kommen gerne wieder!"
+		},
+		{
+			"rating": 4,
+			"comment": "Ich fand das Essen in Ordnung, aber nichts besonderes. Ich hatte einen Salat und als Vorspeise Dreierlei Aufstriche. Hausmannskost, so wie man es zuhause auch hinkriegen würde. Service ok. Alle Plätze waren eng besetzt, man versucht hier jeden Zentimeter zu nutzen. In Corona-Zeiten nicht so angenehm."
+		}
+	],
+	"restaurantTables": [
+		{
+			"tableType": "REGULAR",
+			"capacity": 4
+		},
+		{
+			"tableType": "REGULAR",
+			"capacity": 4
+		},
+		{
+			"tableType": "REGULAR",
+			"capacity": 4
+		},
+		{
+			"tableType": "REGULAR",
+			"capacity": 6
+		},
+		{
+			"tableType": "REGULAR",
+			"capacity": 6
+		},
+		{
+			"tableType": "REGULAR",
+			"capacity": 6
+		},
+		{
+			"tableType": "HIGH_TOP",
+			"capacity": 6
+		},
+		{
+			"tableType": "HIGH_TOP",
+			"capacity": 6
+		},
+		{
+			"tableType": "REGULAR",
+			"capacity": 10
+		},
+		{
+			"tableType": "BAR",
+			"capacity": 3
+		},
+		{
+			"tableType": "BAR",
+			"capacity": 3
+		},
+		{
+			"tableType": "BAR",
+			"capacity": 3
+		},
+		{
+			"tableType": "OUTDOOR",
+			"capacity": 2
+		},
+		{
+			"tableType": "OUTDOOR",
+			"capacity": 2
+		},
+		{
+			"tableType": "OUTDOOR",
+			"capacity": 4
+		},
+		{
+			"tableType": "OUTDOOR",
+			"capacity": 4
+		},
+		{
+			"tableType": "PRIVATE_ROOM",
+			"capacity": 20
+		}
+	],
+	"openingTimes": [
+		{
+			"dayOfWeek": "MONDAY",
+			"fromTime": "10:00",
+			"toTime": "23:00"
+		},
+		{
+			"dayOfWeek": "TUESDAY",
+			"fromTime": "10:00",
+			"toTime": "23:00"
+		},
+		{
+			"dayOfWeek": "WEDNESDAY",
+			"fromTime": "10:00",
+			"toTime": "23:00"
+		},
+		{
+			"dayOfWeek": "THURSDAY",
+			"fromTime": "10:00",
+			"toTime": "23:00"
+		},
+		{
+			"dayOfWeek": "FRIDAY",
+			"fromTime": "10:00",
+			"toTime": "00:00"
+		},
+		{
+			"dayOfWeek": "SATURDAY",
+			"fromTime": "09:00",
+			"toTime": "00:00"
+		},
+		{
+			"dayOfWeek": "SUNDAY",
+			"fromTime": "09:00",
+			"toTime": "23:00"
+		}
+	]
+}

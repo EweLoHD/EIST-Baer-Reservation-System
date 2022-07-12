@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class RestaurantPicture {
