@@ -1,304 +1,153 @@
 {
-
-  "name": “Trattoria Olive",
-
-  "restaurantType": “Italian”,
-
-  "description": “Italienische Spezialitäten , serviert im gemütlichen Restaurant mit rustikalen Holzbalken und Gartenterasse”,
-
+  "name": "Trattoria Olive",
+  "restaurantType": "Italian",
+  "description": "Italienische Spezialitäten , serviert im gemütlichen Restaurant mit rustikalen Holzbalken und Gartenterasse",
   "websiteLink": "https://trattoria-olive.com",
-
   "priceCategory": 2,
-
   "restaurantPictures": [
-
     "https://www.stadtmagazin.com/uploads/photos/medium/webbilder_gastronomie_slides_1521_4.jpg",
-
     "https://res.cloudinary.com/tf-lab/image/upload/w_600,h_337,c_fill,g_auto:subject,q_auto,f_auto/restaurant/7ff999d9-7fa4-45cc-bcff-f041f5e6cd0a/68f1cdd4-3616-4695-9612-f96b968e9b1c.jpg"
-,”https://speisekarte.menu/storage/media/company_images/1063637/tnyfcsbRbh.jpg”
-
+,"https://speisekarte.menu/storage/media/company_images/1063637/tnyfcsbRbh.jpg"
   ],
-
   "address": {
-
     "lat": 48.1907167,
-
     "lon": 11.4668729,
-
-    "street": “Oertelplatz 1”,
-
+    "street": "Oertelplatz 1",
     "city": "Munich",
-
     "postalCode": 80999,
-
     "country": "Germany"
-
   },
-
   "reviews": [
-
     {
-
       "rating": 5,
-
       "comment": "Wir hatten einen schönen Abend. Das Essen war sehr lecker, auch vegetarisch sind verschiedene Speisen vorhandenen. Wir kommen bestimmt wieder!"
-
     },
-
     {
-
       "rating": 4,
-
       "comment": "Das Essen hier war sehr lecker und der Service recht gut. Einen Stern Abzug gibt es weil im Restaurant die Karte als QR-Code auf dem Tisch ist, es jedoch kein WLAN gibt und das Netz da drin nicht gerade gut ist."
-
     },
-
     {
-
       "rating": 1,
-
       "comment": "Sehr sehr enttäuschend und nicht zu empfehlen. Das Personal interesierte sich am Sonntag lieber für den Plausch untereinander (3 Servicekräfte standen gemütlich mit Kaffee zusammen), als für den Gast. Nachdem uns ein Tisch zugewiesen wurde, kam das Servicepersonal nach langer Wartezeit, um uns die Karte zu bringen und das war es dann. Schade.Ein weiterer Tisch mit mehreren Gästen versuchte ohne Erfolg auf sich aufmerksam zu machen. Erst als ein Gast auf das Servicepersonal zugegangen ist, hat man sich um die Gäste gekümmert. Wir haben uns dann dazu entschieden, wieder zu gehen. Auf unser \"Auf Wiedersehen\" haben wir seitens des Personals keinerlei Reaktion erfahren. Die richtige Definition von Dienstleistung ist in diesem Lokal noch nicht angekommen."
-
     },
-
     {
-
       "rating": 5,
-
       "comment": "Haben gestern Abend einen Tisch bekommen, obwohl wir nicht reserviert hatten. Das Essen war sehr lecker und auch die Cocktails haben gut geschmeckt. Unsere Bedienung war sehr nett, hätte aber öfter mal fragen können ob wir z.B. noch eine Nachspeise möchten. Der Preis ist vergleichsweise hoch. Aber trotzdem ein tolles Lokal und wir kommen gerne wieder."
-
     },
-
     {
-
       "rating": 5,
-
       "comment": "Wir waren am Sonntag zu zweit essen und fanden es hier richtig gut, das Ambiente, das Essen und die Desserts/Getränke - alles top! Die Bedienung war sehr freundlich, unsere Kellnerin (Xenia wenn wir richtig herausgehört haben) war super hilfreich, auch wenn die Küche mit dem großen Kundenaufkommen etwas überfordert war, hat sie uns Kaffee angeboten und war immer ansprechbar. Wir kommen gerne wieder!"
-
     },
-
     {
-
       "rating": 4,
-
       "comment": "Ich fand das Essen in Ordnung, aber nichts besonderes. Ich hatte einen Salat und als Vorspeise Dreierlei Aufstriche. Hausmannskost, so wie man es zuhause auch hinkriegen würde. Service ok. Alle Plätze waren eng besetzt, man versucht hier jeden Zentimeter zu nutzen. In Corona-Zeiten nicht so angenehm."
-
     }
-
   ],
-
   "restaurantTables": [
-
     {
-
       "tableType": "REGULAR",
-
       "capacity": 4
-
     },
-
     {
-
       "tableType": "REGULAR",
-
       "capacity": 4
-
     },
-
     {
-
       "tableType": "REGULAR",
-
       "capacity": 4
-
     },
-
     {
-
       "tableType": "REGULAR",
-
       "capacity": 6
-
     },
-
     {
-
       "tableType": "REGULAR",
-
       "capacity": 6
-
     },
-
     {
-
       "tableType": "REGULAR",
-
       "capacity": 6
-
     },
-
     {
-
       "tableType": "HIGH_TOP",
-
       "capacity": 6
-
     },
-
     {
-
       "tableType": "HIGH_TOP",
-
       "capacity": 6
-
     },
-
     {
-
       "tableType": "REGULAR",
-
       "capacity": 10
-
     },
-
     {
-
       "tableType": "BAR",
-
       "capacity": 3
-
     },
-
     {
-
       "tableType": "BAR",
-
       "capacity": 3
-
     },
-
     {
-
       "tableType": "BAR",
-
       "capacity": 3
-
     },
-
     {
-
       "tableType": "OUTDOOR",
-
       "capacity": 2
-
     },
-
     {
-
       "tableType": "OUTDOOR",
-
       "capacity": 2
-
     },
-
     {
-
       "tableType": "OUTDOOR",
-
       "capacity": 4
-
     },
-
     {
-
       "tableType": "OUTDOOR",
-
       "capacity": 4
-
     },
-
     {
-
       "tableType": "PRIVATE_ROOM",
-
       "capacity": 20
-
     }
-
   ],
-
   "openingTimes": [
-
     {
-
       "dayOfWeek": "MONDAY",
-
       "fromTime": "10:00",
-
       "toTime": "23:00"
-
     },
-
     {
-
       "dayOfWeek": "TUESDAY",
-
       "fromTime": "10:00",
-
       "toTime": "23:00"
-
     },
-
     {
-
       "dayOfWeek": "WEDNESDAY",
-
       "fromTime": "10:00",
-
       "toTime": "23:00"
-
     },
-
     {
-
       "dayOfWeek": "THURSDAY",
-
       "fromTime": "10:00",
-
       "toTime": "23:00"
-
     },
-
     {
-
       "dayOfWeek": "FRIDAY",
-
       "fromTime": "10:00",
-
       "toTime": "00:00"
-
     },
-
     {
-
       "dayOfWeek": "SATURDAY",
-
       "fromTime": "09:00",
-
       "toTime": "00:00"
-
     },
-
     {
-
       "dayOfWeek": "SUNDAY",
-
       "fromTime": "09:00",
-
       "toTime": "23:00"
-
     }
-
   ]
-
 }
