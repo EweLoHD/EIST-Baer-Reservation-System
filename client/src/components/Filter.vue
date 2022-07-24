@@ -64,6 +64,8 @@ export default {
             this.locationSearchModal.show();
         },
         onLocationSelected(location: {lat: number, lon: number}) {
+            this.locationSearchModal.hide();
+
             if (location.lat == 0 && location.lon == 0) {
                 return;
             }
@@ -74,8 +76,6 @@ export default {
                 (document.getElementById('distance') as HTMLInputElement).disabled = false;
                 this.filterData.maxDistance = 20; // Default 20 km
             }
-
-            this.locationSearchModal.hide();
         },
         onApply() {
             this.$emit('onFilterApplied', this.filterData)
